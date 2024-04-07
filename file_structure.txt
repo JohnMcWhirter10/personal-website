@@ -1,0 +1,21 @@
+Contents of directory: C:\Users\Brea McWhirter\Desktop\Projects\my-hub-2
+my-hub-2/
+    .gitignore
+    file_structure.txt
+    list_files.py
+    package-lock.json
+    package.json
+    README.md
+    tsconfig.json
+    webpack.config.js
+    dist/
+        App.js
+        App.js.map
+        index.js
+        index.js.map
+    public/
+        favicon.ico
+        index.html
+    src/
+        App.tsx
+        index.tsx

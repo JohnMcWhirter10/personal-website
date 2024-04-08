@@ -10,7 +10,6 @@ import TabPanel from "./components/TabPanel";
 import Home from "./components/Home";
 import { containerStyle } from "./constants/constants";
 
-// Define your custom theme
 const theme = createTheme({
   components: {
     MuiTabs: {
@@ -46,6 +45,15 @@ const theme = createTheme({
           },
         },
       },
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
     },
   },
 });

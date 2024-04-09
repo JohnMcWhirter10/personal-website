@@ -14,10 +14,10 @@ import {
 import { styled } from "@mui/system";
 
 const CustomButton = styled(Button)(({ theme }) => ({
-  backgroundColor: "#001F3F", // Dark Navy background color
-  color: "white", // Text color
+  backgroundColor: "#001F3F",
+  color: "white",
   "&:hover": {
-    backgroundColor: "#003366", // Darker Navy background color on hover
+    backgroundColor: "#003366",
   },
 }));
 

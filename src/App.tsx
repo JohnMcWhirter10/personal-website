@@ -23,10 +23,10 @@ const CustomTab = styled(Tab)(({ theme }) => ({
   alignItems: "center",
   borderRadius: ".5em .5em 0 0",
   boxShadow: "0 2px 15px rgba(0, 0, 0, 0.1)",
-  color: theme.palette.common.white, // Text color
-  backgroundColor: "#001F3F", // Dark Navy background color
+  color: theme.palette.common.white,
+  backgroundColor: "#001F3F",
   "&:hover": {
-    backgroundColor: "#003366", // Darker Navy background color on hover
+    backgroundColor: "#003366",
   },
   "&.Mui-selected": {
     color: theme.palette.background.paper,

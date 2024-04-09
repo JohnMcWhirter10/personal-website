@@ -5,48 +5,35 @@ import {
   Tabs,
   createTheme,
   ThemeProvider,
+  styled,
 } from "@mui/material";
 import TabPanel from "./components/TabPanel";
 import Home from "./components/Home";
 import { containerStyle } from "./constants/constants";
 
-const theme = createTheme({
-  components: {
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          position: "relative",
-          zIndex: 1,
-        },
-      },
-    },
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          position: "relative",
-          display: "inline-flex",
-          marginLeft: 5,
-          color: "inherit",
-          textDecoration: "none",
-          alignItems: "center",
-          "&::before": {
-            content: "''",
-            position: "absolute",
-            top: 0,
-            right: 0,
-            bottom: -8,
-            left: 0,
-            zIndex: -1,
-            borderBottom: "none",
-            borderRadius: ".5em .5em 0 0",
-            background:
-              "#ddd linear-gradient(hsla(0,0%,100%,.6), hsla(0,0%,100%,0))",
-            transformOrigin: "bottom",
-          },
-        },
-      },
-    },
+const CustomTabs = styled(Tabs)({
+  position: "relative",
+  zIndex: 1,
+});
+
+const CustomTab = styled(Tab)(({ theme }) => ({
+  position: "relative",
+  display: "inline-flex",
+  marginLeft: 5,
+  alignItems: "center",
+  borderRadius: ".5em .5em 0 0",
+  boxShadow: "0 2px 15px rgba(0, 0, 0, 0.1)",
+  color: theme.palette.common.white, // Text color
+  backgroundColor: "#001F3F", // Dark Navy background color
+  "&:hover": {
+    backgroundColor: "#003366", // Darker Navy background color on hover
   },
+  "&.Mui-selected": {
+    color: theme.palette.background.paper,
+  },
+}));
+
+const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -70,11 +57,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Tabs value={selectedTab} onChange={handleTabChange}>
-        <Tab disableRipple label="Home" />
-        <Tab disableRipple label="About" />
-        <Tab disableRipple label="Portfolio" />
-      </Tabs>
+      <CustomTabs value={selectedTab} onChange={handleTabChange}>
+        <CustomTab disableRipple label="Home" />
+        <CustomTab disableRipple label="About" />
+        <CustomTab disableRipple label="Portfolio" />
+      </CustomTabs>
       <TabPanel value={selectedTab} index={0}>
         <Container fixed sx={containerStyle}>
           <Home />

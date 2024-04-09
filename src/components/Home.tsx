@@ -11,6 +11,15 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
+import { styled } from "@mui/system";
+
+const CustomButton = styled(Button)(({ theme }) => ({
+  backgroundColor: "#001F3F", // Dark Navy background color
+  color: "white", // Text color
+  "&:hover": {
+    backgroundColor: "#003366", // Darker Navy background color on hover
+  },
+}));
 
 const Home: React.FC = () => {
   const [showGitHubModal, setShowGitHubModal] = useState(false);
@@ -48,7 +57,7 @@ const Home: React.FC = () => {
       </Typography>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Avatar
-          alt="Your Profile"
+          alt="Professional Headshot"
           src="https://media.licdn.com/dms/image/D5603AQGtq5f19mLTDw/profile-displayphoto-shrink_800_800/0/1684845090556?e=1718236800&v=beta&t=uu6D_kWwR_mkmZ51N0gklEvZy-3vjcbaDfdnHbGDGiA"
           sx={{ width: 300, height: 300 }}
         />
@@ -59,20 +68,20 @@ const Home: React.FC = () => {
         Design!
       </Typography>
       <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
-        <Button
+        <CustomButton
           variant="contained"
           startIcon={<GitHubIcon />}
           onClick={handleGitHubClick}
         >
           GitHub
-        </Button>
-        <Button
+        </CustomButton>
+        <CustomButton
           variant="contained"
           startIcon={<LinkedInIcon />}
           onClick={handleLinkedInClick}
         >
           LinkedIn
-        </Button>
+        </CustomButton>
       </div>
       <Dialog open={showGitHubModal} onClose={handleCloseGitHubModal}>
         <DialogTitle>Warning</DialogTitle>

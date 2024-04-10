@@ -13,7 +13,14 @@
     "isolatedModules": true,
     "noImplicitAny": true,
     "jsx": "react",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@context/*": ["src/context/*"],
+      "@constants/*": ["src/constants/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"]
+    }
   },
   "include": ["src"]
 }

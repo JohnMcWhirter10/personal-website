@@ -13,6 +13,12 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".jsx"],
+      alias: {
+        "@context": path.resolve(__dirname, "src/context"),
+        "@constants": path.resolve(__dirname, "src/constants"),
+        "@components": path.resolve(__dirname, "src/components"),
+        "@pages": path.resolve(__dirname, "src/pages"),
+      },
     },
     module: {
       rules: [

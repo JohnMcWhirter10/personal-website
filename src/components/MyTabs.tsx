@@ -7,6 +7,7 @@ const MyTabs = styled(Tabs)({
 
 const MyTab = styled(Tab)(({ theme }) => ({
   marginLeft: 5,
+  marginRight: 5,
   borderRadius: ".5em .5em 0 0",
   color: theme.palette.common.white,
   backgroundColor: "#001F3F",

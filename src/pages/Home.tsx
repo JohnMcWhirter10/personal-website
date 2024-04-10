@@ -4,7 +4,6 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   Avatar,
   Button,
-  Container,
   Typography,
   Dialog,
   DialogTitle,
@@ -42,26 +41,15 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        height: "100%",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "3rem",
-      }}
-    >
+    <>
       <Typography variant="h1" align="center" gutterBottom>
         Welcome to my Webpage!
       </Typography>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Avatar
-          alt="Professional Headshot"
-          src="https://media.licdn.com/dms/image/D5603AQGtq5f19mLTDw/profile-displayphoto-shrink_800_800/0/1684845090556?e=1718236800&v=beta&t=uu6D_kWwR_mkmZ51N0gklEvZy-3vjcbaDfdnHbGDGiA"
-          sx={{ width: 300, height: 300 }}
-        />
-      </div>
+      <Avatar
+        alt="Professional Headshot"
+        src="https://media.licdn.com/dms/image/D5603AQGtq5f19mLTDw/profile-displayphoto-shrink_800_800/0/1684845090556?e=1718236800&v=beta&t=uu6D_kWwR_mkmZ51N0gklEvZy-3vjcbaDfdnHbGDGiA"
+        sx={{ width: 300, height: 300 , marginLeft:'auto', marginRight: 'auto'}}
+      />
       <Typography variant="h6" align="center" gutterBottom>
         My name is <i>John Brea McWhirter</i> and I am a Computer Engineer with
         a background in Web Development, Embedded Processing, and Circuit
@@ -111,7 +99,7 @@ const Home: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </Container>
+    </>
   );
 };
 

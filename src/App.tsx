@@ -4,26 +4,22 @@ import { MyTabs, MyTab } from "@components/MyTabs";
 import Home from "@pages/Home";
 import { containerStyle } from "@constants/constants";
 import Goals from "@pages/Goals";
-import { ThemeProvider } from "@context/ThemeContext";
+import { MUITheme } from "@context/ThemeContext";
 import TabPanel from "@components/TabPanel";
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
   };
 
   return (
-    <ThemeProvider>
+    <MUITheme>
       <Container
-        fixed
-        disableGutters
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "center",
+          marginTop: '1rem',
+          maxWidth: 'calc(100%-48px)'
         }}
       >
         <MyTabs value={selectedTab} onChange={handleTabChange}>
@@ -43,11 +39,13 @@ const App: React.FC = () => {
         </TabPanel>
         <TabPanel value={selectedTab} index={2}>
           <Container fixed sx={containerStyle}>
-            Portfolio Content
+            <div style={{width:'1200px', maxWidth: '100%'}}>
+              Portfolio Content
+            </div>
           </Container>
         </TabPanel>
       </Container>
-    </ThemeProvider>
+    </MUITheme>
   );
 };
 

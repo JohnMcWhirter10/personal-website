@@ -1,9 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { createTheme, Theme } from "@mui/material/styles";
-
-interface ThemeContextType {
-  theme: Theme;
-}
+import { createTheme, ThemeProvider, Theme } from "@mui/material/styles";
 
 const defaultTheme = createTheme({
   palette: {
@@ -22,18 +18,31 @@ const defaultTheme = createTheme({
   },
 });
 
+defaultTheme.typography.h1 = {
+  ...defaultTheme.typography.h1,
+  fontSize: '3rem',
+  [defaultTheme.breakpoints.up('md')]: {
+    fontSize: '4rem',
+  },  
+  [defaultTheme.breakpoints.up('lg')]: {
+      fontSize: '6rem',
+    },
+    
+}
+
+interface ThemeContextType {
+  theme: Theme;
+}
+
 const ThemeContext = createContext<ThemeContextType>({ theme: defaultTheme });
 
 export const useThemeContext = () => useContext(ThemeContext);
 
-interface ThemeProviderProps {
-  children: React.ReactNode;
-}
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+export const MUITheme: React.FC<{children: React.ReactNode}> = ({ children }) => {
   return (
-    <ThemeContext.Provider value={{ theme: defaultTheme }}>
+    <ThemeProvider theme={defaultTheme}>
       {children}
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 };

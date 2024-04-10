@@ -12,17 +12,13 @@ import Home from "./components/Home";
 import { containerStyle } from "./constants/constants";
 
 const CustomTabs = styled(Tabs)({
-  position: "relative",
+  width: "100%",
   zIndex: 1,
 });
 
 const CustomTab = styled(Tab)(({ theme }) => ({
-  position: "relative",
-  display: "inline-flex",
   marginLeft: 5,
-  alignItems: "center",
   borderRadius: ".5em .5em 0 0",
-  boxShadow: "0 2px 15px rgba(0, 0, 0, 0.1)",
   color: theme.palette.common.white,
   backgroundColor: "#001F3F",
   "&:hover": {
@@ -34,14 +30,19 @@ const CustomTab = styled(Tab)(({ theme }) => ({
 }));
 
 const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
+  palette: {
+    primary: {
+      main: "#001F3F",
     },
+    secondary: {
+      main: "#003366",
+    },
+    background: {
+      paper: "#ffffff",
+    },
+  },
+  typography: {
+    fontFamily: "Montserrat, sans-serif",
   },
 });
 
@@ -57,26 +58,37 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CustomTabs value={selectedTab} onChange={handleTabChange}>
-        <CustomTab disableRipple label="Home" />
-        <CustomTab disableRipple label="About" />
-        <CustomTab disableRipple label="Portfolio" />
-      </CustomTabs>
-      <TabPanel value={selectedTab} index={0}>
-        <Container fixed sx={containerStyle}>
-          <Home />
-        </Container>
-      </TabPanel>
-      <TabPanel value={selectedTab} index={1}>
-        <Container fixed sx={containerStyle}>
-          About Content
-        </Container>
-      </TabPanel>
-      <TabPanel value={selectedTab} index={2}>
-        <Container fixed sx={containerStyle}>
-          Portfolio Content
-        </Container>
-      </TabPanel>
+      <Container
+        fixed
+        disableGutters
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+          justifyContent: "center",
+        }}
+      >
+        <CustomTabs value={selectedTab} onChange={handleTabChange}>
+          <CustomTab disableRipple label="Home" />
+          <CustomTab disableRipple label="About" />
+          <CustomTab disableRipple label="Portfolio" />
+        </CustomTabs>
+        <TabPanel value={selectedTab} index={0}>
+          <Container fixed sx={containerStyle}>
+            <Home />
+          </Container>
+        </TabPanel>
+        <TabPanel value={selectedTab} index={1}>
+          <Container fixed sx={containerStyle}>
+            About Content
+          </Container>
+        </TabPanel>
+        <TabPanel value={selectedTab} index={2}>
+          <Container fixed sx={containerStyle}>
+            Portfolio Content
+          </Container>
+        </TabPanel>
+      </Container>
     </ThemeProvider>
   );
 };

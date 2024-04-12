@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import { Container } from "@mui/material";
-import { MyTabs, MyTab } from "@components/MyTabs";
-import Home from "@pages/Home";
+import React, { Component, useState } from "react";
+import { Container, Tab, Tabs } from "@mui/material";
 import { containerStyle } from "@constants/constants";
-import Goals from "@pages/Goals";
 import { MUITheme } from "@context/ThemeContext";
 import TabPanel from "@components/TabPanel";
+import Home from "@pages/Home";
+import Goals from "@pages/Goals";
+import Experience from "@pages/Experience";
+
+const tabData = [
+  { label: "Home", component: <Home /> },
+  { label: "Goals", component: <Goals /> },
+  { label: "Experience", component: <Experience /> },
+];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(tabData[0].label);
 
-  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedTab(newValue);
   };
 
@@ -18,32 +24,22 @@ const App: React.FC = () => {
     <MUITheme>
       <Container
         sx={{
-          marginTop: '1rem',
-          maxWidth: 'calc(100%-48px)'
+          marginTop: "1rem",
+          maxWidth: "calc(100%-48px)",
         }}
       >
-        <MyTabs value={selectedTab} onChange={handleTabChange}>
-          <MyTab disableRipple label="Home" />
-          <MyTab disableRipple label="Goals" />
-          <MyTab disableRipple label="Portfolio" />
-        </MyTabs>
-        <TabPanel value={selectedTab} index={0}>
-          <Container fixed sx={containerStyle}>
-            <Home />
-          </Container>
-        </TabPanel>
-        <TabPanel value={selectedTab} index={1}>
-          <Container fixed sx={containerStyle}>
-            <Goals />
-          </Container>
-        </TabPanel>
-        <TabPanel value={selectedTab} index={2}>
-          <Container fixed sx={containerStyle}>
-            <div style={{width:'1200px', maxWidth: '100%'}}>
-              Portfolio Content
-            </div>
-          </Container>
-        </TabPanel>
+        <Tabs value={selectedTab} onChange={handleTabChange}>
+          {tabData.map((tab, index) => (
+            <Tab key={index} label={tab.label} value={tab.label} />
+          ))}
+        </Tabs>
+        {tabData.map((tab, index) => (
+          <TabPanel key={index} value={selectedTab} index={tab.label}>
+            <Container fixed sx={containerStyle}>
+              {tab.component}
+            </Container>
+          </TabPanel>
+        ))}
       </Container>
     </MUITheme>
   );

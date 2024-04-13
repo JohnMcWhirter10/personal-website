@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from "react";
 import { createTheme, ThemeProvider, Theme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const defaultTheme = createTheme({
   palette: {
@@ -17,6 +18,25 @@ const defaultTheme = createTheme({
     fontFamily: "Montserrat, sans-serif",
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          margin: 0,
+          height: "100vh",
+          minHeight: "950px",
+          minWidth: "400px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#e8e4e4",
+        },
+        "@media (max-width: 400px)": {
+          body: {
+            overflow: "hidden",
+          },
+        },
+      },
+    },
     MuiTabs: {
       styleOverrides: {
         root: {
@@ -80,6 +100,9 @@ const defaultTheme = createTheme({
 defaultTheme.typography.h1 = {
   ...defaultTheme.typography.h1,
   fontSize: "3rem",
+  [defaultTheme.breakpoints.up("xs")]: {
+    fontSize: "2rem",
+  },
   [defaultTheme.breakpoints.up("md")]: {
     fontSize: "4rem",
   },
@@ -99,5 +122,10 @@ export const useThemeContext = () => useContext(ThemeContext);
 export const MUITheme: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  return <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
 };

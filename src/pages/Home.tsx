@@ -11,6 +11,15 @@ const Home: React.FC = () => {
       justifyContent={"center"}
       height={"800px"}
     >
+      <Grid item xs={12} sm={6} minWidth={300}>
+        <Typography variant="h1" align="center">
+          Howdy, I'm Brea!
+        </Typography>
+        <Typography variant="h6" align="justify">
+          I am a Computer Engineer with a background in Web Development,
+          Embedded Processing, and Circuit Design!
+        </Typography>
+      </Grid>
       <Grid item xs={12} sm={6} justifyItems={"center"} minWidth={300}>
         <Avatar
           alt="Professional Headshot"
@@ -18,15 +27,6 @@ const Home: React.FC = () => {
           variant="square"
           sx={{ width: "100%", height: "auto", padding: "20px" }}
         />
-      </Grid>
-      <Grid item xs={12} sm={6} minWidth={300}>
-        <Typography variant="h1" align="center" gutterBottom>
-          Howdy, I'm Brea!
-        </Typography>
-        <Typography variant="h6" align="justify" gutterBottom>
-          I am a Computer Engineer with a background in Web Development,
-          Embedded Processing, and Circuit Design!
-        </Typography>
       </Grid>
     </Grid>
   );

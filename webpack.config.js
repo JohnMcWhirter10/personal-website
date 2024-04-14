@@ -18,6 +18,7 @@ module.exports = (env, argv) => {
         "@constants": path.resolve(__dirname, "src/constants"),
         "@components": path.resolve(__dirname, "src/components"),
         "@pages": path.resolve(__dirname, "src/pages"),
+        "@assets": path.resolve(__dirname, "src/assets"),
       },
     },
     module: {
@@ -32,6 +33,19 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: "url-loader",
+              options: {
+                limit: 8192,
+                name: "[name].[hash:8].[ext]",
+                outputPath: "images",
+              },
+            },
+          ],
         },
       ],
     },

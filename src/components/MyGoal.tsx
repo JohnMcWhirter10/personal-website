@@ -24,7 +24,7 @@ const MyGoal: React.FC<MyGoalProps> = ({
   const progress = totalDuration ? (elapsedDuration / totalDuration) * 100 : 0;
 
   return (
-    <div>
+    <>
       <Typography
         variant="h5"
         gutterBottom
@@ -47,19 +47,17 @@ const MyGoal: React.FC<MyGoalProps> = ({
         marginTop={1}
       >
         <Box>
-          <Typography variant="body1">
-            <span style={{ fontWeight: "bold" }}>{startDateLabel}:</span>{" "}
-            {startDate.toLocaleDateString()}
+          <Typography variant="h6">
+            <b>{startDateLabel}</b>: {startDate.toLocaleDateString()}
           </Typography>
         </Box>
         <Box>
-          <Typography variant="body1">
-            <span style={{ fontWeight: "bold" }}>{endDateLabel}:</span>{" "}
-            {endDate.toLocaleDateString()}
+          <Typography variant="h6">
+            <b>{endDateLabel}</b>: {endDate.toLocaleDateString()}
           </Typography>
         </Box>
       </Box>
-    </div>
+    </>
   );
 };
 

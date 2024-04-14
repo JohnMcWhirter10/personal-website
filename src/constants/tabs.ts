@@ -10,6 +10,6 @@ export interface TabDataProps {
 
 export const tabData: TabDataProps[] = [
   { label: "Home", component: Home },
-  { label: "Goals", component: Goals },
   { label: "Experience", component: Experience },
+  { label: "Goals", component: Goals },
 ];

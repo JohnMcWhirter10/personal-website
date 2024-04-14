@@ -5,6 +5,9 @@ import { MUITheme } from "@context/ThemeContext";
 import TabPanel from "@components/TabPanel";
 import { tabData } from "@constants/tabs";
 
+import { socialLinks } from "@constants/socialLinks";
+import MyLink, { MyLinkProps } from "@components/MyLink";
+
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabData[0].label);
 
@@ -28,6 +31,16 @@ const App: React.FC = () => {
           </TabPanel>
         ))}
       </Container>
+      <>
+        {socialLinks.map((link: MyLinkProps, index: number) => (
+          <MyLink
+            key={index}
+            name={link.name}
+            link={link.link}
+            icon={link.icon}
+          />
+        ))}
+      </>
     </MUITheme>
   );
 };

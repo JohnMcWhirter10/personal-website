@@ -6,6 +6,7 @@ import {
   ListItemText,
   Grid,
   Collapse,
+  Box,
 } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -37,16 +38,16 @@ const MyJob: React.FC<MyJobProps> = ({
 
   return (
     <>
-      <Typography variant="h6" gutterBottom>
-        {title}
+      <Typography variant="h4" gutterBottom>
+        <b>{title}</b>
       </Typography>
-      <Typography variant="body1">{companyTitle}</Typography>
+      <Typography variant="h6">{companyTitle}</Typography>
       <Grid container alignItems="center" justifyContent="space-between">
         <Grid item>
-          <Typography variant="body2">{location}</Typography>
+          <Typography variant="h6">{location}</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body2" align="right">
+          <Typography variant="h6" align="right">
             {startDate} - {endDate}
           </Typography>
         </Grid>
@@ -55,11 +56,19 @@ const MyJob: React.FC<MyJobProps> = ({
         {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </IconButton>
       <Collapse in={expanded}>
-        <List dense>
+        <List>
           {bulletPoints.map((point, index) => (
-            <ListItem key={index}>
-              <ArrowRightIcon />
-              <ListItemText primary={point} />
+            <ListItem
+              key={index}
+              sx={{ display: "flex", alignItems: "flex-start" }}
+            >
+              <ArrowRightIcon
+                sx={{ alignSelf: "flex-start", marginRight: "8px" }}
+              />
+              <ListItemText
+                primary={point}
+                primaryTypographyProps={{ variant: "body1" }}
+              />
             </ListItem>
           ))}
         </List>

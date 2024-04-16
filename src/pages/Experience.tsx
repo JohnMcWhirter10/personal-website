@@ -5,7 +5,7 @@ import { jobs } from "@constants/jobs";
 
 const Experience: React.FC = () => {
   return (
-    <Container fixed sx={{ minHeight: 800 }}>
+    <Container fixed sx={{ minHeight: "100%", minWidth: "100%" }}>
       {jobs.map((job, index) => (
         <Container key={job.title}>
           <MyJob {...job} />

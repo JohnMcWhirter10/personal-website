@@ -18,7 +18,7 @@ interface MyJobProps {
   companyTitle: string;
   location: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   bulletPoints: string[];
 }
 
@@ -38,17 +38,22 @@ const MyJob: React.FC<MyJobProps> = ({
 
   return (
     <>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: "left" }}>
         <b>{title}</b>
       </Typography>
-      <Typography variant="h6">{companyTitle}</Typography>
+      <Typography variant="h5" sx={{ textAlign: "left" }}>
+        {companyTitle}
+      </Typography>
       <Grid container alignItems="center" justifyContent="space-between">
         <Grid item>
-          <Typography variant="h6">{location}</Typography>
+          <Typography variant="h5" sx={{ textAlign: "left" }}>
+            {location}
+          </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h6" align="right">
-            {startDate} - {endDate}
+          <Typography variant="h5" align="right">
+            {startDate}
+            {endDate ? ` - ${endDate}` : ""}
           </Typography>
         </Grid>
       </Grid>
@@ -63,11 +68,14 @@ const MyJob: React.FC<MyJobProps> = ({
               sx={{ display: "flex", alignItems: "flex-start" }}
             >
               <ArrowRightIcon
-                sx={{ alignSelf: "flex-start", marginRight: "8px" }}
+                sx={{
+                  alignSelf: "flex-start",
+                  fontSize: "1.2rem",
+                }}
               />
               <ListItemText
                 primary={point}
-                primaryTypographyProps={{ variant: "body1" }}
+                primaryTypographyProps={{ variant: "h5" }}
               />
             </ListItem>
           ))}

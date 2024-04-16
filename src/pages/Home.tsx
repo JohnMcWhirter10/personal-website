@@ -1,15 +1,44 @@
-import React from "react";
-import { Avatar, Typography, Grid } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Avatar,
+  Typography,
+  Grid,
+  Button,
+  keyframes,
+  styled,
+} from "@mui/material";
 import images from "@assets/images";
+import { KeyboardDoubleArrowDown } from "@mui/icons-material";
+
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+`;
+
+const BouncingArrowIcon = styled(KeyboardDoubleArrowDown)({
+  animation: `${bounce} infinite`,
+});
 
 const Home: React.FC = () => {
+  const aboutMeRef = useRef<HTMLDivElement>(null);
+  const handleScrollToAbout = (): void => {
+    aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Grid
       container
       margin={0}
       padding={0}
-      height={"800px"}
       alignItems={"center"}
+      minWidth={"100%"}
     >
       <Grid item container sm={12} md={12} height={"100%"}>
         <Grid
@@ -17,12 +46,22 @@ const Home: React.FC = () => {
           container
           sm={12}
           md={6}
-          alignItems={"center"}
+          alignContent={"space-evenly"}
+          justifyContent={"center"}
           height={"auto"}
         >
-          <Typography variant="h2" align="center" width={"100%"}>
+          <Typography variant="h1" align="center" width={"100%"}>
             <i>Howdy, I'm Brea!</i>
           </Typography>
+          <Button
+            onClick={handleScrollToAbout}
+            sx={{ cursor: "pointer", display: "flex", flexDirection: "column" }}
+          >
+            <Typography variant="h5" align="center" width={"100%"}>
+              Scroll
+            </Typography>
+            <BouncingArrowIcon sx={{ fontSize: "3rem" }} />
+          </Button>
         </Grid>
         <Grid
           item
@@ -40,7 +79,7 @@ const Home: React.FC = () => {
           />
         </Grid>
       </Grid>
-      <Grid item sm={12} md={12} padding={4}>
+      <Grid item sm={12} md={12} padding={4} ref={aboutMeRef}>
         <Typography variant="h2">
           <b>About Me</b>
         </Typography>

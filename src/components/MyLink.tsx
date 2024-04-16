@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogActions,
   SvgIconProps,
+  Typography,
 } from "@mui/material";
 
 export interface MyLinkProps {
@@ -33,12 +34,14 @@ const MyLink: React.FC<MyLinkProps> = ({ name, link, icon: Icon }) => {
         {name}
       </Button>
       <Dialog open={showModal} onClose={handleCloseModal}>
-        <DialogTitle>Warning</DialogTitle>
+        <DialogTitle variant="h3">Warning</DialogTitle>
         <DialogContent>You will be redirected to {name}</DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseModal}>Cancel</Button>
+          <Button onClick={handleCloseModal}>
+            <Typography variant="h5">Cancel</Typography>
+          </Button>
           <Button href={link} target="_blank" rel="noopener noreferrer">
-            Continue
+            <Typography variant="h5">Continue</Typography>
           </Button>
         </DialogActions>
       </Dialog>

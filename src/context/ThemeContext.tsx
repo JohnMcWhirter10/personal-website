@@ -22,12 +22,9 @@ const defaultTheme = createTheme({
       styleOverrides: {
         body: {
           margin: 0,
-          height: "100vh",
-          minHeight: "950px",
           minWidth: "400px",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           backgroundColor: "#e8e4e4",
         },
         "@media (max-width: 400px)": {
@@ -177,23 +174,6 @@ defaultTheme.typography.h4 = {
 
 defaultTheme.typography.h5 = {
   ...defaultTheme.typography.h5,
-  fontSize: "1.1rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "0.9rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "1.1rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "1.4rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "1.8rem",
-  },
-};
-
-defaultTheme.typography.h6 = {
-  ...defaultTheme.typography.h6,
   fontSize: "0.9rem",
   [defaultTheme.breakpoints.up("xs")]: {
     fontSize: "0.7rem",
@@ -209,15 +189,38 @@ defaultTheme.typography.h6 = {
   },
 };
 
+defaultTheme.typography.h6 = {
+  ...defaultTheme.typography.h6,
+  fontSize: "0.5rem",
+  [defaultTheme.breakpoints.up("xs")]: {
+    fontSize: "0.3rem",
+  },
+  [defaultTheme.breakpoints.up("sm")]: {
+    fontSize: "0.5rem",
+  },
+  [defaultTheme.breakpoints.up("md")]: {
+    fontSize: "0.6rem",
+  },
+  [defaultTheme.breakpoints.up("lg")]: {
+    fontSize: "0.8rem",
+  },
+};
+
 defaultTheme.typography.body1 = {
   textAlign: "justify",
   fontFamily: "Montserrat, sans-serif",
-  fontSize: "1rem",
+  fontSize: "0.5rem",
+  [defaultTheme.breakpoints.up("xs")]: {
+    fontSize: "0.5rem",
+  },
   [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "1.2rem",
+    fontSize: "0.5rem",
   },
   [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "1.4rem",
+    fontSize: "0.6rem",
+  },
+  [defaultTheme.breakpoints.up("lg")]: {
+    fontSize: "0.8rem",
   },
 };
 

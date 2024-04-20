@@ -1,4 +1,5 @@
-import React, { ReactNode } from "react";
+import { Container, styled } from "@mui/material";
+import React, { ReactNode, useEffect, useState } from "react";
 
 interface TabPanelProps {
   children: ReactNode;
@@ -6,16 +7,37 @@ interface TabPanelProps {
   index: string;
 }
 
-const TabPanel: React.FC<TabPanelProps> = ({ children, value, index }) => {
+const TabContainer = styled(Container)({
+  padding: "1.5rem",
+  background: "#eee",
+  borderRadius: ".15em",
+  boxShadow: "0 3px 15px rgba(0,0,0,0.3)",
+  height: "min(70vh, 700px)",
+  overflowY: "auto",
+  display: "none",
+});
+
+const TabPanel: React.FC<TabPanelProps> = ({
+  children,
+  value: propValue,
+  index,
+}) => {
+  const [value, setValue] = useState<string>(propValue);
+
+  useEffect(() => {
+    setValue(propValue);
+  }, [propValue]);
+
   return (
-    <div
+    <TabContainer
+      fixed
       role="tabpanel"
-      hidden={value !== index}
+      style={{ display: value === index ? "block" : "none" }}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
     >
       {value === index && <div>{children}</div>}
-    </div>
+    </TabContainer>
   );
 };
 

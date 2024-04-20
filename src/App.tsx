@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Tab, Tabs } from "@mui/material";
+import { Container, Tab, Tabs, styled } from "@mui/material";
 import { MUITheme } from "@context/ThemeContext";
 import TabPanel from "@components/TabPanel";
 import { tabData } from "@constants/tabs";
@@ -24,19 +24,7 @@ const App: React.FC = () => {
         </Tabs>
         {tabData.map((tab, index) => (
           <TabPanel key={index} value={selectedTab} index={tab.label}>
-            <Container
-              fixed
-              sx={{
-                padding: "1.5rem",
-                background: "#eee",
-                borderRadius: ".15em",
-                boxShadow: "0 3px 15px rgba(0,0,0,0.3)",
-                height: "min(70vh, 700px)",
-                overflowY: "auto",
-              }}
-            >
-              {tab.component({})}
-            </Container>
+            {tab.component({})}
           </TabPanel>
         ))}
       </Container>

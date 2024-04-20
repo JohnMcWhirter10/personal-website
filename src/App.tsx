@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Container, Tab, Tabs, styled } from "@mui/material";
+import { Container, Tab } from "@mui/material";
 import { MUITheme } from "@context/ThemeContext";
 import TabPanel from "@components/TabPanel";
 import { tabData } from "@constants/tabs";
 
 import { socialLinks } from "@constants/socialLinks";
 import MyLink, { MyLinkProps } from "@components/MyLink";
+import { MyTabs } from "@components/MyTabs";
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabData[0].label);
@@ -17,11 +18,11 @@ const App: React.FC = () => {
   return (
     <MUITheme>
       <Container sx={{ marginTop: "8%", padding: 0 }}>
-        <Tabs value={selectedTab} onChange={handleTabChange}>
+        <MyTabs value={selectedTab} onChange={handleTabChange}>
           {tabData.map((tab, index) => (
             <Tab key={index} label={tab.label} value={tab.label} />
           ))}
-        </Tabs>
+        </MyTabs>
         {tabData.map((tab, index) => (
           <TabPanel key={index} value={selectedTab} index={tab.label}>
             {tab.component({})}

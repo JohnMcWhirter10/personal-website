@@ -1,34 +1,27 @@
-import React from "react";
-import { Tabs, Tab } from "@mui/material";
-import { TabDataProps } from "@constants/tabs";
+import { Tabs } from "@mui/material";
+import React, { useEffect } from "react";
+import { ReactNode, useState } from "react";
 
-interface TabsProps {
-  tabData: TabDataProps[];
-  selectedTab: string;
-  handleTabChange: (newValue: string) => void;
+interface MyTabsProps {
+  children: ReactNode;
+  value: string;
+  onChange: (_event: React.SyntheticEvent, newValue: string) => void;
 }
 
-const MyTabs: React.FC<TabsProps> = ({
-  tabData,
-  selectedTab,
-  handleTabChange,
+export const MyTabs: React.FC<MyTabsProps> = ({
+  children,
+  value: propValue,
+  onChange,
 }) => {
-  const handleChange = (
-    _event: React.SyntheticEvent | undefined,
-    newValue: string
-  ) => {
-    handleTabChange(newValue);
-  };
+  const [value, setValue] = useState<string>(propValue);
+
+  useEffect(() => {
+    setValue(propValue);
+  }, [propValue]);
 
   return (
-    <>
-      <Tabs value={selectedTab} onChange={handleChange}>
-        {tabData.map((tab, index) => (
-          <Tab key={index} label={tab.label} value={tab.label} />
-        ))}
-      </Tabs>
-    </>
+    <Tabs value={value} onChange={onChange}>
+      {children}
+    </Tabs>
   );
 };
-
-export default MyTabs;

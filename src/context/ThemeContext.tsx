@@ -29,11 +29,11 @@ const defaultTheme = createTheme({
         },
         "@media (max-width: 400px)": {
           body: {
-            overflow: "hidden",
+            overflow: "auto",
           },
         },
         "*::-webkit-scrollbar": {
-          width: "0.4em",
+          width: "0.8em",
         },
         "*::-webkit-scrollbar-track": {
           "-webkit-box-shadow": "inset 0 0 6px rgba(0,31,63,0.3)",
@@ -41,35 +41,6 @@ const defaultTheme = createTheme({
         "*::-webkit-scrollbar-thumb": {
           backgroundColor: "rgba(0,31,63,1)",
           outline: "1px solid slategrey",
-        },
-      },
-    },
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          position: "relative",
-          zIndex: 1,
-        },
-        indicator: {
-          display: "none",
-        },
-      },
-    },
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          marginLeft: 5,
-          marginRight: 5,
-          borderRadius: ".5em .5em 0 0",
-          color: "white",
-          backgroundColor: "#001F3F",
-          "&:hover": {
-            backgroundColor: "#003366",
-          },
-          "&.Mui-selected": {
-            color: "white",
-            backgroundColor: "#0066dd",
-          },
         },
       },
     },

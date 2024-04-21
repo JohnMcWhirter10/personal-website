@@ -14,7 +14,6 @@ const TabContainer = styled(Container)({
   boxShadow: "0 3px 15px rgba(0,0,0,0.3)",
   height: "min(70vh, 700px)",
   overflowY: "auto",
-  display: "none",
 });
 
 const TabPanel: React.FC<TabPanelProps> = ({
@@ -31,8 +30,9 @@ const TabPanel: React.FC<TabPanelProps> = ({
   return (
     <TabContainer
       fixed
+      disableGutters
       role="tabpanel"
-      style={{ display: value === index ? "block" : "none" }}
+      sx={{ display: value === index ? "flex" : "none" }}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
     >

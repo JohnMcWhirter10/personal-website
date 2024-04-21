@@ -41,6 +41,18 @@ export const jobs = [
     ],
   },
   {
+    title: "Ropes Counselor",
+    companyTitle: "Camp Timberline",
+    location: "Estes Park, CO",
+    startDate: "May 2020",
+    endDate: "July 2020",
+    bulletPoints: [
+      "Fostered a healthy Christian environment for children from ages 6-17",
+      "Obtained certification in Wilderness First Aid (WFA) and Cariopulmonary Resuscitation (CPR)",
+      "Obtained certification for on-site harnessed activities that include a Zip Line, High Ropes Course, Rock Wall, etc.",
+    ],
+  },
+  {
     title: "SPC Campus Ambassador",
     companyTitle: "South Plains College",
     location: "Levelland, Texas",

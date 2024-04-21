@@ -25,6 +25,16 @@ const App: React.FC = () => {
     },
   });
 
+  const Footer = styled(Container)({
+    marginTop: "2%",
+    [theme.breakpoints.up("sm")]: {
+      marginBottom: "8%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "0",
+    },
+  });
+
   return (
     <MUITheme>
       <Body disableGutters fixed>
@@ -39,7 +49,7 @@ const App: React.FC = () => {
           </TabPanel>
         ))}
       </Body>
-      <Container fixed sx={{ marginBottom: "8%", marginTop: "2%" }}>
+      <Footer fixed>
         {socialLinks.map((link: MyLinkProps, index: number) => (
           <MyLink
             key={index}
@@ -48,7 +58,7 @@ const App: React.FC = () => {
             icon={link.icon}
           />
         ))}
-      </Container>
+      </Footer>
     </MUITheme>
   );
 };

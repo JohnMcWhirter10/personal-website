@@ -13,6 +13,7 @@ const TabContainer = styled(Container)({
   borderRadius: ".15em",
   boxShadow: "0 3px 15px rgba(0,0,0,0.3)",
   height: "min(70vh, 700px)",
+  width: "100%",
   overflowY: "auto",
 });
 

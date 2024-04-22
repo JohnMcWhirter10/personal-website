@@ -32,12 +32,13 @@ const TabPanel: React.FC<TabPanelProps> = ({
     <TabContainer
       fixed
       disableGutters
+      maxWidth={false}
       role="tabpanel"
       sx={{ display: value === index ? "flex" : "none" }}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
     >
-      {value === index && <div>{children}</div>}
+      {value === index && <>{children}</>}
     </TabContainer>
   );
 };

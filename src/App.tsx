@@ -17,6 +17,8 @@ const App: React.FC = () => {
   };
 
   const Body = styled(Container)({
+    width: "min(1200px, 100vw)",
+    minWidth: "400px",
     [theme.breakpoints.up("sm")]: {
       marginTop: "8%",
     },
@@ -37,7 +39,7 @@ const App: React.FC = () => {
 
   return (
     <MUITheme>
-      <Body disableGutters fixed>
+      <Body disableGutters fixed maxWidth={false}>
         <MyTabs
           value={selectedTab}
           onChange={handleTabChange}

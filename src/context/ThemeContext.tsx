@@ -22,7 +22,6 @@ const defaultTheme = createTheme({
       styleOverrides: {
         body: {
           margin: 0,
-          minWidth: "400px",
           display: "flex",
           justifyContent: "center",
           backgroundColor: "#e8e4e4",
@@ -66,8 +65,8 @@ const defaultTheme = createTheme({
       styleOverrides: {
         root: {
           height: 4,
-          marginTop: 4,
-          marginBottom: 12,
+          marginTop: "1rem",
+          marginBottom: "1.2rem",
           backgroundColor: "#001F3F",
         },
       },

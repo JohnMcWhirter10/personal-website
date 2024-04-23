@@ -21,7 +21,7 @@ import MyLink from "./MyLink";
 interface MyProjectProps {
   title: string;
   link: string;
-  description: string;
+  description: string[];
   imagePath?: string;
 }
 
@@ -34,30 +34,22 @@ const MyProject: React.FC<MyProjectProps> = ({
   const [showModal, setShowModal] = useState<boolean>(false);
   const { theme } = useThemeContext();
 
-  const Title = styled(Button)({
+  const Title = styled(Typography)({
     textAlign: "left",
     fontWeight: "bold",
     textDecoration: "none",
     position: "relative",
-    cursor: "pointer",
-    "&::after": {
-      content: '""',
-      position: "absolute",
-      left: 0,
-      bottom: -2,
-      width: 0,
-      borderBottom: "2px solid #001F3F",
-      transition: "width 0.3s ease-in-out",
-    },
-    "&:hover::after": {
-      width: "100%",
-    },
   });
 
   const Project = styled(Card)({
+    cursor: "pointer",
     maxWidth: 400,
     maxHeight: 280,
     width: "100%",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   });
 
   const Preview = styled(CardMedia)({
@@ -97,12 +89,10 @@ const MyProject: React.FC<MyProjectProps> = ({
 
   return (
     <>
-      <Project>
+      <Project onClick={openModal}>
         <Preview image={imagePath} title={title} />
         <CardActions>
-          <Title size="small" onClick={openModal}>
-            {title}
-          </Title>
+          <Title>{title}</Title>
         </CardActions>
       </Project>
       <Dialog fullScreen open={showModal}>
@@ -127,7 +117,16 @@ const MyProject: React.FC<MyProjectProps> = ({
           <Typography variant="h6" style={{ width: "100%" }}>
             Description
           </Typography>
-          <Typography variant="body1">{description}</Typography>
+          {description.map((paragraph, index) => (
+            <Typography
+              key={index}
+              variant="body1"
+              paddingTop={"1rem"}
+              textAlign={"justify"}
+            >
+              {paragraph}
+            </Typography>
+          ))}
         </Content>
         <DialogActions>
           <MyLink name={"Github"} link={link}></MyLink>

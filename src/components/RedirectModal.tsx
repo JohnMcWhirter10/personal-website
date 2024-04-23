@@ -55,7 +55,9 @@ const RedirectModal: React.FC<RedirectModalProps> = ({
     <RedirectDialog open={open} onClose={handleCloseModal}>
       <Title variant="h5">Warning</Title>
       <Content>
-        <Typography variant="h5">You will be redirected to {name}</Typography>
+        <Typography variant="body1">
+          You will be redirected to {name}
+        </Typography>
       </Content>
       <DialogActions>
         <Button onClick={handleCloseModal}>Cancel</Button>

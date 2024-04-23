@@ -6,85 +6,78 @@ import {
   Button,
   keyframes,
   styled,
+  useMediaQuery,
 } from "@mui/material";
 import images from "@assets/images";
 import { KeyboardDoubleArrowDown } from "@mui/icons-material";
+import { useThemeContext } from "@context/ThemeContext";
 
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-`;
+const ScrollIcon = styled(KeyboardDoubleArrowDown)({
+  fontSize: "3rem",
+});
 
-const BouncingArrowIcon = styled(KeyboardDoubleArrowDown)({
-  animation: `${bounce} infinite`,
+const ScrollButton = styled(Button)({
+  cursor: "pointer",
+  flexDirection: "column",
+  width: "100%",
+});
+
+const Headshot = styled(Avatar)({
+  width: "100%",
+  padding: "2.1rem",
+  height: "auto",
 });
 
 const Home: React.FC = () => {
   const aboutMeRef = useRef<HTMLDivElement>(null);
+
+  const { theme } = useThemeContext();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   const handleScrollToAbout = (): void => {
     aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <Grid
-      container
-      margin={0}
-      padding={0}
-      alignItems={"center"}
-      minWidth={"100%"}
-    >
-      <Grid item container sm={12} md={12} height={"100%"}>
-        <Grid
-          item
-          container
-          sm={12}
-          md={6}
-          alignContent={"space-evenly"}
-          justifyContent={"center"}
-          height={"auto"}
-        >
-          <Typography variant="h1" align="center" width={"100%"}>
-            <i>Howdy, I'm Brea!</i>
-          </Typography>
-          <Button
-            onClick={handleScrollToAbout}
-            sx={{ cursor: "pointer", display: "flex", flexDirection: "column" }}
-          >
-            <Typography variant="h5" align="center" width={"100%"}>
-              Scroll
-            </Typography>
-            <BouncingArrowIcon sx={{ fontSize: "3rem" }} />
-          </Button>
-        </Grid>
-        <Grid
-          item
-          container
-          sm={12}
-          md={6}
-          alignItems={"center"}
-          height={"auto"}
-        >
-          <Avatar
-            alt="Professional Headshot"
-            src={images.headshot}
-            variant="square"
-            sx={{ width: "100%", height: "auto", padding: "20px" }}
-          />
-        </Grid>
-      </Grid>
-      <Grid item sm={12} md={12} padding={4} ref={aboutMeRef}>
-        <Typography variant="h2">
-          <b>About Me</b>
+    <Grid container padding={0}>
+      <Grid item xs={12}>
+        <Typography variant="h2" align="center" width={"100%"}>
+          <i>Howdy, I'm Brea!</i>
         </Typography>
-        <Typography variant="h5">
-          <i>Computer Engineer, Web Developer, and Electronics Enthusiast</i>
+        <ScrollButton
+          onClick={handleScrollToAbout}
+          sx={{ display: isSmallScreen ? "flex" : "none" }}
+        >
+          <Typography variant="h5" align="center" width={"100%"}>
+            Scroll
+          </Typography>
+          <ScrollIcon />
+        </ScrollButton>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Headshot
+          alt="Professional Headshot"
+          src={images.headshot}
+          variant="square"
+        />
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        ref={aboutMeRef}
+        padding={"1rem"}
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"space-evenly"}
+      >
+        <Typography variant="h6" textAlign={"center"}>
+          <i>Computer Engineer</i>
+          <br />
+          <i>Web Developer</i>
+          <br />
+          <i>Electrical Engineer</i>
+          <br />
         </Typography>
         <Typography variant="body1" align="justify" marginTop={4}>
           My name is <i>John Brea McWhirter</i>. I am a passionate software and
@@ -93,6 +86,8 @@ const Home: React.FC = () => {
           reducing cost and waste, and effectively work towards a more
           sustainable future.
         </Typography>
+      </Grid>
+      <Grid item xs={12} sm={12} padding={"1rem"}>
         <Typography variant="body1" align="justify" marginTop={4}>
           From an early age, I learned the rewards of hard work and persistence
           growing up in a farming family outside of the small town of Plains,

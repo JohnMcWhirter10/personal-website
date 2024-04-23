@@ -54,22 +54,6 @@ const MyProject: React.FC<MyProjectProps> = ({
     },
   });
 
-  const Body = styled(Typography)({
-    textAlign: "justify",
-    [theme.breakpoints.up("xs")]: {
-      fontSize: "0.8rem",
-    },
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "1.0rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1.2rem",
-    },
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "1.4rem",
-    },
-  });
-
   const Project = styled(Card)({
     maxWidth: 400,
     maxHeight: 280,
@@ -126,7 +110,7 @@ const MyProject: React.FC<MyProjectProps> = ({
           <Close />
         </CloseButton>
         <Header>
-          <Typography variant="h3">{title}</Typography>
+          <Typography variant="h5">{title}</Typography>
         </Header>
         <Content>
           {imagePath && (
@@ -140,10 +124,10 @@ const MyProject: React.FC<MyProjectProps> = ({
               }}
             />
           )}
-          <Typography variant="h3" style={{ width: "100%" }}>
+          <Typography variant="h6" style={{ width: "100%" }}>
             Description
           </Typography>
-          <Body>{description}</Body>
+          <Typography variant="body1">{description}</Typography>
         </Content>
         <DialogActions>
           <MyLink name={"Github"} link={link}></MyLink>

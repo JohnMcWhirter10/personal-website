@@ -107,7 +107,7 @@ const MyTabs: React.FC<MyTabsProps> = ({
       {isSmallScreen ? (
         <>
           <MobileHeader fixed disableGutters>
-            <CurrentTabTitle variant="h1">{propValue}</CurrentTabTitle>
+            <CurrentTabTitle variant="h4">{propValue}</CurrentTabTitle>
 
             <MenuButton
               edge="start"

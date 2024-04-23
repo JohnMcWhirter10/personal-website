@@ -76,121 +76,49 @@ const defaultTheme = createTheme({
 
 defaultTheme.typography.h1 = {
   ...defaultTheme.typography.h1,
-  fontSize: "3rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "2rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "2.5rem",
-  },
+  fontSize: "4.9rem",
   [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "4rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "6rem",
+    fontSize: "3.43rem",
   },
 };
 
 defaultTheme.typography.h2 = {
   ...defaultTheme.typography.h2,
-  fontSize: "2.2rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "1.8rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "2.2rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "2.6rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "3.4rem",
+  fontSize: "4.18rem",
+  [defaultTheme.breakpoints.down("md")]: {
+    fontSize: "2.926rem",
   },
 };
 
 defaultTheme.typography.h3 = {
   ...defaultTheme.typography.h3,
-  fontSize: "1.5rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "1.2rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "1.5rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "1.8rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "2.2rem",
+  fontSize: "3.46rem",
+  [defaultTheme.breakpoints.down("md")]: {
+    fontSize: "2.422rem",
   },
 };
 
 defaultTheme.typography.h4 = {
   ...defaultTheme.typography.h4,
-  fontSize: "1.3rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "1.1rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "1.3rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "1.6rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "2rem",
+  fontSize: "2.74rem",
+  [defaultTheme.breakpoints.down("md")]: {
+    fontSize: "1.918rem",
   },
 };
 
 defaultTheme.typography.h5 = {
   ...defaultTheme.typography.h5,
-  fontSize: "0.9rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "0.7rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "0.9rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "1rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "1.2rem",
+  fontSize: "2.02rem",
+  [defaultTheme.breakpoints.down("md")]: {
+    fontSize: "1.414rem",
   },
 };
 
 defaultTheme.typography.h6 = {
   ...defaultTheme.typography.h6,
-  fontSize: "0.5rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "0.3rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "0.5rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "0.6rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "0.8rem",
-  },
-};
-
-defaultTheme.typography.body1 = {
-  textAlign: "justify",
-  fontFamily: "Montserrat, sans-serif",
-  fontSize: "0.5rem",
-  [defaultTheme.breakpoints.up("xs")]: {
-    fontSize: "0.5rem",
-  },
-  [defaultTheme.breakpoints.up("sm")]: {
-    fontSize: "0.5rem",
-  },
-  [defaultTheme.breakpoints.up("md")]: {
-    fontSize: "0.6rem",
-  },
-  [defaultTheme.breakpoints.up("lg")]: {
-    fontSize: "0.8rem",
+  fontSize: "1.6rem",
+  [defaultTheme.breakpoints.down("md")]: {
+    fontSize: "1.2rem",
   },
 };
 

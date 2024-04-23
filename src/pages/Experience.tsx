@@ -7,10 +7,10 @@ const Experience: React.FC = () => {
   return (
     <Container fixed sx={{ minHeight: "100%", minWidth: "100%" }}>
       {jobs.map((job, index) => (
-        <>
-          <MyJob key={job.title} {...job} />
+        <Container key={job.title}>
+          <MyJob {...job} />
           {index < jobs.length - 1 && <Divider />}
-        </>
+        </Container>
       ))}
     </Container>
   );

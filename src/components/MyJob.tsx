@@ -37,20 +37,20 @@ const MyJob: React.FC<MyJobProps> = ({
 
   return (
     <>
-      <Typography variant="h4" gutterBottom sx={{ textAlign: "left" }}>
+      <Typography variant="h6" gutterBottom sx={{ textAlign: "left" }}>
         <b>{title}</b>
       </Typography>
-      <Typography variant="h5" sx={{ textAlign: "left" }}>
+      <Typography variant="body1" sx={{ textAlign: "left" }}>
         {companyTitle}
       </Typography>
       <Grid container alignItems="center" justifyContent="space-between">
         <Grid item>
-          <Typography variant="h5" sx={{ textAlign: "left" }}>
+          <Typography variant="body1" sx={{ textAlign: "left" }}>
             {location}
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h5" align="right">
+          <Typography variant="body1" align="right">
             {startDate}
             {endDate ? ` - ${endDate}` : ""}
           </Typography>
@@ -77,7 +77,7 @@ const MyJob: React.FC<MyJobProps> = ({
                   />
                   <ListItemText
                     primary={point}
-                    primaryTypographyProps={{ variant: "h5" }}
+                    primaryTypographyProps={{ variant: "body1" }}
                   />
                 </ListItem>
               ))}

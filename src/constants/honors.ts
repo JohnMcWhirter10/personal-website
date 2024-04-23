@@ -32,8 +32,8 @@ export const honors = [
   },
   {
     title: "Salutatorian",
-    companyTitle: "Plains High School",
-    location: "",
+    companyTitle: "",
+    location: "Plains High School",
     startDate: "2018",
   },
 ];

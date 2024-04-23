@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   const Body = styled(Container)({
     width: "min(1200px, 100vw)",
-    minWidth: "400px",
+    minWidth: "360px",
     [theme.breakpoints.up("sm")]: {
       marginTop: "8%",
     },

@@ -26,7 +26,7 @@ const MyGoal: React.FC<MyGoalProps> = ({
   return (
     <Box marginTop={"2rem"}>
       <Typography
-        variant="h4"
+        variant="h6"
         gutterBottom
         sx={{ fontWeight: "bold", fontStyle: "italic", textAlign: "left" }}
       >
@@ -47,12 +47,12 @@ const MyGoal: React.FC<MyGoalProps> = ({
         marginTop={1}
       >
         <Box>
-          <Typography variant="h5">
+          <Typography variant="body1">
             <b>{startDateLabel}</b>: {startDate.toLocaleDateString()}
           </Typography>
         </Box>
         <Box>
-          <Typography variant="h5">
+          <Typography variant="body1">
             <b>{endDateLabel}</b>: {endDate.toLocaleDateString()}
           </Typography>
         </Box>

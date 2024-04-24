@@ -9,18 +9,17 @@ import {
   DialogTitle,
   IconButton,
   Typography,
-  Slide,
   styled,
-  SlideProps,
+  Link,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useThemeContext } from "@context/ThemeContext";
 import { Close } from "@mui/icons-material";
-import MyLink from "./MyLink";
+import RedirectModal from "./RedirectModal";
 
 interface MyProjectProps {
   title: string;
-  link: string;
+  link?: string;
   description: string[];
   imagePath?: string;
 }
@@ -32,6 +31,7 @@ const MyProject: React.FC<MyProjectProps> = ({
   imagePath,
 }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [redirectModal, setRedirectModal] = useState<boolean>(false);
   const { theme } = useThemeContext();
 
   const Title = styled(Typography)({
@@ -58,33 +58,16 @@ const MyProject: React.FC<MyProjectProps> = ({
     aspectRatio: "16 / 9",
   });
 
-  const CloseButton = styled(IconButton)({
-    position: "absolute",
-    zIndex: theme.zIndex.appBar + 1,
-    top: 0,
-    right: 0,
-    color: theme.palette.common.white,
-  });
-
-  const Header = styled(DialogTitle)({
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.white,
-  });
-
-  const Content = styled(DialogContent)({
-    marginTop: "2rem",
-    minHeight: "auto", // Set minimum height to auto
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  });
-
   const openModal = () => {
     setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const openRedirectModal = () => {
+    setRedirectModal(true);
   };
 
   return (
@@ -96,45 +79,82 @@ const MyProject: React.FC<MyProjectProps> = ({
         </CardActions>
       </Project>
       <Dialog fullScreen open={showModal}>
-        <CloseButton onClick={closeModal}>
+        <IconButton
+          sx={{
+            position: "absolute",
+            zIndex: theme.zIndex.appBar + 1,
+            top: 0,
+            right: 0,
+            color: theme.palette.common.white,
+          }}
+          onClick={closeModal}
+        >
           <Close />
-        </CloseButton>
-        <Header>
+        </IconButton>
+        <DialogTitle
+          sx={{
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.common.white,
+          }}
+        >
           <Typography variant="h5">{title}</Typography>
-        </Header>
-        <Content>
+        </DialogTitle>
+        <DialogContent
+          sx={{
+            marginTop: "2rem",
+            minHeight: "auto",
+            display: "flex",
+            flexDirection: "column",
+            overflowX: "hidden",
+            alignItems: "center",
+          }}
+        >
           {imagePath && (
             <img
               src={imagePath}
               alt={title}
-              style={{
-                maxHeight: 400,
-                width: "auto",
-                maxWidth: "90vw",
-              }}
+              style={{ maxHeight: 400, width: "auto", maxWidth: "90vw" }}
             />
           )}
-          <Typography variant="h6" style={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%" }}>
             Description
           </Typography>
           {description.map((paragraph, index) => (
             <Typography
               key={index}
-              variant="body1"
-              paddingTop={"1rem"}
-              textAlign={"justify"}
+              variant="h6"
+              sx={{ paddingTop: "1rem", width: "100%" }}
             >
               {paragraph}
             </Typography>
           ))}
-        </Content>
-        <DialogActions>
-          <MyLink name={"Github"} link={link}></MyLink>
-          <Button size="small" onClick={closeModal}>
-            Close
-          </Button>
+        </DialogContent>
+        <DialogActions
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "2rem",
+          }}
+        >
+          {link ? (
+            <Button onClick={openRedirectModal}>
+              <Typography variant="h6">Visit Repository</Typography>
+            </Button>
+          ) : (
+            ""
+          )}
         </DialogActions>
       </Dialog>
+      {link ? (
+        <RedirectModal
+          name={"Github"}
+          link={link}
+          open={redirectModal}
+          setOpen={setRedirectModal}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 };

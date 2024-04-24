@@ -4,13 +4,11 @@ export const projects = [
   {
     title: "This Website!",
     description: [
-      "Greetings and welcome to my personal website, a digital manifestation of my professional journey and personal passions! Meticulously crafted with attention to detail and a commitment to excellence, this website serves as both a showcase of my skills and a glimpse into my professional world.",
-      "Powered by React TypeScript, this website embodies efficiency and innovation, ensuring a seamless user experience that reflects my dedication to cutting-edge technology. Its sleek design and intuitive interface, made possible by Material UI, demonstrate my ability to marry form with function, creating user-centric experiences across all devices.",
-      "Behind the scenes, webpack drives the development process, optimizing performance and enhancing the website's responsiveness. Version control is paramount in maintaining the website's integrity, and with Git, I meticulously track changes and collaborate with peers to continually refine and enhance its content.",
-      "npm serves as the backbone of the website, managing dependencies and facilitating efficient development workflows. From essential packages to custom components, npm ensures that the website remains reliable, scalable, and up-to-date.",
-      "Proudly hosted on GitHub Pages, this website exemplifies my commitment to accessibility and global reach. Whether you're in a bustling city or a remote corner of the world, you can easily engage with my content and explore my professional endeavors.",
-      "In addition to showcasing my work, this website offers a brief glimpse into my background. Born and raised in [Your Hometown], I bring a unique perspective shaped by my upbringing and experiences. From my early days in [Your Hometown] to my educational journey and professional endeavors, my personal story is woven into the fabric of this website.",
-      "In essence, my personal website is a testament to my dedication to excellence, innovation, and continuous growth. It reflects my passion for technology and my relentless pursuit of excellence in all endeavors. So take a moment to explore, discover, and connect – welcome to my world.",
+      "Howdy and welcome to my personal website, a digital landscape of my professional and personal passions! This website serves as both a showcase of my skills, a history of my past, and a glimpse of my future.",
+      "Powered by React TypeScript, this website provides a sleek and modern user experience that reflects my desire to learn the latest web development techniques and apply them. Its minimalist design and interface are made possible by Material UI, a library designed by Google to provide easy access to pre-built components. I've also taken this opportunity to integrate a multi-platform view! Try resizing the screen or even access the website from your Phone!",
+      "Behind the scenes, webpack open-source module and bundler drives the development process into an easily scalable system. Version control is paramount in maintaining the website's history and changes, and with Git, I'm able to do so while inviting others to collaborate and enhance its content. Please seek the repository at the link provided!",
+      "Node Package Manager serves as the backbone of the website's dependencies. From essential packages to custom components, npm ensures that the website remains reliable, scalable, and up-to-date.",
+      "Thanks to the free deployment of Github Pages, I proudly host this website. In addition, you'll notice the URL is not the typical Github Pages access link. I was able to purchase a domain and set up my routing using Amazon Web Services Route 53 tool enabling any remote corner of the world to easily engage with my content and explore my professional endeavors.",
     ],
     link: "https://github.com/JohnMcWhirter10/JohnMcWhirter10.github.io",
     imagePath: images.myWebsiteImage,
@@ -23,5 +21,12 @@ export const projects = [
 
     link: "https://github.com/jmcwhirter1608/ULSWAPDAQ",
     imagePath: images.ULSWAPDAQ,
+  },
+  {
+    title: "Python GUI Framework",
+    description: [
+      "In my internship at Texas Instruments, not only did I collaborate with the High Speed Converter group and other interns, I was also given a solo project to complete the design of a Python GUI Framework. The Framework works like and engine, all someone needs to do is provide my engine with a json formatted file which contains the page number; input, output, text, graph, or image label; optional parameters such as range, dropdown, alpha characters, etc. In addition to creating the Engine, I worked with a Solution Architect to simplify the process of writing the json to work directly with a proprietary verilog package provided to Texas Instruments customers. They are able to use Vivado's built-in configuration settings, export it, run our script to deconstruct the exported configuration and run it through the engine to produce a unique Graphical User Interface. Typically, this GUI would do calculations, display estimated signals, and export a configuration back to use in Vivado with calculated values based on the client's data.",
+    ],
+    imagePath: images.TexasInstruments,
   },
 ];

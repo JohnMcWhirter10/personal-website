@@ -47,8 +47,8 @@ const RedirectModal: React.FC<RedirectModalProps> = ({
   };
 
   const handleContinue = () => {
-    window.open(link, "_blank");
     setOpen(false);
+    window.open(link, "_blank");
   };
 
   return (

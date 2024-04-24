@@ -4,8 +4,7 @@ import { Container, styled } from "@mui/material";
 import React from "react";
 
 const ProjectsContainer = styled(Container)({
-  minHeight: "100%",
-  minWidth: "100%",
+  height: "auto",
   display: "flex",
   justifyContent: "center",
   flexWrap: "wrap",
@@ -14,7 +13,7 @@ const ProjectsContainer = styled(Container)({
 
 const Projects: React.FC = () => {
   return (
-    <ProjectsContainer fixed>
+    <ProjectsContainer>
       {projects.map((project, index) => (
         <MyProject key={project.title} {...project} />
       ))}

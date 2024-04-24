@@ -166,13 +166,13 @@ const Home: React.FC = () => {
         <Typography variant="body1" align="justify" marginTop={4}>
           In the summer of 2022, I earned an internship with Texas Instruments
           as an Application Enginerring Intern for the High Speed Converter
-          Group. Here I collaborated with enthusiastic tehcnologists to provide
-          support for High Speed Analog-to-Digital Converters and design a
-          Python GUI Framework to provide a consistent and interactive way of
-          testing Texas Instruments products. I'm thankful for the opporutnity
-          to learn more about Signal Processing and how a language like Python
-          can be used to provide industry with an interactive way of integrating
-          TI's equipment with anything!
+          Group. Here I collaborated with enthusiastic technologists to provide
+          support for High Speed Analog-to-Digital Converters. I was given the
+          opportunity to design a Python GUI Framework with Tkinter to provide a
+          consistent and interactive way of testing Texas Instruments products.
+          I'm thankful for the opporutnity to have learned more about Signal
+          Processing and how a language like Python can be used to provide
+          industry standard testing!
         </Typography>
         <Typography variant="body1" align="justify" marginTop={4}>
           <i>More Information coming soon!</i>

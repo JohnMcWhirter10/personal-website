@@ -22,15 +22,19 @@ interface MyTabsProps {
 const DesktopTab = styled(Tab)({
   marginLeft: 5,
   marginRight: 5,
+  marginTop: "0.5rem",
   borderRadius: ".5em .5em 0 0",
   color: "white",
   backgroundColor: "#001F3F",
+  transition: "margin-top 0.2s ease-in-out",
   "&:hover": {
     backgroundColor: "#003366",
+    marginTop: "0",
   },
   "&.Mui-selected": {
     color: "white",
     backgroundColor: "#0066dd",
+    marginTop: "0",
   },
 });
 
@@ -45,6 +49,11 @@ const MobileTab = styled(Tab)({
   "&:hover": {
     backgroundColor: "#001F3F",
     color: "white",
+  },
+  "&.Mui-selected": {
+    color: "white",
+    backgroundColor: "#0066dd",
+    marginTop: "0",
   },
 });
 

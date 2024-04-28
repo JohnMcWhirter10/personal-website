@@ -12,6 +12,7 @@ import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { useThemeContext } from "@context/ThemeContext";
+import { useDeviceContext } from "@context/DeviceContext";
 
 interface MyTabsProps {
   value: string;
@@ -86,26 +87,11 @@ const MyTabs: React.FC<MyTabsProps> = ({
   const [value, setValue] = useState<string>(propValue);
   const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
   const { theme } = useThemeContext();
-  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
+  const { isMobile } = useDeviceContext();
 
   useEffect(() => {
     setValue(propValue);
   }, [propValue]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setDrawerOpen(false);
-      const { sm } = theme.breakpoints.values;
-      setIsSmallScreen(window.innerWidth < sm);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [theme]);
 
   const toggleDrawer = () => {
     setDrawerOpen(!isDrawerOpen);
@@ -113,7 +99,7 @@ const MyTabs: React.FC<MyTabsProps> = ({
 
   return (
     <>
-      {isSmallScreen ? (
+      {isMobile ? (
         <>
           <MobileHeader fixed disableGutters>
             <CurrentTabTitle variant="h4">{propValue}</CurrentTabTitle>

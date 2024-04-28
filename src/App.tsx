@@ -7,6 +7,7 @@ import { tabData } from "@constants/tabs";
 import { socialLinks } from "@constants/socialLinks";
 import MyLink, { MyLinkProps } from "@components/MyLink";
 import MyTabs from "@components/MyTabs";
+import { Device } from "@context/DeviceContext";
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabData[0].label);
@@ -39,28 +40,30 @@ const App: React.FC = () => {
 
   return (
     <MUITheme>
-      <Body disableGutters fixed maxWidth={false}>
-        <MyTabs
-          value={selectedTab}
-          onChange={handleTabChange}
-          tabData={tabData}
-        />
-        {tabData.map((tab, index) => (
-          <TabPanel key={index} value={selectedTab} index={tab.label}>
-            {tab.component({})}
-          </TabPanel>
-        ))}
-      </Body>
-      <Footer fixed>
-        {socialLinks.map((link: MyLinkProps, index: number) => (
-          <MyLink
-            key={index}
-            name={link.name}
-            link={link.link}
-            icon={link.icon}
+      <Device>
+        <Body disableGutters fixed maxWidth={false}>
+          <MyTabs
+            value={selectedTab}
+            onChange={handleTabChange}
+            tabData={tabData}
           />
-        ))}
-      </Footer>
+          {tabData.map((tab, index) => (
+            <TabPanel key={index} value={selectedTab} index={tab.label}>
+              {tab.component({})}
+            </TabPanel>
+          ))}
+        </Body>
+        <Footer fixed>
+          {socialLinks.map((link: MyLinkProps, index: number) => (
+            <MyLink
+              key={index}
+              name={link.name}
+              link={link.link}
+              icon={link.icon}
+            />
+          ))}
+        </Footer>
+      </Device>
     </MUITheme>
   );
 };

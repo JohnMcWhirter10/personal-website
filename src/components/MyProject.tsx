@@ -46,6 +46,8 @@ const MyProject: React.FC<MyProjectProps> = ({
     maxWidth: 400,
     maxHeight: 280,
     width: "100%",
+    marginTop: "1rem",
+    marginBottom: "1rem",
     transition: "transform 0.3s ease-in-out",
     "&:hover": {
       transform: "scale(1.05)",

@@ -1,20 +1,22 @@
 import MyJob from "@components/MyJob";
 import { honors } from "@constants/honors";
-import { Container, Divider } from "@mui/material";
+import { Container, styled } from "@mui/material";
 import React from "react";
 
-interface HonorsProps {}
+const HonorsContainer = styled(Container)({
+  minWidth: "100%",
+  overflow: "auto",
+});
 
-const Honors: React.FC<HonorsProps> = () => {
+const Honors: React.FC = () => {
   return (
-    <Container fixed sx={{ minHeight: "100%", minWidth: "100%" }}>
+    <HonorsContainer fixed sx={{ minHeight: "100%", minWidth: "100%" }}>
       {honors.map((honor, index) => (
         <Container key={honor.title}>
           <MyJob {...honor} />
-          {index < honors.length - 1 && <Divider />}
         </Container>
       ))}
-    </Container>
+    </HonorsContainer>
   );
 };
 

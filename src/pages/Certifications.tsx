@@ -1,7 +1,13 @@
 import React from "react";
 import MyCertification from "@components/MyCertification";
-import { Container, Divider, Grid, Typography } from "@mui/material";
+import { Container, Divider, Grid, Typography, styled } from "@mui/material";
 import { certifications } from "@constants/certifications";
+
+const CertificationsContainer = styled(Container)({
+  minWidth: "100%",
+  overflow: "auto",
+  padding: 0,
+});
 
 const Certifications: React.FC = () => {
   const inProgresscertifications = certifications.filter(
@@ -12,7 +18,7 @@ const Certifications: React.FC = () => {
   );
 
   return (
-    <Container fixed sx={{ minHeight: "100%", minWidth: "100%" }}>
+    <CertificationsContainer fixed>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <Typography variant="h5" gutterBottom>
@@ -46,7 +52,7 @@ const Certifications: React.FC = () => {
           ))}
         </Grid>
       </Grid>
-    </Container>
+    </CertificationsContainer>
   );
 };
 

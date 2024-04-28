@@ -9,6 +9,7 @@ const ProjectsContainer = styled(Container)({
   justifyContent: "center",
   flexWrap: "wrap",
   gap: 20,
+  overflow: "auto",
 });
 
 const Projects: React.FC = () => {

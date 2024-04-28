@@ -6,11 +6,11 @@ import {
   ListItemText,
   Grid,
   Collapse,
+  styled,
+  Card,
+  CardContent,
 } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import IconButton from "@mui/material/IconButton";
 
 interface MyJobProps {
   title: string;
@@ -20,6 +20,17 @@ interface MyJobProps {
   endDate?: string;
   bulletPoints?: string[];
 }
+
+const Job = styled(Card)(({ hasBullets }: { hasBullets: boolean }) => ({
+  cursor: hasBullets ? "pointer" : "",
+  width: "100%",
+  marginTop: "1rem",
+  marginBottom: "1rem",
+  transition: hasBullets ? "transform 0.3s ease-in-out" : "",
+  "&:hover": {
+    transform: hasBullets ? "scale(1.05)" : "",
+  },
+}));
 
 const MyJob: React.FC<MyJobProps> = ({
   title,
@@ -36,32 +47,32 @@ const MyJob: React.FC<MyJobProps> = ({
   };
 
   return (
-    <>
-      <Typography variant="h6" gutterBottom sx={{ textAlign: "left" }}>
-        <b>{title}</b>
-      </Typography>
-      <Typography variant="body1" sx={{ textAlign: "left" }}>
-        {companyTitle}
-      </Typography>
-      <Grid container alignItems="center" justifyContent="space-between">
-        <Grid item>
-          <Typography variant="body1" sx={{ textAlign: "left" }}>
-            {location}
-          </Typography>
+    <Job
+      hasBullets={bulletPoints ? true : false}
+      onClick={bulletPoints ? handleToggle : () => {}}
+    >
+      <CardContent>
+        <Typography variant="h6" gutterBottom align="left">
+          <b>{title}</b>
+        </Typography>
+        <Typography variant="body1" align="left">
+          {companyTitle}
+        </Typography>
+        <Grid container alignItems="center" justifyContent="space-between">
+          <Grid item>
+            <Typography variant="body1" align="left">
+              {location}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body1" align="right">
+              {startDate}
+              {endDate ? ` - ${endDate}` : null}
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Typography variant="body1" align="right">
-            {startDate}
-            {endDate ? ` - ${endDate}` : ""}
-          </Typography>
-        </Grid>
-      </Grid>
 
-      {bulletPoints ? (
-        <>
-          <IconButton onClick={handleToggle}>
-            {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          </IconButton>
+        {bulletPoints ? (
           <Collapse in={expanded}>
             <List>
               {bulletPoints.map((point, index) => (
@@ -83,11 +94,9 @@ const MyJob: React.FC<MyJobProps> = ({
               ))}
             </List>
           </Collapse>
-        </>
-      ) : (
-        ""
-      )}
-    </>
+        ) : null}
+      </CardContent>
+    </Job>
   );
 };
 

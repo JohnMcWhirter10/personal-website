@@ -35,9 +35,11 @@ const defaultTheme = createTheme({
           width: "0.8em",
         },
         "*::-webkit-scrollbar-track": {
+          cursor: "pointer",
           "-webkit-box-shadow": "inset 0 0 6px rgba(0,31,63,0.3)",
         },
         "*::-webkit-scrollbar-thumb": {
+          cursor: "pointer",
           backgroundColor: "rgba(0,31,63,1)",
           outline: "1px solid slategrey",
         },

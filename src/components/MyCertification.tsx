@@ -23,6 +23,7 @@ interface MyCertificationProps {
 const Certification = styled(Card)({
   cursor: "pointer",
   width: "100%",
+  marginTop: "1rem",
   transition: "transform 0.3s ease-in-out",
   "&:hover": {
     transform: "scale(1.05)",

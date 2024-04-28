@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   Avatar,
   Typography,
   Grid,
   Button,
-  keyframes,
   styled,
   useMediaQuery,
 } from "@mui/material";
@@ -28,6 +27,12 @@ const Headshot = styled(Avatar)({
   height: "auto",
 });
 
+const HomeGridContainer = styled(Grid)({
+  minWidth: "100%",
+  overflow: "auto",
+  padding: 0,
+});
+
 const Home: React.FC = () => {
   const aboutMeRef = useRef<HTMLDivElement>(null);
 
@@ -39,7 +44,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Grid container padding={0}>
+    <HomeGridContainer container>
       <Grid item xs={12}>
         <Typography variant="h2" align="center" width={"100%"}>
           <i>Howdy, I'm Brea!</i>
@@ -99,7 +104,7 @@ const Home: React.FC = () => {
           Please contact me through my LinkedIn page for any and all inquiries!
         </Typography>
       </Grid>
-    </Grid>
+    </HomeGridContainer>
   );
 };
 

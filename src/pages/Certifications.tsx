@@ -10,10 +10,10 @@ const CertificationsContainer = styled(Container)({
 });
 
 const Certifications: React.FC = () => {
-  const inProgresscertifications = certifications.filter(
+  const inProgressCertifications = certifications.filter(
     (certification) => !certification.completed
   );
-  const completedcertifications = certifications.filter(
+  const completedCertifications = certifications.filter(
     (certification) => certification.completed
   );
 
@@ -25,7 +25,7 @@ const Certifications: React.FC = () => {
             In Progress
           </Typography>
           <Divider />
-          {inProgresscertifications.map((certification, index) => (
+          {inProgressCertifications.map((certification, index) => (
             <MyCertification
               key={index}
               expectedDate={certification.expectedDate}
@@ -41,7 +41,7 @@ const Certifications: React.FC = () => {
             Completed
           </Typography>
           <Divider />
-          {completedcertifications.map((certification, index) => (
+          {completedCertifications.map((certification, index) => (
             <MyCertification
               key={index}
               title={certification.title}

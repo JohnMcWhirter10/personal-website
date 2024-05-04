@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 import React, { useRef } from "react";
 import {
   Avatar,

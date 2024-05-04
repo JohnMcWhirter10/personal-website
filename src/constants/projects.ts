@@ -1,4 +1,15 @@
 import images from "@assets/images";
+import Capstone from "@components/Projects/Capstone";
+import { ReactNode } from "react";
+
+export type Project = {
+  title: string;
+  description: string[];
+  link?: string;
+  imagePath: string;
+  component?: ReactNode; // Specify the component property
+  componentData?: {};
+};
 
 export const projects = [
   {
@@ -15,12 +26,57 @@ export const projects = [
   },
   {
     title: "UL-SWAP DAQ",
-    description: [
-      "The Ultra Low Size Weight and Power Data Acquisition Unit is a device I created with 2 other electrical engineering students at Texas A&M University for my Senior Capstone project. My team was fortunate enough to be sponsored by Sandia National Laboraties to provide a solution for collecting, processing and transmitting different signals providing by varying sensors under the harsh environment of rocket flight.",
-    ],
-
     link: "https://github.com/jmcwhirter1608/ULSWAPDAQ",
     imagePath: images.ULSWAPDAQ,
+    component: Capstone,
+    componentData: {
+      "Project Overview": {
+        type: "paragraph",
+        variant: "body1",
+        data: "The Ultra Low Size Weight and Power Data Acquisition Unit (UL-SWaP DaQ) was a collaborative project undertaken at Texas A&M University sponsore by Sandia National Laboratories. The project aims to design a compact, lightweight, and low-power circuit capable of withstanding rocket test flights, processing various signals, and transmitting data.",
+      },
+      "Team Composition": {
+        type: "paragraph",
+        variant: "body1",
+        data: "The project team consisted of two electrical engineers and one computer engineer, each bringing their expertise to ensure the project's success. The system was structured into three subsystems: Power, Signal Processing, and Interface. My role specifically focused on the interface subsystem, where I was responsible for selecting components such as the Analog-to-Digital Converter, Microcontroller, LVDS transmitter, and developing the necessary firmware. ",
+      },
+      "Technical Implementation": {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Utilized Altium for PCB design and MPLAB IDE in C for firmware development.",
+          "Integrated microcontroller with Analog to Digital converter via SPI bus.",
+          "Implemented power layers in the four-layer board and programmed multiple programmable gain amplifiers (PGA).",
+          "Established an industry-standard workflow with bi-weekly meetings and monthly check-ins.",
+          "Doxygen was used to generate HTML output and documentation for the firmware.",
+        ],
+      },
+      "Purpose and Impact": {
+        type: "paragraph",
+        variant: "body1",
+        data: "Sandia National Laboratories requested the ULSWaP DaQ unit to optimize data acquisition during rocket flights, supporting their mission of enhancing national and global security efforts.",
+      },
+      "Additional Information": {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Project involved writing several key documents, including Concept of Operations, Functional System Requirements, Interface Control Document, Subsystem Reports, and System Reports.",
+          "Git Version Control was integrated for managing Altium designs and firmware updates.",
+          "Design iterations involved testing and troubleshooting multiple subsystems, resulting in significant improvements and achieving a fully functioning system.",
+          "The iterative design process facilitated incremental improvements, ultimately resulting in a more robust and optimized data acquisition unit poised to meet the demands of rocket test flight operations effectively.",
+        ],
+      },
+      "Outcome of Design Iterations": {
+        type: "paragraph",
+        variant: "body1",
+        data: "The design process underwent two iterations, each aimed at refining and optimizing the ULSWaP DaQ unit. The initial iteration demonstrated the concept and identified areas for improvement, while the second iteration addressed issues and resulted in a fully functioning and integrated system.",
+      },
+      "More Information": {
+        type: "paragraph",
+        variant: "body1",
+        data: "For further insight into the technical specifications of this project, please explore my repository through the link located at the bottom of the screen!",
+      },
+    },
   },
   {
     title: "Python GUI Framework",

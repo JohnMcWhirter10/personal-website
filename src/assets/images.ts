@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 const images = {
   headshot: require("./AMCHeadshot.png").default,
   myWebsiteImage: require("./MyWebsiteImage.png").default,

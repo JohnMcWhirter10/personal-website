@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 export const honors = [
   {
     title: "NASA Community College Aerospace Scholar (NCAS)",

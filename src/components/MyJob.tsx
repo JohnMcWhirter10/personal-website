@@ -48,7 +48,7 @@ const MyJob: React.FC<MyJobProps> = ({
 
   return (
     <Job
-      hasBullets={bulletPoints ? true : false}
+      hasBullets={!!bulletPoints}
       onClick={bulletPoints ? handleToggle : () => {}}
     >
       <CardContent>

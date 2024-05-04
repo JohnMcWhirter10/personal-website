@@ -16,3 +16,4 @@ Thumbs.db
 # Custom exclusions
 file_structure.txt
 list_files.py
+.vscode/*

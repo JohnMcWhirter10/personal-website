@@ -21,6 +21,7 @@ module.exports = (env, argv) => {
         "@assets": path.resolve(__dirname, "src/assets"),
       },
     },
+    devtool: "source-map",
     module: {
       rules: [
         {

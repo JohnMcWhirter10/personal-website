@@ -16,15 +16,7 @@ const Projects: React.FC = () => {
   return (
     <ProjectsContainer>
       {projects.map((project, index) => (
-          <React.Fragment key={project.title}>
-            {project.component ? (
-                <>
-                {project.component({...project})}
-                </>
-            ) : (
-                <MyProject {...project} />
-            )}
-          </React.Fragment>
+        <MyProject key={project.title} {...project} />
       ))}
     </ProjectsContainer>
   );

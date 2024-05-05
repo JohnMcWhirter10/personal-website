@@ -15,19 +15,20 @@ import React, { useState } from "react";
 import { useThemeContext } from "@context/ThemeContext";
 import { Close } from "@mui/icons-material";
 import RedirectModal from "../RedirectModal";
+import Factory from "@components/Factory/Factory";
 
 interface MyProjectProps {
   title: string;
   link?: string;
-  description: string[];
   imagePath?: string;
+  componentData: {};
 }
 
 const MyProject: React.FC<MyProjectProps> = ({
   title,
   link,
-  description,
   imagePath,
+  componentData,
 }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [redirectModal, setRedirectModal] = useState<boolean>(false);
@@ -117,21 +118,7 @@ const MyProject: React.FC<MyProjectProps> = ({
               style={{ maxHeight: 400, width: "auto", maxWidth: "90vw" }}
             />
           )}
-          <Typography
-            variant="body1"
-            sx={{ width: "100%", fontWeight: "bold" }}
-          >
-            Description
-          </Typography>
-          {description.map((paragraph, index) => (
-            <Typography
-              key={index}
-              variant="body1"
-              sx={{ paddingTop: "1rem", width: "100%" }}
-            >
-              {paragraph}
-            </Typography>
-          ))}
+          <Factory componentData={componentData} />
         </DialogContent>
         <DialogActions
           sx={{

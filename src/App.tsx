@@ -65,8 +65,8 @@ const App: React.FC = () => {
             />
           ))}
           <Button
-            href={"#"}
-            download={files.resume}
+            href={files.resume}
+            download={"Resume.pdf"}
             target={"_blank"}
             rel="noopener noreferrer"
           >

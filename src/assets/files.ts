@@ -1,5 +1,7 @@
+import resumePDF from "./resume.pdf";
+
 const files = {
-  resume: require("./resume.pdf").default,
+  resume: resumePDF,
 };
 
 export default files;

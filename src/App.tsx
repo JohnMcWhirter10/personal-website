@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, styled } from "@mui/material";
+import { Button, Container, styled } from "@mui/material";
 import { MUITheme, useThemeContext } from "@context/ThemeContext";
 import TabPanel from "@components/TabPanel";
 import { tabData } from "@constants/tabs";
@@ -8,6 +8,8 @@ import { socialLinks } from "@constants/socialLinks";
 import MyLink, { MyLinkProps } from "@components/MyLink";
 import MyTabs from "@components/MyTabs";
 import { Device } from "@context/DeviceContext";
+import DownloadIcon from "@mui/icons-material/Download";
+import files from "@assets/files";
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabData[0].label);
@@ -62,6 +64,15 @@ const App: React.FC = () => {
               icon={link.icon}
             />
           ))}
+          <Button
+            href={"#"}
+            download={files.resume}
+            target={"_blank"}
+            rel="noopener noreferrer"
+          >
+            <DownloadIcon />
+            Resume
+          </Button>
         </Footer>
       </Device>
     </MUITheme>

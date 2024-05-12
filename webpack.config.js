@@ -47,6 +47,18 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.pdf$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "files",
+              },
+            },
+          ],
+        },
       ],
     },
     plugins: [

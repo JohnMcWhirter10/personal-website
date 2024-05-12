@@ -1,4 +1,3 @@
-// RedirectModal.tsx
 import { useThemeContext } from "@context/ThemeContext";
 import {
   Button,

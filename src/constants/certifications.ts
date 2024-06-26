@@ -12,7 +12,7 @@ export const certifications = [
       },
       {
         name: "Pass the Fundamentals of Engineering (FE) Exam",
-        completed: false,
+        completed: true,
       },
       {
         name: "Submit Application to the Texas Board of Professional Engineers & Land Surveyors",

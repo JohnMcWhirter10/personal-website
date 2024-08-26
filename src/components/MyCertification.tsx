@@ -11,6 +11,7 @@ import {
   Grid,
 } from "@mui/material";
 import { CheckCircleOutline } from "@mui/icons-material";
+import MyLink from "./MyLink";
 
 interface MyCertificationProps {
   title: string;
@@ -18,6 +19,8 @@ interface MyCertificationProps {
   description: string;
   tasks: { name: string; completed: boolean }[];
   completed: boolean;
+  credential?: string;
+  credentialWebsite?: string;
 }
 
 const Certification = styled(Card)({
@@ -36,6 +39,8 @@ const MyCertification: React.FC<MyCertificationProps> = ({
   description,
   tasks,
   completed,
+  credential,
+  credentialWebsite
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -67,6 +72,12 @@ const MyCertification: React.FC<MyCertificationProps> = ({
         >
           {title} {completed ? <CheckCircleOutline color="success" /> : null}
         </Typography>
+        {credential ? 
+        <Typography variant='body1' gutterBottom>
+          {credential} {credentialWebsite ? <MyLink link={credentialWebsite} name="Go to Site"/>
+           : null}
+          </Typography> : null}
+       
         <Typography variant="body1" gutterBottom>
           {description}
         </Typography>

@@ -33,6 +33,8 @@ const Certifications: React.FC = () => {
               description={certification.description}
               tasks={certification.tasks}
               completed={false}
+              credential={certification.credential}
+              credentialWebsite={certification.credentialWebsite}
             />
           ))}
         </Grid>
@@ -48,6 +50,8 @@ const Certifications: React.FC = () => {
               description={certification.description}
               tasks={certification.tasks}
               completed={true}
+              credential={certification.credential}
+              credentialWebsite={certification.credentialWebsite}
             />
           ))}
         </Grid>

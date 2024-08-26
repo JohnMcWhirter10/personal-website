@@ -1,7 +1,9 @@
 export const certifications = [
   {
     title: "Engineer in Training (EIT)",
-    completed: false,
+    credential: 'Credential ID: 81675',
+    credentialWebsite: 'https://pels.texas.gov/roster/eitsearch.html',
+    completed: true,
     expectedDate: "2024-06-18",
     description:
       "I am working towards obtaining my certification as an Engineer-In-Training from the State of Texas. This certification is an essential step towards becoming a licensed professional engineer and signifies my commitment to the highest standards of professionalism and competence in the field of engineering.",
@@ -16,7 +18,7 @@ export const certifications = [
       },
       {
         name: "Submit Application to the Texas Board of Professional Engineers & Land Surveyors",
-        completed: false,
+        completed: true,
       },
     ],
   },

@@ -1,8 +1,8 @@
 export const certifications = [
   {
     title: "Engineer in Training (EIT)",
-    credential: 'Credential ID: 81675',
-    credentialWebsite: 'https://pels.texas.gov/roster/eitsearch.html',
+    credential: "Credential ID: 81675",
+    credentialWebsite: "https://pels.texas.gov/roster/eitsearch.html",
     completed: true,
     expectedDate: "2024-06-18",
     description:
@@ -21,5 +21,47 @@ export const certifications = [
         completed: true,
       },
     ],
+  },
+  {
+    title: "AWS Certified Cloud Practitioner",
+    credentialWebsite:
+      "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+    completed: false,
+    tasks: [
+      {
+        name: "Complete the AWS Cloud Practitioner exam",
+        completed: false,
+      },
+    ],
+    description:
+      "Validates foundational understanding of AWS Cloud concepts, core services, security, architecture, pricing, and support.",
+  },
+  {
+    title: "AWS Certified AI Practitioner",
+    credentialWebsite:
+      "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
+    completed: false,
+    tasks: [
+      {
+        name: "Complete the AWS AI Practitioner exam",
+        completed: false,
+      },
+    ],
+    description:
+      "Demonstrates foundational knowledge of machine learning, artificial intelligence, and their use on AWS.",
+  },
+  {
+    title: "AWS Certified Developer – Associate",
+    credentialWebsite:
+      "https://aws.amazon.com/certification/certified-developer-associate/",
+    completed: false,
+    tasks: [
+      {
+        name: "Complete the AWS Developer – Associate exam",
+        completed: false,
+      },
+    ],
+    description:
+      "Certifies expertise in developing, deploying, and maintaining applications on the AWS platform.",
   },
 ];

@@ -1,4 +1,5 @@
 import images from "@assets/images";
+import { Description } from "@mui/icons-material";
 import { ReactNode } from "react";
 
 export type Project = {
@@ -86,5 +87,27 @@ export const projects = [
       },
     },
     imagePath: images.TexasInstruments,
+  },
+  {
+    title: "Mondrian UI",
+    componentData: {
+      Description: {
+        type: "paragraph",
+        variant: "body1",
+        data: "MondrianUI is a modern and minimalist UI library designed for simplicity and elegance. It provides a set of flexible components that enable developers to create intuitive and aesthetically pleasing user interfaces with ease.",
+      },
+      Features: {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Minimalist Design: Clean and simple components for a modern look.",
+          "Customizable Themes: Easily set and switch themes with context-based theming.",
+          "Responsive Components: All components are designed to be responsive and accessible.",
+          "Integration with Storybook: Preview and test components in isolation.",
+        ],
+      },
+    },
+    link: "https://github.com/JohnMcWhirter10/mondrian-ui",
+    imagePath: images.MondrianUI,
   },
 ];

@@ -6,6 +6,7 @@ const images = {
   ULSWAPDAQ: require("./ULSWAPDAQ.png").default,
   TexasInstruments: require("./TexasInstruments.png").default,
   MondrianUI: require("./mondrian-ui.png").default,
+  MessageApp: require("./messages-logo.png").default,
 };
 
 export default images;

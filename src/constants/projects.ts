@@ -1,5 +1,4 @@
 import images from "@assets/images";
-import { Description } from "@mui/icons-material";
 import { ReactNode } from "react";
 
 export type Project = {
@@ -109,5 +108,49 @@ export const projects = [
     },
     link: "https://github.com/JohnMcWhirter10/mondrian-ui",
     imagePath: images.MondrianUI,
+  },
+  {
+    title: "Message App",
+    componentData: {
+      Overview: {
+        type: "paragraph",
+        variant: "body1",
+        data: "The Message App is a web application designed for managing and storing videos in an S3 bucket. Each video can have metadata such as a Title, Description, Thumbnail, and multiple Tags. These tags facilitate filtering videos on the Home screen, making content management efficient.",
+      },
+      Installation: {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Clone the repository: `git clone https://github.com/JohnMcWhirter10/messages.git`.",
+          "Navigate to the directory: `cd messages`.",
+          "Install dependencies using Bundler: `bundle install`.",
+          "Set up the database: `rails db:create db:migrate`.",
+        ],
+      },
+      "MySQL Setup": {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Install MySQL depending on your OS (macOS: `brew install mysql`, Linux: `sudo apt install mysql-server`, Windows: Use [MySQL Installer](https://dev.mysql.com/downloads/installer/)).",
+          "Configure the MySQL user and database: Create a database and a user with appropriate privileges.",
+          "Test the connection to ensure the setup works.",
+        ],
+      },
+      "Rails Configuration": {
+        type: "paragraph",
+        variant: "body1",
+        data: "The `config/database.yml` file should be updated with the appropriate MySQL credentials. After that, run `rails db:create db:migrate` to initialize the database.",
+      },
+      Running: {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Start the Rails server using `rails server` or specify a custom port with `rails s -p 4001`.",
+          "Access the application in the browser at `http://localhost:3000`.",
+        ],
+      },
+    },
+    imagePath: images.MessageApp,
+    link: "https://github.com/JohnMcWhirter10/messages",
   },
 ];

@@ -24,6 +24,39 @@ export const projects = [
     imagePath: images.myWebsiteImage,
   },
   {
+    title: "Vector Vetted",
+    componentData: {
+      Description: {
+        type: "paragraph",
+        variant: "body1",
+        data: "Vector Vetted is a web application designed to match resumes with job descriptions utilizing text embeddings and the cosine similarity function. It uses the Next.js framework for efficient server-side rendering and static site generation, along with a responsive UI powered by ReactJS and TailwindCSS.",
+      },
+      Features: {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Next.js Framework: Efficient server-side rendering and static site generation.",
+          "TailwindCSS: Styled components for a responsive and aesthetic design.",
+          "ReactJS: Modern and declarative UI development.",
+          "REST API: Fetch and handle data seamlessly.",
+          "Ollama API: Integrated for local text analysis.",
+          "Cosine Similarity: Utilize the cosine similarity function for match determination.",
+          "PDF Viewer: A simple PDF viewer utilizing PDF.js.",
+        ],
+      },
+      TechStack: {
+        type: "list",
+        variant: "body1",
+        data: [
+          "Backend: Next.js",
+          "Frontend: ReactJS, TailwindCSS",
+        ],
+      },
+    },
+    link: "https://github.com/JohnMcWhirter10/vector-vetted",
+    imagePath: images.vectorVettedLogo,  
+  },
+  {
     title: "UL-SWAP DAQ",
     link: "https://github.com/jmcwhirter1608/ULSWAPDAQ",
     imagePath: images.ULSWAPDAQ,

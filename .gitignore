@@ -3,6 +3,7 @@ node_modules/
 package-lock.json
 # Compiled output
 /dist/
+/docs/
 # IDE files
 .idea/
 .vscode/

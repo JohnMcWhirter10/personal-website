@@ -3,7 +3,7 @@
 import Navbar from '@/components/navbar';
 import AboutMe from '@/components/panels/AboutMe';
 import { PanelType } from '@/lib/types';
-import { useRef } from 'react';
+import { createRef, useRef } from 'react';
 import {
     motion,
     useAnimation,
@@ -55,22 +55,23 @@ const panels: PanelType[] = [
 ];
 
 export default function Home() {
-    const panelRefs = panels.map(() => useRef(null));
+    // Initialize refs for all panels
+    const panelRefs = useRef(panels.map(() => createRef<HTMLDivElement>()));
 
     const links = panels.map((panel, index) => ({
         id: panel.id,
         label: panel.label,
-        ref: panelRefs[index],
+        ref: panelRefs.current[index],
     }));
 
     const scrollToPanel = (id: string) => {
         const panel = panels.find((panel) => panel.id === id);
-        if (!panel) throw Error('Invalid Panel Id');
+        if (!panel) throw new Error('Invalid Panel Id');
         const element = document.getElementById(panel.id);
         element?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ container: ref });
 
     const mainControls = useAnimation();
@@ -82,7 +83,7 @@ export default function Home() {
     });
 
     return (
-        <div className="flex h-screen w-screen overflow-hidden ">
+        <div className="flex h-screen w-screen overflow-hidden">
             <div className="h-full w-[9vw] bg-foreground/5 fixed">
                 <Navbar links={links} handleNavigation={scrollToPanel} />
             </div>
@@ -91,15 +92,13 @@ export default function Home() {
                 ref={ref}
                 className="ml-[18vw] w-[91vw] overflow-y-scroll flex flex-wrap gap-[25vh]"
             >
-                {panels.map((panel, index) => {
-                    return (
-                        <Panel
-                            ref={panelRefs[index]}
-                            key={panel.id}
-                            panel={panel}
-                        />
-                    );
-                })}
+                {panels.map((panel, index) => (
+                    <Panel
+                        ref={panelRefs.current[index]}
+                        key={panel.id}
+                        panel={panel}
+                    />
+                ))}
             </div>
 
             <div className="flex flex-start flex-col bg-background w-[0.5vw] pr-[0.5vw]">

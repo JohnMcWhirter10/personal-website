@@ -1,12 +1,6 @@
 import Image from 'next/image';
 
-const PythonIcon = ({
-    size,
-    className,
-}: {
-    size: number;
-    className: string;
-}) => {
+const PythonIcon = ({ size }: { size: number }) => {
     return (
         <Image
             width={size}

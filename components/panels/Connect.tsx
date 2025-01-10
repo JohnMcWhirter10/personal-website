@@ -163,7 +163,7 @@ const Connect = () => {
                             >
                                 <MailIcon size={32} className="mx-2" />
                                 Thank you for reaching out, {formSubmitted}!
-                                I'll be in touch.{' '}
+                                I&apos;ll be in touch.{' '}
                             </motion.div>
                             <motion.div
                                 initial={'visible'}

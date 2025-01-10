@@ -4,13 +4,13 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import FadeIn from './animate/FadeIn';
 import { PanelType } from '@/lib/types';
-import { forwardRef, RefObject, useEffect, useRef } from 'react';
+import { forwardRef, RefObject, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
 const Panel = forwardRef<HTMLDivElement, { panel: PanelType }>(
     ({ panel }, ref) => {
-        const localRef = ref || useRef<HTMLDivElement>(null);
-        const { theme, setTheme } = useTheme();
+        const localRef = ref;
+        const { setTheme } = useTheme();
 
         const inView = useInView(localRef as RefObject<Element | null>, {
             amount: 0.8,
@@ -79,5 +79,7 @@ const Panel = forwardRef<HTMLDivElement, { panel: PanelType }>(
         );
     }
 );
+
+Panel.displayName = 'Panel';
 
 export default Panel;

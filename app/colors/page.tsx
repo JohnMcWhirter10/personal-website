@@ -1,6 +1,5 @@
 'use client';
 
-import ThemeSwitch from '@/components/theme-switch';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 

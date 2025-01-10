@@ -52,7 +52,7 @@ const AboutMe = () => {
                             duration: 0.8,
                         }}
                     >
-                        Howdy, I'm Brea.
+                        Howdy, I&apos;m Brea.
                     </motion.h1>
 
                     <motion.div

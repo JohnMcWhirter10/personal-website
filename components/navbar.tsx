@@ -1,4 +1,4 @@
-import { NavbarLink, PanelType } from '@/lib/types';
+import { NavbarLink } from '@/lib/types';
 
 import { motion, useInView } from 'motion/react';
 
@@ -12,7 +12,10 @@ const Navbar = ({
     return (
         <div className="mt-[10vh] ml-[4vw] text-nowrap w-fit h-[75vh] flex flex-wrap">
             {links.map((link) => {
-                const inView = useInView(link.ref, { amount: 0.5 });
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                const selectedSectionInView = useInView(link.ref, {
+                    amount: 0.5,
+                });
                 return (
                     <motion.button
                         key={link.id}
@@ -29,8 +32,10 @@ const Navbar = ({
                                 x: 0,
                             },
                         }}
-                        animate={inView ? 'selected' : 'unselected'}
-                        className={`font-oswald tracking-wider font-semibold text-[2.8vh] relative px-[2vw] py-[1vh] h-fit w-full rounded-[0.8vw] ${inView ? 'text-primary-foreground bg-primary' : 'bg-primary-foreground text-primary'}`}
+                        animate={
+                            selectedSectionInView ? 'selected' : 'unselected'
+                        }
+                        className={`font-oswald tracking-wider font-semibold text-[2.8vh] relative px-[2vw] py-[1vh] h-fit w-full rounded-[0.8vw] ${selectedSectionInView ? 'text-primary-foreground bg-primary' : 'bg-primary-foreground text-primary'}`}
                     >
                         {link.label}
                     </motion.button>

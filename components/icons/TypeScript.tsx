@@ -1,10 +1,4 @@
-const TypeScriptIcon = ({
-    size,
-    className,
-}: {
-    size: number;
-    className: string;
-}) => {
+const TypeScriptIcon = ({ size }: { size: number }) => {
     return (
         <svg
             fill="none"

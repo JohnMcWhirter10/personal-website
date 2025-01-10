@@ -1,12 +1,4 @@
-import Image from 'next/image';
-
-const NextJSIcon = ({
-    size,
-    className,
-}: {
-    size: number;
-    className: string;
-}) => {
+const NextJSIcon = ({ size }: { size: number }) => {
     return (
         <svg
             data-testid="geist-icon"

@@ -24,8 +24,6 @@ const SlideShow = ({
                 className={clsx(innerClass, 'inline-grid grid-cols-1 w-full')}
             >
                 {objects.map((object, index) => {
-                    const delay = (10 / objects.length) * index;
-
                     return (
                         <motion.div
                             key={'slideshow_item_' + index}

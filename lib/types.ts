@@ -1,4 +1,4 @@
-import { MutableRefObject } from 'react';
+import { RefObject } from 'react';
 
 export type PanelType = {
     id: string;
@@ -31,7 +31,7 @@ export type Position = {
 export type NavbarLink = {
     id: string;
     label: string;
-    ref: MutableRefObject<null>;
+    ref: RefObject<HTMLDivElement>;
 };
 
 export type JobType = {

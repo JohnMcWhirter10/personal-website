@@ -9,8 +9,8 @@ const carouselObjects: React.ReactNode[] = [
         <h3 className="text-xl font-semibold text-primary">Songfest</h3>
         <p className="text-foreground">
             Participated in the largest philanthropic event at Texas A&M,
-            raising funds for local charities through a spirited singing and
-            dancing competition.
+            raising funds for local charities through a spirited dancing
+            competition.
         </p>
     </div>,
     <div className="p-4 text-center" key="big-event">
@@ -21,7 +21,9 @@ const carouselObjects: React.ReactNode[] = [
         </p>
     </div>,
     <div className="p-4 text-center" key="aggie-mens-club">
-        <h3 className="text-xl font-semibold text-primary">Aggie Men's Club</h3>
+        <h3 className="text-xl font-semibold text-primary">
+            Aggie Men&apos;s Club
+        </h3>
         <p className="text-foreground">
             Active member of a Christian-based social organization promoting
             leadership, service, and fellowship.

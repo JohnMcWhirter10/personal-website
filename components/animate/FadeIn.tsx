@@ -1,6 +1,4 @@
-import { easeInOut } from 'motion';
-import { useInView, useAnimation, motion } from 'motion/react';
-import { useRef, useEffect } from 'react';
+import { motion } from 'motion/react';
 
 const FadeIn = ({
     children,

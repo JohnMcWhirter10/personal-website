@@ -28,12 +28,18 @@ export default function Fonts() {
                 <Carousel
                     progressBar
                     objects={[
-                        <PythonIcon size={width as number} className="" />,
-                        <TypeScriptIcon
+                        <PythonIcon
+                            key={'python_icon'}
                             size={width as number}
-                            className="text-accent-foreground"
                         />,
-                        <NextJSIcon size={width as number} className={''} />,
+                        <TypeScriptIcon
+                            key={'typescript_icon'}
+                            size={width as number}
+                        />,
+                        <NextJSIcon
+                            key={'nextjs_icon'}
+                            size={width as number}
+                        />,
                     ]}
                 />
             </div>

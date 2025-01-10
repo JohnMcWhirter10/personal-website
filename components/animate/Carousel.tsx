@@ -1,12 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-    motion,
-    useMotionValue,
-    useMotionValueEvent,
-    useSpring,
-} from 'motion/react';
+import { motion, useMotionValue, useMotionValueEvent } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 const Carousel = ({

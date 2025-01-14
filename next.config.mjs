@@ -2,7 +2,6 @@ import { hostname } from 'os';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    distDir: 'build',
     images: {
         remotePatterns: [
             {

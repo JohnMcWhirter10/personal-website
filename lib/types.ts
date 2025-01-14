@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import { RefObject } from 'react';
 
 export type PanelType = {
@@ -6,7 +7,7 @@ export type PanelType = {
     theme?: ThemeType;
     component: React.ReactNode;
     backgroundImage?: {
-        src: string;
+        img: StaticImageData;
         className: string;
     };
 };
@@ -47,3 +48,23 @@ export interface IIcon {
     size: number;
     className: string;
 }
+
+export type ProjectType = {
+    title: string;
+    description: string;
+    image: StaticImageData;
+    link?: string;
+};
+
+export type CertificationType = {
+    title: string;
+    credentialWebsite: string;
+    credential: string;
+    credentialImage: StaticImageData;
+};
+
+export type ActivityType = {
+    title: string;
+    description: string;
+    link: string;
+};

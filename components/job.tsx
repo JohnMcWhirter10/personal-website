@@ -3,7 +3,7 @@ import { Hexagon } from 'lucide-react';
 
 const Job = ({ job }: { job: JobType }) => {
     return (
-        <div className="p-6 border rounded-lg shadow-md bg-background grid gap-4 max-w-3xl mx-auto min-h-[25rem]">
+        <div className="p-6 border rounded-lg shadow-md bg-background grid gap-4 max-w-3xl mx-auto min-h-[25rem] min-w-[30rem]">
             <div className="flex flex-col">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="font-openSans text-xl text-primary leading-tight">
@@ -17,8 +17,8 @@ const Job = ({ job }: { job: JobType }) => {
                 <div className="text-base">
                     <span className="font-oswald text-xl text-accent font-semibold">
                         {job.title}
-                    </span>{' '}
-                    -{' '}
+                    </span>
+                    <br />
                     <i className="text-secondary-foreground">{job.location}</i>
                 </div>
             </div>

@@ -15,6 +15,11 @@ import Experience from '@/components/panels/Experience';
 import Education from '@/components/panels/Education';
 import Connect from '@/components/panels/Connect';
 
+import AMCHeadshot from '@/assets/images/AMCHeadshot.png';
+import TAMULOGO from '@/assets/images/TAMU-LOGO.png';
+import Projects from '@/components/panels/Projects';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 export const CONTACT_ID = 'contact';
 
 const panels: PanelType[] = [
@@ -23,14 +28,14 @@ const panels: PanelType[] = [
         label: 'About Me',
         component: <AboutMe />,
         backgroundImage: {
-            src: '/images/AMCHeadshot.png',
+            img: AMCHeadshot,
             className: 'object-contain',
         },
     },
     {
         id: 'project',
         label: 'Projects',
-        component: <div className="border-2 border-red-500"> Projects</div>,
+        component: <Projects />,
     },
     {
         id: 'experience',
@@ -43,7 +48,7 @@ const panels: PanelType[] = [
         theme: 'aggie',
         component: <Education />,
         backgroundImage: {
-            src: '/images/TAMU-LOGO.png',
+            img: TAMULOGO,
             className: 'object-contain',
         },
     },
@@ -55,8 +60,9 @@ const panels: PanelType[] = [
 ];
 
 export default function Home() {
-    // Initialize refs for all panels
     const panelRefs = useRef(panels.map(() => createRef<HTMLDivElement>()));
+
+    const isMobile = useIsMobile();
 
     const links = panels.map((panel, index) => ({
         id: panel.id,
@@ -84,13 +90,11 @@ export default function Home() {
 
     return (
         <div className="flex h-screen w-screen overflow-hidden">
-            <div className="h-full w-[9vw] bg-foreground/5 fixed">
-                <Navbar links={links} handleNavigation={scrollToPanel} />
-            </div>
+            <Navbar links={links} handleNavigation={scrollToPanel} />
 
             <div
                 ref={ref}
-                className="ml-[18vw] w-[91vw] overflow-y-scroll flex flex-wrap gap-[25vh]"
+                className={`${!isMobile ? 'ml-[18vw] w-[91vw]' : 'w-full'} overflow-y-scroll flex flex-wrap gap-[25vh]`}
             >
                 {panels.map((panel, index) => (
                     <Panel
@@ -103,7 +107,7 @@ export default function Home() {
 
             <div className="flex flex-start flex-col bg-background w-[0.5vw] pr-[0.5vw]">
                 <motion.div
-                    className="absolute w-[0.5vw] h-full bottom-0 right-0 bg-accent-foreground rounded-sm origin-top"
+                    className="absolute w-[0.5vw] min-w-1 h-full bottom-0 right-0 bg-accent-foreground rounded-sm origin-top"
                     initial={{ scaleY: 0 }}
                     transition={{
                         duration: 2,

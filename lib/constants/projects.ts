@@ -1,186 +1,44 @@
-// import images from '@assets/images';
-// import { ReactNode } from 'react';
+import { ProjectType } from '../types';
 
-// export type Project = {
-//     title: string;
-//     description: string[];
-//     link?: string;
-//     imagePath: string;
-//     component?: ReactNode; // Specify the component property
-//     componentData?: {};
-// };
+import VectorVettedLogo from '@/assets/images/vectorVettedLogo.png';
+import ULSWAPDAQ from '@/assets/images/ULSWAPDAQ.png';
+import PythonGuiFramework from '@/assets/images/TexasInstruments.png';
+import MondrianUI from '@/assets/images/mondrian-ui.png';
+import MessageApp from '@/assets/images/messages-logo.png';
 
-// export const projects = [
-//     {
-//         title: 'This Website!',
-//         componentData: {
-//             Description: {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: "Howdy and welcome to my personal website, a digital landscape of my professional and personal passions! This website serves as both a showcase of my skills, a history of my past, and a glimpse of my future. Powered by React TypeScript, this website provides a sleek and modern user experience that reflects my desire to learn the latest web development techniques and apply them. Its minimalist design and interface are made possible by Material UI, a library designed by Google to provide easy access to pre-built components. I've also taken this opportunity to integrate a multi-platform view! Try resizing the screen or even access the website from your Phone! Behind the scenes, webpack open-source module and bundler drives the development process into an easily scalable system. Version control is paramount in maintaining the website's history and changes, and with Git, I'm able to do so while inviting others to collaborate and enhance its content. Please seek the repository at the link provided! Node Package Manager serves as the backbone of the website's dependencies. From essential packages to custom components, npm ensures that the website remains reliable, scalable, and up-to-date. Thanks to the free deployment of Github Pages, I proudly host this website. In addition, you'll notice the URL is not the typical Github Pages access link. I was able to purchase a domain and set up my routing using Amazon Web Services Route 53 tool enabling any remote corner of the world to easily engage with my content and explore my professional endeavors.",
-//             },
-//         },
-//         link: 'https://github.com/JohnMcWhirter10/JohnMcWhirter10.github.io',
-//         imagePath: images.myWebsiteImage,
-//     },
-//     {
-//         title: 'Vector Vetted',
-//         componentData: {
-//             Description: {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'Vector Vetted is a web application designed to match resumes with job descriptions utilizing text embeddings and the cosine similarity function. It uses the Next.js framework for efficient server-side rendering and static site generation, along with a responsive UI powered by ReactJS and TailwindCSS.',
-//             },
-//             Features: {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Next.js Framework: Efficient server-side rendering and static site generation.',
-//                     'TailwindCSS: Styled components for a responsive and aesthetic design.',
-//                     'ReactJS: Modern and declarative UI development.',
-//                     'REST API: Fetch and handle data seamlessly.',
-//                     'Ollama API: Integrated for local text analysis.',
-//                     'Cosine Similarity: Utilize the cosine similarity function for match determination.',
-//                     'PDF Viewer: A simple PDF viewer utilizing PDF.js.',
-//                 ],
-//             },
-//             TechStack: {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: ['Backend: Next.js', 'Frontend: ReactJS, TailwindCSS'],
-//             },
-//         },
-//         link: 'https://github.com/JohnMcWhirter10/vector-vetted',
-//         imagePath: images.vectorVettedLogo,
-//     },
-//     {
-//         title: 'UL-SWAP DAQ',
-//         link: 'https://github.com/jmcwhirter1608/ULSWAPDAQ',
-//         imagePath: images.ULSWAPDAQ,
-//         componentData: {
-//             'Project Overview': {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'The Ultra Low Size Weight and Power Data Acquisition Unit (UL-SWaP DaQ) was a collaborative project undertaken at Texas A&M University sponsore by Sandia National Laboratories. The project aims to design a compact, lightweight, and low-power circuit capable of withstanding rocket test flights, processing various signals, and transmitting data.',
-//             },
-//             'Team Composition': {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: "The project team consisted of two electrical engineers and one computer engineer, each bringing their expertise to ensure the project's success. The system was structured into three subsystems: Power, Signal Processing, and Interface. My role specifically focused on the interface subsystem, where I was responsible for selecting components such as the Analog-to-Digital Converter, Microcontroller, LVDS transmitter, and developing the necessary firmware. ",
-//             },
-//             'Technical Implementation': {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Utilized Altium for PCB design and MPLAB IDE in C for firmware development.',
-//                     'Integrated microcontroller with Analog to Digital converter via SPI bus.',
-//                     'Implemented power layers in the four-layer board and programmed multiple programmable gain amplifiers (PGA).',
-//                     'Established an industry-standard workflow with bi-weekly meetings and monthly check-ins.',
-//                     'Doxygen was used to generate HTML output and documentation for the firmware.',
-//                 ],
-//             },
-//             'Purpose and Impact': {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'Sandia National Laboratories requested the ULSWaP DaQ unit to optimize data acquisition during rocket flights, supporting their mission of enhancing national and global security efforts.',
-//             },
-//             'Additional Information': {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Project involved writing several key documents, including Concept of Operations, Functional System Requirements, Interface Control Document, Subsystem Reports, and System Reports.',
-//                     'Git Version Control was integrated for managing Altium designs and firmware updates.',
-//                     'Design iterations involved testing and troubleshooting multiple subsystems, resulting in significant improvements and achieving a fully functioning system.',
-//                     'The iterative design process facilitated incremental improvements, ultimately resulting in a more robust and optimized data acquisition unit poised to meet the demands of rocket test flight operations effectively.',
-//                 ],
-//             },
-//             'Outcome of Design Iterations': {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'The design process underwent two iterations, each aimed at refining and optimizing the ULSWaP DaQ unit. The initial iteration demonstrated the concept and identified areas for improvement, while the second iteration addressed issues and resulted in a fully functioning and integrated system.',
-//             },
-//             'More Information': {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'For further insight into the technical specifications of this project, please explore my repository through the link located at the bottom of the screen!',
-//             },
-//         },
-//     },
-//     {
-//         title: 'Python GUI Framework',
-//         componentData: {
-//             Description: {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: "In my internship at Texas Instruments, not only did I collaborate with the High Speed Converter group and other interns, I was also given a solo project to complete the design of a Python GUI Framework. The Framework works like and engine, all someone needs to do is provide my engine with a json formatted file which contains the page number; input, output, text, graph, or image label; optional parameters such as range, dropdown, alpha characters, etc. In addition to creating the Engine, I worked with a Solution Architect to simplify the process of writing the json to work directly with a proprietary verilog package provided to Texas Instruments customers. They are able to use Vivado's built-in configuration settings, export it, run our script to deconstruct the exported configuration and run it through the engine to produce a unique Graphical User Interface. Typically, this GUI would do calculations, display estimated signals, and export a configuration back to use in Vivado with calculated values based on the client's data.",
-//             },
-//         },
-//         imagePath: images.TexasInstruments,
-//     },
-//     {
-//         title: 'Mondrian UI',
-//         componentData: {
-//             Description: {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'MondrianUI is a modern and minimalist UI library designed for simplicity and elegance. It provides a set of flexible components that enable developers to create intuitive and aesthetically pleasing user interfaces with ease.',
-//             },
-//             Features: {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Minimalist Design: Clean and simple components for a modern look.',
-//                     'Customizable Themes: Easily set and switch themes with context-based theming.',
-//                     'Responsive Components: All components are designed to be responsive and accessible.',
-//                     'Integration with Storybook: Preview and test components in isolation.',
-//                 ],
-//             },
-//         },
-//         link: 'https://github.com/JohnMcWhirter10/mondrian-ui',
-//         imagePath: images.MondrianUI,
-//     },
-//     {
-//         title: 'Message App',
-//         componentData: {
-//             Overview: {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'The Message App is a web application designed for managing and storing videos in an S3 bucket. Each video can have metadata such as a Title, Description, Thumbnail, and multiple Tags. These tags facilitate filtering videos on the Home screen, making content management efficient.',
-//             },
-//             Installation: {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Clone the repository: `git clone https://github.com/JohnMcWhirter10/messages.git`.',
-//                     'Navigate to the directory: `cd messages`.',
-//                     'Install dependencies using Bundler: `bundle install`.',
-//                     'Set up the database: `rails db:create db:migrate`.',
-//                 ],
-//             },
-//             'MySQL Setup': {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Install MySQL depending on your OS (macOS: `brew install mysql`, Linux: `sudo apt install mysql-server`, Windows: Use [MySQL Installer](https://dev.mysql.com/downloads/installer/)).',
-//                     'Configure the MySQL user and database: Create a database and a user with appropriate privileges.',
-//                     'Test the connection to ensure the setup works.',
-//                 ],
-//             },
-//             'Rails Configuration': {
-//                 type: 'paragraph',
-//                 variant: 'body1',
-//                 data: 'The `config/database.yml` file should be updated with the appropriate MySQL credentials. After that, run `rails db:create db:migrate` to initialize the database.',
-//             },
-//             Running: {
-//                 type: 'list',
-//                 variant: 'body1',
-//                 data: [
-//                     'Start the Rails server using `rails server` or specify a custom port with `rails s -p 4001`.',
-//                     'Access the application in the browser at `http://localhost:3000`.',
-//                 ],
-//             },
-//         },
-//         imagePath: images.MessageApp,
-//         link: 'https://github.com/JohnMcWhirter10/messages',
-//     },
-// ];
+export const projects: ProjectType[] = [
+    {
+        title: 'Vector Vetted',
+        description:
+            'Vector Vetted is a web application designed to match resumes with job descriptions using text embeddings and the cosine similarity function. It leverages the Next.js framework for efficient server-side rendering and static site generation, along with a responsive user interface powered by ReactJS and TailwindCSS. The key features of the application include the Next.js framework for server-side rendering and static site generation, TailwindCSS for styled components that ensure a responsive and aesthetic design, ReactJS for modern and declarative UI development, a REST API for seamless data handling, the Ollama API for local text analysis, the use of cosine similarity to determine matching, and a PDF viewer powered by PDF.js. The tech stack consists of Next.js for the backend, and ReactJS and TailwindCSS for the frontend.',
+        link: 'https://github.com/JohnMcWhirter10/vector-vetted',
+        image: VectorVettedLogo,
+    },
+    {
+        title: 'UL-SWAP DAQ',
+        link: 'https://github.com/jmcwhirter1608/ULSWAPDAQ',
+        image: ULSWAPDAQ,
+        description:
+            "The Ultra Low Size Weight and Power Data Acquisition Unit (UL-SWaP DaQ) was a collaborative project undertaken at Texas A&M University, sponsored by Sandia National Laboratories. The project aimed to design a compact, lightweight, and low-power circuit capable of withstanding rocket test flights, processing various signals, and transmitting data. The project team consisted of two electrical engineers and one computer engineer, each bringing their expertise to ensure the project's success. The system was structured into three subsystems: Power, Signal Processing, and Interface. My role specifically focused on the interface subsystem, where I was responsible for selecting components such as the Analog-to-Digital Converter, Microcontroller, LVDS transmitter, and developing the necessary firmware. The technical implementation involved utilizing Altium for PCB design and MPLAB IDE in C for firmware development, integrating the microcontroller with the Analog-to-Digital Converter via SPI bus, and implementing power layers in the four-layer board while programming multiple programmable gain amplifiers (PGA). Additionally, an industry-standard workflow was established with bi-weekly meetings and monthly check-ins, and Doxygen was used to generate HTML output and documentation for the firmware. The purpose of the ULSWaP DaQ unit was to optimize data acquisition during rocket flights, supporting Sandia National Laboratories' mission to enhance national and global security efforts. Additional information includes the creation of several key documents, such as the Concept of Operations, Functional System Requirements, Interface Control Document, Subsystem Reports, and System Reports. Git Version Control was integrated for managing Altium designs and firmware updates. Design iterations involved testing and troubleshooting multiple subsystems, resulting in significant improvements and a fully functioning system. The iterative design process facilitated incremental improvements, ultimately leading to a more robust and optimized data acquisition unit capable of meeting the demands of rocket test flight operations effectively. The design process underwent two iterations: the first demonstrated the concept and identified areas for improvement, while the second iteration addressed those issues, resulting in a fully functioning and integrated system. For further insight into the technical specifications of this project, please explore my repository through the link located at the bottom of the screen!",
+    },
+    {
+        title: 'Python GUI Framework',
+        description:
+            "During my internship at Texas Instruments, I had the opportunity to collaborate with the High-Speed Converter group and other interns, while also being entrusted with a solo project to design a Python GUI Framework. The Framework functions like an engine: users simply need to provide it with a JSON-formatted file containing details such as page number, input/output type, labels for text, graphs, or images, and optional parameters like range, dropdown, or alpha characters. Alongside developing the engine, I worked closely with a Solution Architect to streamline the process of writing the JSON file so it could work directly with a proprietary Verilog package provided to Texas Instruments customers. This allows customers to use Vivado's built-in configuration settings, export it, and run our script to deconstruct the exported configuration, which is then processed through the engine to create a custom Graphical User Interface. This GUI typically performs calculations, displays estimated signals, and exports configurations back to Vivado with calculated values based on the client's data.",
+        image: PythonGuiFramework,
+    },
+    {
+        title: 'Mondrian UI',
+        description:
+            'MondrianUI is a modern and minimalist UI library designed with simplicity and elegance in mind. It offers a set of flexible components that allow developers to create intuitive and aesthetically pleasing user interfaces with ease. Key features of MondrianUI include a minimalist design with clean and simple components for a modern look, customizable themes that allow users to easily set and switch themes with context-based theming, responsive components designed to be accessible and adaptable across devices, and integration with Storybook for previewing and testing components in isolation.',
+        link: 'https://github.com/JohnMcWhirter10/mondrian-ui',
+        image: MondrianUI,
+    },
+    {
+        title: 'Message App',
+        description:
+            "The Message App is a web application I developed using Ruby on Rails, designed to manage and store videos with metadata such as title, description, thumbnail, and tags. I utilized AWS S3 for video storage, ensuring that each video is efficiently managed in the cloud. Additionally, I leveraged AWS RDS MySQL for storing metadata and managing the application's database, allowing for scalable and reliable data handling. The app allows for filtering videos on the Home screen based on tags, making content management streamlined and efficient.",
+        image: MessageApp,
+        link: 'https://github.com/JohnMcWhirter10/messages',
+    },
+];

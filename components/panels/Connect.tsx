@@ -90,7 +90,7 @@ const Connect = () => {
             >
                 <Card className="w-full">
                     <CardHeader>
-                        <CardTitle className="font-oswald text-6xl mb-10 text-primary text-left text-nowrap">
+                        <CardTitle className="font-oswald text-6xl mb-10 text-primary text-left">
                             <motion.h1
                                 variants={{
                                     visible: {

@@ -1,60 +1,81 @@
 'use client';
-import clsx from 'clsx';
-import { motion } from 'motion/react';
+
+import { motion, useCycle } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 
 const SlideShow = ({
-    width,
-    objects,
-    innerClass,
-    outerClass,
-    itemClass,
+    duration,
+    children,
 }: {
-    width: string | number;
-    objects: React.ReactNode[];
-    innerClass?: string;
-    outerClass?: string;
-    itemClass?: string;
+    duration: number;
+    children: React.ReactNode[];
 }) => {
+    const parent = useRef<HTMLDivElement>(null);
+    const child = useRef<HTMLUListElement>(null);
+
+    const [scrollLength, setScrollLength] = useState(0);
+    const [offset, setOffset] = useState(0);
+    const [rendered, setRendered] = useState<boolean>(false);
+
+    const [slideState, cycleSlideState] = useCycle('ready', 'sliding');
+
+    useEffect(() => {
+        setScrollLength(parent.current!.scrollWidth);
+        setOffset(parent.current!.offsetWidth);
+
+        cycleSlideState(1);
+        setRendered(true);
+    }, []);
+    const slides = children.map((child, index) => (
+        <Slide key={index}>{child}</Slide>
+    ));
+
     return (
         <motion.div
-            style={{ width }}
-            className={clsx(outerClass, 'overflow-hidden')}
+            ref={parent}
+            id="parent"
+            className="relative overflow-hidden"
+            initial={'hidden'}
+            variants={{
+                visible: {
+                    opacity: 1,
+                },
+                hidden: {
+                    opacity: 0,
+                },
+            }}
+            animate={rendered ? 'visible' : 'hidden'}
         >
-            <motion.div
-                className={clsx(innerClass, 'inline-grid grid-cols-1 w-full')}
+            <motion.ul
+                ref={child}
+                id="child"
+                className="flex overflow-hidden w-fit items-center m-0 p-0 list-none"
+                variants={{
+                    sliding: {
+                        x: -scrollLength,
+                        transition: {
+                            duration: duration,
+                            repeat: Infinity,
+                            ease: 'linear',
+                        },
+                    },
+                    ready: {
+                        x: offset,
+                    },
+                }}
+                animate={slideState}
+                onAnimationComplete={() => {
+                    cycleSlideState();
+                }}
             >
-                {objects.map((object, index) => {
-                    return (
-                        <motion.div
-                            key={'slideshow_item_' + index}
-                            className={clsx(
-                                itemClass,
-                                'row-start-1 col-start-1 min-h-full min-w-[75%] origin-left'
-                            )}
-                            initial={{
-                                x: '100%',
-                            }}
-                            animate={{
-                                x: ['100%', '-100%'],
-                            }}
-                            transition={{
-                                repeat: Infinity,
-                                repeatType: 'loop',
-                                duration: 10,
-                                ease: 'linear',
-                                delay:
-                                    (10 / objects.length) *
-                                    (objects.length - index),
-                                restDelta: 0.001,
-                            }}
-                        >
-                            {object}
-                        </motion.div>
-                    );
-                })}
-            </motion.div>
+                {slides}
+            </motion.ul>
         </motion.div>
     );
+};
+
+const Slide = ({ children }: { children: React.ReactNode }) => {
+    return <li className="will-change-transform">{children}</li>;
 };
 
 export default SlideShow;

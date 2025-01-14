@@ -1,10 +1,21 @@
+import { hostname } from 'os';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            'www.python.org',
-            'raw.githubusercontent.com',
-            'cache.cloud.tamu.edu',
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.python.org',
+            },
+            {
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'cache.cloud.tamu.edu',
+            },
         ],
     },
     typescript: {

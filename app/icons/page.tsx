@@ -4,7 +4,18 @@ import Carousel from '@/components/animate/Carousel';
 import NextJSIcon from '@/components/icons/NextJs';
 import PythonIcon from '@/components/icons/Python';
 import TypeScriptIcon from '@/components/icons/TypeScript';
+import VercelIcon from '@/components/icons/Vercel';
+import MySQLIcon from '@/components/icons/MySQL';
 import { useState } from 'react';
+import JiraIcon from '@/components/icons/Jira';
+import AWSIcon from '@/components/icons/AWS';
+import DockerIcon from '@/components/icons/Docker';
+import GraphQLIcon from '@/components/icons/GraphQL';
+import ReactIcon from '@/components/icons/React';
+import GitIcon from '@/components/icons/Git';
+import FirebaseIcon from '@/components/icons/Firebase';
+import NodeJSIcon from '@/components/icons/NodeJS';
+import TailwindCSSIcon from '@/components/icons/Tailwind';
 
 export default function Fonts() {
     const [width, setWidth] = useState<number | string>(25);
@@ -38,6 +49,35 @@ export default function Fonts() {
                         />,
                         <NextJSIcon
                             key={'nextjs_icon'}
+                            size={width as number}
+                        />,
+                        <VercelIcon
+                            key={'vercel_icon'}
+                            size={width as number}
+                        />,
+                        <MySQLIcon key={'mysql_icon'} size={width as number} />,
+                        <JiraIcon key={'jira_icon'} size={width as number} />,
+                        <AWSIcon key={'aws_icon'} size={width as number} />,
+                        <DockerIcon
+                            key={'dockewr_icon'}
+                            size={width as number}
+                        />,
+                        <GraphQLIcon
+                            key={'graphql_icon'}
+                            size={width as number}
+                        />,
+                        <ReactIcon key={'react_icon'} size={width as number} />,
+                        <GitIcon key={'git_icon'} size={width as number} />,
+                        <FirebaseIcon
+                            key={'firebase_icon'}
+                            size={width as number}
+                        />,
+                        <NodeJSIcon
+                            key={'nodejs_icon'}
+                            size={width as number}
+                        />,
+                        <TailwindCSSIcon
+                            key={'tailwindcss_icon'}
                             size={width as number}
                         />,
                     ]}

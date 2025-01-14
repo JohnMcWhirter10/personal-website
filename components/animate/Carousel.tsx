@@ -22,8 +22,17 @@ const Carousel = ({
     const carousel = useRef(null);
 
     useEffect(() => {
-        const { scrollWidth, offsetWidth } = carousel.current!;
-        setWidth(scrollWidth - offsetWidth);
+        const updateWidth = () => {
+            const { scrollWidth, offsetWidth } = carousel.current!;
+            setWidth(scrollWidth - offsetWidth);
+        };
+
+        updateWidth();
+
+        window.addEventListener('resize', updateWidth);
+        return () => {
+            window.removeEventListener('resize', updateWidth);
+        };
     }, []);
 
     const scrollX = useMotionValue(0);
@@ -54,10 +63,7 @@ const Carousel = ({
                         return (
                             <motion.div
                                 key={`${Math.random() * 1000}_carousel_item_${index}`}
-                                className={clsx(
-                                    'p-8 min-w-[30rem] min-h-full',
-                                    itemClass
-                                )}
+                                className={clsx('p-8 min-h-full', itemClass)}
                             >
                                 {object}
                             </motion.div>

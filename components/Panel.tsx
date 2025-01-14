@@ -6,14 +6,16 @@ import FadeIn from './animate/FadeIn';
 import { PanelType } from '@/lib/types';
 import { forwardRef, RefObject, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Panel = forwardRef<HTMLDivElement, { panel: PanelType }>(
     ({ panel }, ref) => {
         const localRef = ref;
         const { setTheme } = useTheme();
 
+        const isMobile = useIsMobile();
+
         const inView = useInView(localRef as RefObject<Element | null>, {
-            amount: 0.8,
             once: true,
         });
 
@@ -60,7 +62,7 @@ const Panel = forwardRef<HTMLDivElement, { panel: PanelType }>(
                         animate={backgroundInView ? 'visible' : 'hidden'}
                     >
                         <Image
-                            src={panel.backgroundImage.src}
+                            src={panel.backgroundImage.img}
                             fill
                             quality={100}
                             alt={''}
@@ -70,7 +72,7 @@ const Panel = forwardRef<HTMLDivElement, { panel: PanelType }>(
                 )}
                 <FadeIn
                     key={panel.id}
-                    className="h-full w-full mb-12 px-20 py-10"
+                    className={`h-full w-full ${isMobile ? 'px-5 py-2' : 'mb-12 px-20 py-10'}`}
                     trigger={inView}
                 >
                     {panel.component}

@@ -30,6 +30,7 @@ import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { create } from '@/lib/actions';
 
 const ContactSchema = z.object({
     name: z
@@ -72,8 +73,19 @@ const Connect = () => {
         }
     }, [isInView, controls]);
 
-    const onSubmit = (values: z.infer<typeof ContactSchema>) => {
-        setFormSubmitted(values.name);
+    const onSubmit = async (values: z.infer<typeof ContactSchema>) => {
+        try {
+            const formData = new FormData();
+            formData.append('name', values.name);
+            formData.append('email', values.email);
+            formData.append('message', values.message);
+
+            await create(formData);
+
+            setFormSubmitted(values.name);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
     };
 
     return (

@@ -13,7 +13,7 @@ const AboutMe = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const isInViewForBackgroundImage = useInView(ref, {
-        amount: 0.95,
+        amount: 0.75,
         once: false,
     });
     const controls = useAnimation();

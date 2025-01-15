@@ -1,13 +1,7 @@
+'use client';
 import { motion, useAnimation, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from '../ui/card';
-import { Button } from '../ui/button';
+
 import {
     GithubIcon,
     InstagramIcon,
@@ -17,20 +11,29 @@ import {
 
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from '../ui/form';
-import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
+
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { create } from '@/lib/actions';
+import { Button } from '@/components/ui/button';
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+} from '@/components/ui/card';
+import {
+    Form,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormControl,
+    FormMessage,
+    FormDescription,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const ContactSchema = z.object({
     name: z
@@ -89,7 +92,7 @@ const Connect = () => {
     };
 
     return (
-        <div ref={ref} className="flex flex-wrap w-full mt-10">
+        <div ref={ref} className="flex flex-wrap w-full mt-10 mb-20">
             <motion.div
                 className="text-foreground text-xl w-full leading-8 text-justify"
                 variants={{

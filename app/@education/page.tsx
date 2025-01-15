@@ -2,9 +2,9 @@
 
 import { motion, useAnimation, useInView } from 'motion/react';
 import { useEffect, useRef } from 'react';
-import Carousel from '../animate/Carousel';
 import { ActivityType } from '@/lib/types';
-import Activity from '../activity';
+import Carousel from '@/components/animate/Carousel';
+import Activity from '@/components/activity';
 
 const activities: ActivityType[] = [
     {
@@ -53,7 +53,7 @@ const Education = () => {
     }, [isInView, controls]);
 
     return (
-        <div className="flex flex-wrap items-center justify-center min-h-full w-full">
+        <div className="w-full h-full flex flex-wrap flex-col items-center justify-center md:mt-20 max-w-[95%]">
             <motion.div
                 initial="hidden"
                 ref={ref}
@@ -88,7 +88,7 @@ const Education = () => {
                 </motion.h1>
 
                 <motion.div
-                    className="font-georgia text-foreground text-xl leading-8 text-justify text-wrap"
+                    className="font-georgia text-foreground text-xl leading-8 text-justify text-wrap max-w-[768px]"
                     variants={{
                         hidden: { opacity: 0, x: 50 },
                         visible: { opacity: 1, x: 0 },

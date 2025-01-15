@@ -1,23 +1,27 @@
-import { projects } from '@/lib/constants/projects';
-import Project from '../project';
-import Carousel from '../animate/Carousel';
+'use client';
+
+import Carousel from '@/components/animate/Carousel';
+import SlideShow from '@/components/animate/SlideShow';
+import Certification from '@/components/certification';
+import AWSIcon from '@/components/icons/AWS';
+import DockerIcon from '@/components/icons/Docker';
+import FirebaseIcon from '@/components/icons/Firebase';
+import GitIcon from '@/components/icons/Git';
+import GraphQLIcon from '@/components/icons/GraphQL';
+import JiraIcon from '@/components/icons/Jira';
+import MySQLIcon from '@/components/icons/MySQL';
+import NextJSIcon from '@/components/icons/NextJs';
+import NodeJSIcon from '@/components/icons/NodeJS';
+import PythonIcon from '@/components/icons/Python';
+import ReactIcon from '@/components/icons/React';
+import TailwindCSSIcon from '@/components/icons/Tailwind';
+import TypeScriptIcon from '@/components/icons/TypeScript';
+import VercelIcon from '@/components/icons/Vercel';
+import Project from '@/components/project';
 import { certifications } from '@/lib/constants/certifications';
-import Certification from '../certification';
-import SlideShow from '../animate/SlideShow';
-import AWSIcon from '../icons/AWS';
-import DockerIcon from '../icons/Docker';
-import FirebaseIcon from '../icons/Firebase';
-import GitIcon from '../icons/Git';
-import GraphQLIcon from '../icons/GraphQL';
-import JiraIcon from '../icons/Jira';
-import MySQLIcon from '../icons/MySQL';
-import NextJSIcon from '../icons/NextJs';
-import NodeJSIcon from '../icons/NodeJS';
-import PythonIcon from '../icons/Python';
-import ReactIcon from '../icons/React';
-import TailwindCSSIcon from '../icons/Tailwind';
-import TypeScriptIcon from '../icons/TypeScript';
-import VercelIcon from '../icons/Vercel';
+import { projects } from '@/lib/constants/projects';
+import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
 
 const objects = [
     {
@@ -79,9 +83,22 @@ const objects = [
 ];
 
 const Projects = () => {
+    const ref = useRef(null);
+
+    const inView = useInView(ref, { once: true });
+
     return (
-        <div className="min-h-full w-full">
-            <div className="py-2 mt-2"></div>
+        <motion.div
+            ref={ref}
+            className="min-h-full w-full px-10 pt-10"
+            variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+            }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+        >
             <h3 className="text-5xl font-oswald">Projects</h3> <br />
             <h3 className="text-2xl font-oswald">My Favorite Technologies</h3>
             <div className="border-t-2 border-b-2 py-2 mt-2">
@@ -116,7 +133,7 @@ const Projects = () => {
                     ))}
                 />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

@@ -1,15 +1,12 @@
 import { StaticImageData } from 'next/image';
-import { RefObject } from 'react';
+import { ReactNode, RefObject } from 'react';
 
-export type PanelType = {
+export type SectionDataType = {
     id: string;
     label: string;
     theme?: ThemeType;
-    component: React.ReactNode;
-    backgroundImage?: {
-        img: StaticImageData;
-        className: string;
-    };
+    children: ReactNode;
+    backgroundImage?: StaticImageData;
 };
 
 export type ThemeType = 'light' | 'dark' | 'aggie' | 'system';

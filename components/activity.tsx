@@ -3,13 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 const Activity = ({ activity }: { activity: ActivityType }) => {
     return (
-        <Card className="w-96">
+        <Card className="w-full">
             <CardHeader>
-                <CardTitle className="text-2xl font-semibold text-primary text-center ">
+                <CardTitle className="text-xl md:text-2xl font-semibold text-primary text-center ">
                     {activity.title}
                 </CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground">
+            <CardContent className="text-foreground font-georgia text-sm text-center min-w-96">
+                {/** at most 3 lines */}
                 {activity.description}
             </CardContent>
         </Card>

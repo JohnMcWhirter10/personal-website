@@ -90,7 +90,7 @@ const Projects = () => {
     return (
         <motion.div
             ref={ref}
-            className="min-h-full w-full px-10 pt-10"
+            className="min-h-full w-full px-10 pt-10 mt-12 md:mt-0"
             variants={{
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },

@@ -94,10 +94,10 @@ const Connect = () => {
     return (
         <div
             ref={ref}
-            className="flex flex-wrap w-full mt-10 mb-20 max-w-[90%]"
+            className="flex flex-wrap w-full mt-14 md:mt-4 mb-20 max-w-[90%] ml-4 md:ml-0"
         >
             <motion.div
-                className="text-foreground text-xl w-full leading-8 text-justify"
+                className="text-foreground w-full leading-8 text-justify"
                 variants={{
                     hidden: { opacity: 0, x: 50 },
                     visible: { opacity: 1, x: 0 },
@@ -106,9 +106,9 @@ const Connect = () => {
                     duration: 0.8,
                 }}
             >
-                <Card className="w-full">
+                <Card className="w-full border-none md:mt-4">
                     <CardHeader>
-                        <CardTitle className="font-oswald text-6xl mb-10 text-primary text-left">
+                        <CardTitle className="font-oswald text-3xl md:text-6xl mb-10 text-primary text-left">
                             <motion.h1
                                 variants={{
                                     visible: {
@@ -202,14 +202,14 @@ const Connect = () => {
                                 <Form {...form}>
                                     <form
                                         onSubmit={form.handleSubmit(onSubmit)}
-                                        className="flex flex-col gap-4"
+                                        className="flex flex-col gap-4 md:text-xl text-sm"
                                     >
                                         <FormField
                                             control={form.control}
                                             name="name"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel className="font-semibold text-lg">
+                                                    <FormLabel className="font-semibold">
                                                         Name
                                                     </FormLabel>
                                                     <FormControl>
@@ -228,7 +228,7 @@ const Connect = () => {
                                             name="email"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel className="font-semibold text-lg">
+                                                    <FormLabel className="font-semibold">
                                                         Email
                                                     </FormLabel>
                                                     <FormControl>
@@ -251,7 +251,7 @@ const Connect = () => {
 
                                                 return (
                                                     <FormItem>
-                                                        <FormLabel className="font-semibold text-lg">
+                                                        <FormLabel className="font-semibold">
                                                             Message
                                                         </FormLabel>
                                                         <FormControl>

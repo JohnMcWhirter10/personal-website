@@ -5,10 +5,17 @@ import { useEffect, useRef } from 'react';
 import { VerticalTextSlider } from '@/components/animate/VerticalSliderText';
 import WaveText from '@/components/animate/WaveText';
 import { CONTACT_ID } from '@/lib/constants';
+import Image from 'next/image';
+import Headshot from '@/assets/images/AMCHeadshot.png';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const AboutMe = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+    const isInViewForBackgroundImage = useInView(ref, {
+        amount: 0.95,
+        once: false,
+    });
     const controls = useAnimation();
 
     useEffect(() => {
@@ -38,10 +45,10 @@ const AboutMe = () => {
                 },
             }}
             animate={controls}
-            className="h-screen flex flex-col p-10 justify-center max-w-[768px]"
+            className="h-screen flex flex-col justify-center max-w-[768px] w-full"
         >
             <motion.h1
-                className="font-oswald  text-6xl mb-10 text-primary text-left text-nowrap"
+                className="font-oswald pt-4 px-4 md:px-10 text-3xl md:text-6xl mb-10 text-primary text-left text-nowrap"
                 variants={{
                     hidden: { opacity: 0, x: -50, scale: 0.8 },
                     visible: { opacity: 1, x: 0, scale: 1 },
@@ -54,7 +61,7 @@ const AboutMe = () => {
             </motion.h1>
 
             <motion.div
-                className="font-georgia text-foreground text-xl w-full leading-8 text-justify"
+                className={`font-georgia px-4 md:px-10 text-foreground w-full leading-8 text-justify ${useIsMobile() ? 'mt-[45%]' : 'text-xl'}`}
                 variants={{
                     hidden: { opacity: 0, x: 50 },
                     visible: { opacity: 1, x: 0 },
@@ -95,11 +102,35 @@ const AboutMe = () => {
                     className="hover:underline bg-transparent text-foreground"
                 >
                     <WaveText
-                        className="w-fit font-semibold text-2xl"
+                        className="w-fit font-semibold text-2xl pr-4 md:px-10"
                         text={'Let’s connect!'}
                     />
                 </button>
             </div>
+            <motion.div
+                className="absolute -z-10 w-full h-full overflow-hidden"
+                initial="hidden"
+                variants={{
+                    hidden: {
+                        opacity: 0,
+                    },
+                    visible: {
+                        opacity: 0.4,
+                        transition: {
+                            duration: 1.2,
+                            delay: 1,
+                        },
+                    },
+                }}
+                animate={isInViewForBackgroundImage ? 'visible' : 'hidden'}
+            >
+                <Image
+                    src={Headshot}
+                    fill
+                    className="object-contain overflow-hidden"
+                    alt={'Headshot'}
+                />
+            </motion.div>
         </motion.div>
     );
 };

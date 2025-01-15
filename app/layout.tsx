@@ -3,8 +3,6 @@ import { Open_Sans, Oswald, Work_Sans } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
 
-import AMCHeadshot from '@/assets/images/AMCHeadshot.png';
-import TAMULOGO from '@/assets/images/TAMU-LOGO.png';
 import { Section, SectionProvider } from '@/context/SectionProvider';
 import { CONTACT_ID } from '@/lib/constants';
 
@@ -47,9 +45,9 @@ export default function RootLayout({
         <html
             lang="en"
             suppressHydrationWarning
-            className={`${oswald.variable} ${openSans.variable} ${workSans.variable} overflow-x-hidden scroll-smooth select-none`}
+            className={`${oswald.variable} ${openSans.variable} ${workSans.variable} overflow-hidden  select-none`}
         >
-            <body>
+            <body className="max-h-screen h-screen overflow-y-scroll scroll-smooth">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
@@ -59,13 +57,9 @@ export default function RootLayout({
                     <SectionProvider>
                         <div
                             id="sections"
-                            className="w-screen flex flex-col pl-[12vw] gap-48"
+                            className="w-screen flex flex-col gap-48"
                         >
-                            <Section
-                                id="about-me"
-                                label="About Me"
-                                backgroundImage={AMCHeadshot}
-                            >
+                            <Section id="about-me" label="About Me">
                                 {aboutMe}
                             </Section>
 
@@ -81,7 +75,6 @@ export default function RootLayout({
                                 id="education"
                                 label="Education"
                                 theme="aggie"
-                                backgroundImage={TAMULOGO}
                             >
                                 {education}
                             </Section>

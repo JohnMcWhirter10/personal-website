@@ -12,10 +12,9 @@ import React, {
     RefObject,
     useState,
 } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { MenuIcon, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, MenuIcon, X } from 'lucide-react';
 
 type SectionContextType = {
     addSection: (
@@ -97,29 +96,41 @@ const SectionNavigation = () => {
     return (
         <>
             {isMobile ? (
-                <div className="fixed">
-                    <button className="p-4" onClick={toggleMobileMenu}>
-                        {!menu ? <MenuIcon size={24} /> : <X size={24} />}
-                    </button>
+                <div className="fixed p-4 left-0 top-0 z-30 flex flex-row justify-end items-center w-screen bg-primary-foreground">
+                    <motion.button
+                        onClick={toggleMobileMenu}
+                        initial={false}
+                        animate={{ rotate: menu ? 90 : 0 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 200,
+                            damping: 20,
+                        }}
+                    >
+                        <motion.div
+                            key={menu ? 'menu-open' : 'menu-closed'}
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.5 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            {menu ? <X size={24} /> : <Menu size={24} />}
+                        </motion.div>
+                    </motion.button>
                     <motion.div
-                        className="z-10 flex flex-col text-nowrap origin-left"
+                        className="absolute right-0 top-14 w-fit z-10 flex flex-col text-nowrap origin-top"
                         initial={'hidden'}
                         variants={{
                             visible: {
-                                opacity: 1,
-                                scaleX: 1,
+                                scaleY: 1,
                             },
                             hidden: {
-                                opacity: 0,
-                                scaleX: 0,
+                                scaleY: 0,
                             },
                         }}
                         animate={menu ? 'visible' : 'hidden'}
                         transition={{
-                            type: 'spring',
-                            stiffness: 100,
-                            damping: 10,
-                            duration: 0.8,
+                            duration: 0.2,
                         }}
                     >
                         {sections &&
@@ -175,7 +186,7 @@ const SectionLink = ({ id }: { id: string }) => {
 };
 
 export const Section = (data: SectionDataType) => {
-    const { id, label, children, theme, backgroundImage } = data;
+    const { id, label, children, theme } = data;
 
     const sectionRef = useRef(null);
 
@@ -208,40 +219,9 @@ export const Section = (data: SectionDataType) => {
         <section
             ref={sectionRef}
             id={id}
-            className="flex bg-transparent min-h-screen max-w-full md:pl-[10vw] overflow-hidden"
+            className="flex bg-transparent min-h-screen max-w-full md:pl-[18vw] overflow-hidden"
         >
             {children}
-            {backgroundImage && (
-                <motion.div
-                    className="absolute -z-10 w-full h-full overflow-hidden"
-                    variants={{
-                        hidden: {
-                            opacity: 0,
-                            x: '100%',
-                            transition: {
-                                duration: 0.5,
-                            },
-                        },
-                        visible: {
-                            opacity: 0.5,
-                            x: 0,
-                            transition: {
-                                duration: 1.6,
-                            },
-                        },
-                    }}
-                    initial="hidden"
-                    animate={backgroundInView ? 'visible' : 'hidden'}
-                >
-                    <Image
-                        src={backgroundImage}
-                        fill
-                        quality={100}
-                        alt={''}
-                        className="object-contain pt-10"
-                    />
-                </motion.div>
-            )}
         </section>
     );
 };

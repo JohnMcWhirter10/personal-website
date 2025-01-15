@@ -1,12 +1,15 @@
 import { JobType } from '@/lib/types';
 import { Hexagon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Job = ({ job }: { job: JobType }) => {
     return (
         <Card className="min-w-[24rem] rounded-lg">
             <CardHeader>
-                <CardTitle className="font-openSans text-xl text-primary font-semibold">
+                <CardTitle
+                    className={`md:text-xl font-openSans text-primary font-semibold`}
+                >
                     {job.companyTitle}
                 </CardTitle>
                 <span className="text-sm text-muted-foreground font-light">
@@ -33,7 +36,9 @@ const Job = ({ job }: { job: JobType }) => {
                             className="flex items-start gap-3 text-base text-foreground"
                         >
                             <Hexagon size={24} className="text-accent mt-1" />
-                            <span>{bullet}</span>
+                            <span className={`sm:text-xs text-sm`}>
+                                {bullet}
+                            </span>
                         </li>
                     ))}
                 </ul>

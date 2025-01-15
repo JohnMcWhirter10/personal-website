@@ -5,6 +5,8 @@ import { useEffect, useRef } from 'react';
 import { ActivityType } from '@/lib/types';
 import Carousel from '@/components/animate/Carousel';
 import Activity from '@/components/activity';
+import Image from 'next/image';
+import TAMULOGO from '@/assets/images/TAMU-LOGO.png';
 
 const activities: ActivityType[] = [
     {
@@ -41,7 +43,11 @@ const activities: ActivityType[] = [
 
 const Education = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
+    const isInView = useInView(ref);
+    const isInViewForBackgroundImage = useInView(ref, {
+        amount: 0.75,
+        once: false,
+    });
     const controls = useAnimation();
 
     useEffect(() => {
@@ -53,7 +59,30 @@ const Education = () => {
     }, [isInView, controls]);
 
     return (
-        <div className="w-full h-full flex flex-wrap flex-col items-center justify-center md:mt-20 max-w-[95%]">
+        <div className="w-full h-full flex flex-wrap flex-col items-center justify-center mt-12 max-w-[95%]">
+            <motion.div
+                className="-z-10 "
+                variants={{
+                    hidden: {
+                        opacity: 0,
+                    },
+                    visible: {
+                        opacity: 0.6,
+                        transition: {
+                            duration: 0.5,
+                        },
+                    },
+                }}
+                initial="hidden"
+                animate={isInViewForBackgroundImage ? 'visible' : 'hidden'}
+            >
+                <Image
+                    fill
+                    className="object-contain"
+                    src={TAMULOGO}
+                    alt={''}
+                />
+            </motion.div>
             <motion.div
                 initial="hidden"
                 ref={ref}
@@ -72,7 +101,7 @@ const Education = () => {
                     },
                 }}
                 animate={controls}
-                className="p-10 bg-card/90 text-card-foreground rounded-lg shadow-lg w-full"
+                className=" p-8 md:p-10 bg-card/90 text-card-foreground rounded-lg shadow-lg w-full"
             >
                 <motion.h1
                     className="font-oswald text-6xl mb-10 text-primary text-left text-nowrap"
@@ -88,7 +117,7 @@ const Education = () => {
                 </motion.h1>
 
                 <motion.div
-                    className="font-georgia text-foreground text-xl leading-8 text-justify text-wrap max-w-[768px]"
+                    className="font-georgia text-foreground text-sm md:text-xl leading-8 md:text-justify text-wrap max-w-[768px]"
                     variants={{
                         hidden: { opacity: 0, x: 50 },
                         visible: { opacity: 1, x: 0 },
@@ -98,7 +127,7 @@ const Education = () => {
                     }}
                 >
                     I graduated from
-                    <span className="text-primary font-semibold italic text-2xl ml-2 mr-2">
+                    <span className="text-primary font-semibold italic text-lg md:text-2xl ml-2 mr-2">
                         Texas A&amp;M University
                     </span>
                     in 2023 with a degree in{' '}

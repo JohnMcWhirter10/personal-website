@@ -78,7 +78,7 @@ export default function RootLayout({
                             <Section id={CONTACT_ID} label="Connect">
                                 {connect}
                             </Section>
-                            <p className="p-4 font-workSans text-xs bg-primary-foreground text-primary flex flex-col gap-2">
+                            <p className="p-4 font-workSans text-xs bg-primary-foreground pb-[5.2rem] text-primary flex flex-col gap-2">
                                 <span className="font-semibold">
                                     © 2025 Brea McWhirter. All Rights Reserved.
                                 </span>

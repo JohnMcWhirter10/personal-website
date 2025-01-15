@@ -22,7 +22,7 @@ const Experience = () => {
     }, [isInView, controls]);
 
     return (
-        <Card ref={ref} className="border-none mt-12 md:py-20 max-w-[95%]">
+        <Card ref={ref} className="border-none mt-12 max-w-[95%]">
             <CardHeader>
                 <CardTitle>
                     <motion.h1
@@ -58,7 +58,7 @@ const Experience = () => {
                         },
                     }}
                     animate={controls}
-                    className="md:p-10"
+                    className="md:px-5"
                 >
                     <Carousel
                         progressBar

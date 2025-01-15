@@ -10,7 +10,6 @@ const Activity = ({ activity }: { activity: ActivityType }) => {
                 </CardTitle>
             </CardHeader>
             <CardContent className="text-foreground font-georgia text-sm text-center min-w-96">
-                {/** at most 3 lines */}
                 {activity.description}
             </CardContent>
         </Card>

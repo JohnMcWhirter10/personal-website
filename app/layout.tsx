@@ -62,15 +62,12 @@ export default function RootLayout({
                             <Section id="about-me" label="About Me">
                                 {aboutMe}
                             </Section>
-
                             <Section id="projects" label="Projects">
                                 {projects}
                             </Section>
-
                             <Section id="experience" label="Experience">
                                 {experience}
                             </Section>
-
                             <Section
                                 id="education"
                                 label="Education"
@@ -78,10 +75,30 @@ export default function RootLayout({
                             >
                                 {education}
                             </Section>
-
                             <Section id={CONTACT_ID} label="Connect">
                                 {connect}
                             </Section>
+                            <p className="p-4 font-workSans text-xs bg-primary-foreground text-primary flex flex-col gap-2">
+                                <span className="font-semibold">
+                                    © 2025 Brea McWhirter. All Rights Reserved.
+                                </span>
+                                <span>
+                                    All logos, trademarks, and brand names
+                                    displayed on this website are the property
+                                    of their respective owners, including but
+                                    not limited to companies and universities.
+                                </span>
+                                <span>
+                                    This website is intended for personal use
+                                    only and is not endorsed by, affiliated
+                                    with, or sponsored by any of the companies
+                                    or universities whose logos appear herein.
+                                    The use of these logos is strictly for the
+                                    purpose of identifying the organizations
+                                    where I have gained professional experience
+                                    or educational credentials.
+                                </span>
+                            </p>
                         </div>
                         {children}
                     </SectionProvider>

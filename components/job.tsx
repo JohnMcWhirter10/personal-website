@@ -1,7 +1,6 @@
 import { JobType } from '@/lib/types';
 import { Hexagon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const Job = ({ job }: { job: JobType }) => {
     return (

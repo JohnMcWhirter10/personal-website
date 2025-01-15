@@ -92,7 +92,10 @@ const Connect = () => {
     };
 
     return (
-        <div ref={ref} className="flex flex-wrap w-full mt-10 mb-20">
+        <div
+            ref={ref}
+            className="flex flex-wrap w-full mt-10 mb-20 max-w-[90%]"
+        >
             <motion.div
                 className="text-foreground text-xl w-full leading-8 text-justify"
                 variants={{

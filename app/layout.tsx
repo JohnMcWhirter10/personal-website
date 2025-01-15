@@ -90,6 +90,7 @@ export default function RootLayout({
                                 {connect}
                             </Section>
                         </div>
+                        {children}
                     </SectionProvider>
                 </ThemeProvider>
             </body>

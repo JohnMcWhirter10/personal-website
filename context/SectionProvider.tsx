@@ -213,11 +213,11 @@ export const Section = (data: SectionDataType) => {
             {children}
             {backgroundImage && (
                 <motion.div
-                    className="absolute -z-10 w-full h-full"
+                    className="absolute -z-10 w-full h-full overflow-hidden"
                     variants={{
                         hidden: {
                             opacity: 0,
-                            x: 1000,
+                            x: '100%',
                             transition: {
                                 duration: 0.5,
                             },

@@ -25,6 +25,7 @@ type SectionContextType = {
     ) => void;
     getSection: (id: string) => SectionType | undefined;
     getSections: () => { [key: string]: SectionType };
+    newState: boolean;
 };
 
 const SectionContext = createContext<SectionContextType | undefined>(undefined);
@@ -43,6 +44,7 @@ type SectionType = {
 };
 
 export const SectionProvider = ({ children }: { children: ReactNode }) => {
+    const [newState, setNewState] = useState<boolean>(false);
     const sections = useRef<{
         [key: string]: SectionType;
     }>({});
@@ -54,6 +56,7 @@ export const SectionProvider = ({ children }: { children: ReactNode }) => {
     ): void => {
         if (!sections.current[id]) {
             sections.current[id] = { label, ref };
+            setNewState(!newState);
         }
     };
 
@@ -67,7 +70,7 @@ export const SectionProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <SectionContext.Provider
-            value={{ addSection, getSection, getSections }}
+            value={{ addSection, getSection, getSections, newState }}
         >
             <SectionNavigation />
             {children}
@@ -76,7 +79,7 @@ export const SectionProvider = ({ children }: { children: ReactNode }) => {
 };
 
 const SectionNavigation = () => {
-    const { getSections } = useSections();
+    const { getSections, newState } = useSections();
     const [menu, setMenu] = useState<boolean>(false);
 
     const isMobile = useIsMobile();
@@ -85,7 +88,7 @@ const SectionNavigation = () => {
 
     useEffect(() => {
         setSections(Object.keys(getSections()));
-    }, []);
+    }, [newState]);
 
     const toggleMobileMenu = () => {
         setMenu(isMobile && !menu);

@@ -291,7 +291,7 @@ const Connect = () => {
                                                         .message === undefined
                                                 )
                                             }
-                                            className="w-1/5 self-end mt-4"
+                                            className="w-1/5 min-w-fit px-4 self-end mt-4"
                                         >
                                             Submit
                                         </Button>

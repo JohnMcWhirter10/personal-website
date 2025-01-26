@@ -134,12 +134,12 @@ const SectionNavigation = () => {
                         }}
                     >
                         {sections &&
-                            sections.map((id) => <SectionLink id={id} />)}
+                            sections.map((id) => <SectionLink key={id} id={id} />)}
                     </motion.div>
                 </div>
             ) : (
                 <div className="h-full w-[10vw] bg-foreground/5 fixed z-10 flex flex-col gap-16 text-nowrap pt-[10vh] md:pl-[5vw]">
-                    {sections && sections.map((id) => <SectionLink id={id} />)}
+                    {sections && sections.map((id) => <SectionLink key={id} id={id} />)}
                 </div>
             )}
         </>

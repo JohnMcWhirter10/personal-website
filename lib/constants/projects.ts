@@ -5,8 +5,16 @@ import ULSWAPDAQ from '@/assets/images/ULSWAPDAQ.png';
 import PythonGuiFramework from '@/assets/images/TexasInstruments.png';
 import MondrianUI from '@/assets/images/mondrian-ui.png';
 import MessageApp from '@/assets/images/messages-logo.png';
+import BPhotography from '@/assets/images/b-photography.png';
 
 export const projects: ProjectType[] = [
+    {
+        title: 'B Photography',
+        description:
+            'A Static webpage built with NextJS and Vercel for a photographer',
+        link: 'https://b-photography.vercel.app/',
+        image: BPhotography,
+    },
     {
         title: 'Vector Vetted',
         description:

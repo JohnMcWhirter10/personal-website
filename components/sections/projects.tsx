@@ -18,7 +18,7 @@ import GitIcon from '@/components/icons/Git';
 import GraphQLIcon from '@/components/icons/GraphQL';
 import JiraIcon from '@/components/icons/Jira';
 import MySQLIcon from '@/components/icons/MySQL';
-import NextJSIcon from '@/components/icons/NextJS';
+import NextJSIcon from '@/components/icons/NextJSIcon';
 import NodeJSIcon from '@/components/icons/NodeJS';
 import PythonIcon from '@/components/icons/Python';
 import ReactIcon from '@/components/icons/React';

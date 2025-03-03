@@ -1,6 +1,8 @@
 'use client';
 
-import { motion, useCycle } from 'motion/react';
+import type React from 'react';
+
+import { motion, useCycle } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 const SlideShow = ({
@@ -20,12 +22,15 @@ const SlideShow = ({
     const [slideState, cycleSlideState] = useCycle('ready', 'sliding');
 
     useEffect(() => {
-        setScrollLength(parent.current!.scrollWidth);
-        setOffset(parent.current!.offsetWidth);
+        if (parent.current) {
+            setScrollLength(parent.current.scrollWidth);
+            setOffset(parent.current.offsetWidth);
 
-        cycleSlideState(1);
-        setRendered(true);
-    }, []);
+            cycleSlideState(1);
+            setRendered(true);
+        }
+    }, [cycleSlideState]);
+
     const slides = children.map((child, index) => (
         <Slide key={index}>{child}</Slide>
     ));
@@ -55,7 +60,7 @@ const SlideShow = ({
                         x: -scrollLength,
                         transition: {
                             duration: duration,
-                            repeat: Infinity,
+                            repeat: Number.POSITIVE_INFINITY,
                             ease: 'linear',
                         },
                     },

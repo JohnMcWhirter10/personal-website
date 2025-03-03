@@ -1,7 +1,5 @@
 import { jobs } from '@/lib/jobs';
 import { Card, CardContent } from '../ui/card';
-import { technologies } from '@/lib/technologies';
-import SlideShow from '../slide-show';
 import { ReusableCarousel } from '../ui/reusable-carousel';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import type { SectionContentProps } from '@/lib/types';

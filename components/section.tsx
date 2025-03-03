@@ -7,7 +7,7 @@ import Image from 'next/image';
 import type { SectionType } from '@/lib/types';
 import About from './sections/about';
 import Experience from './sections/experience';
-import Projects from './sections/projects';
+import ProjectsSection from './sections/projects';
 import Education from './sections/education';
 import Connect from './sections/connect';
 import { useTheme } from 'next-themes';
@@ -95,7 +95,7 @@ export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, conten
 			case 'experience':
 				return <Experience content={content} />;
 			case 'projects':
-				return <Projects content={content} />;
+				return <ProjectsSection content={content} />;
 			case 'education':
 				return <Education content={content} />;
 			case 'connect':

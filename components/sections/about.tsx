@@ -1,10 +1,10 @@
-import { SectionContentProps } from '@/lib/types';
+import type { SectionContentProps } from '@/lib/types';
 import { VerticalTextSlider } from '../vertical-text-slider';
 
 const About = ({ content }: SectionContentProps) => {
 	return (
-		<div className=' flex flex-col items-center gap-4'>
-			<div className='flex items-center justify-center text-3xl font-bold'>
+		<div className='flex flex-col items-center gap-4'>
+			<div className='flex items-center justify-center text-xl md:text-3xl font-bold'>
 				<VerticalTextSlider
 					words={[
 						'Software Engineer',
@@ -15,7 +15,7 @@ const About = ({ content }: SectionContentProps) => {
 					]}
 				/>
 			</div>
-			<p className='text-lg'>{content}</p>
+			<p className='text-sm md:text-lg'>{content}</p>
 		</div>
 	);
 };

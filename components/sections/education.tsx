@@ -1,7 +1,7 @@
-import { ActivityType, SectionContentProps } from '@/lib/types';
+import type { ActivityType, SectionContentProps } from '@/lib/types';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader } from '../ui/card';
-import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
+import { Card, CardContent, CardDescription } from '../ui/card';
+import { ReusableCarousel } from '../ui/reusable-carousel';
 
 const activities: ActivityType[] = [
 	{
@@ -37,33 +37,25 @@ const activities: ActivityType[] = [
 ];
 
 const Education = ({ content }: SectionContentProps) => {
+	const activityItems = activities.map((activity, index) => (
+		<Card key={index} className='p-6 shadow-sm hover:shadow-lg'>
+			<CardContent className='space-y-3'>
+				<h3 className='text-xl font-bold'>
+					<Link href={activity.link} className='hover:underline'>
+						{activity.title}
+					</Link>
+				</h3>
+				<CardDescription className='text-sm leading-relaxed'>{activity.description}</CardDescription>
+			</CardContent>
+		</Card>
+	));
+
 	return (
 		<div className='flex flex-col gap-8'>
 			<Card>
 				<CardContent className='p-8'>{content}</CardContent>
 			</Card>
-			<Carousel className='w-full cursor-grab select-none'>
-				<CarouselContent>
-					{activities.map((activity, index) => {
-						return (
-							<CarouselItem key={index} className='basis-2/3 px-4'>
-								<Card className='p-6 shadow-sm hover:shadow-lg'>
-									<CardContent className='space-y-3'>
-										<h3 className='text-xl font-bold'>
-											<Link href={activity.link} className='hover:underline'>
-												{activity.title}
-											</Link>
-										</h3>
-										<CardDescription className='text-sm leading-relaxed'>
-											{activity.description}
-										</CardDescription>
-									</CardContent>
-								</Card>
-							</CarouselItem>
-						);
-					})}
-				</CarouselContent>
-			</Carousel>
+			<ReusableCarousel items={activityItems} carouselClassName='cursor-grab select-none' itemClassName='px-4' />
 		</div>
 	);
 };

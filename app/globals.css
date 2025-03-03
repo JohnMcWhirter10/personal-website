@@ -121,6 +121,27 @@
 		--sidebar-border: 0 0% 82%;
 		--sidebar-ring: 0 100% 16%;
 	}
+
+	/* Add these new styles for better mobile landscape handling */
+	@media (max-height: 500px) and (orientation: landscape) {
+		.min-h-screen {
+			min-height: 100vh; /* Use viewport height instead of device height */
+		}
+
+		section {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		h1 {
+			position: static !important;
+			margin-bottom: 1rem;
+		}
+
+		.max-w-4xl {
+			max-width: 100%;
+		}
+	}
 }
 
 @layer base {

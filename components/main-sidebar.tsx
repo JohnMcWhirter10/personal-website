@@ -1,9 +1,16 @@
 'use client';
 
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sidebar, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarMenu,
+	SidebarMenuItem,
+	SidebarMenuButton,
+	useSidebar,
+} from '@/components/ui/sidebar';
 import type { SectionType } from '@/lib/types';
 
 interface MainSidebarProps {
@@ -14,6 +21,8 @@ interface MainSidebarProps {
 }
 
 export function MainSidebar({ sections, sectionRefs, activeSection, setActiveSection }: MainSidebarProps) {
+	const { openMobile, setOpenMobile } = useSidebar();
+
 	useEffect(() => {
 		const handleScroll = () => {
 			const pageYOffset = window.scrollY;
@@ -50,6 +59,9 @@ export function MainSidebar({ sections, sectionRefs, activeSection, setActiveSec
 				top: ref.offsetTop,
 				behavior: 'smooth',
 			});
+		}
+		if (openMobile) {
+			setOpenMobile(false);
 		}
 	};
 

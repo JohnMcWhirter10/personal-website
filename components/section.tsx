@@ -1,46 +1,67 @@
 'use client';
 
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import { SectionType } from '@/lib/types';
+import type { SectionType } from '@/lib/types';
 import About from './sections/about';
 import Experience from './sections/experience';
 import Projects from './sections/projects';
 import Education from './sections/education';
-
-import { useTheme } from 'next-themes';
 import Connect from './sections/connect';
+import { useTheme } from 'next-themes';
 
 export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, content, backgroundImage, theme }, ref) => {
 	const controls = useAnimation();
-	const [inViewRef, inView] = useInView({
-		triggerOnce: false,
-		threshold: 0.3,
-	});
 	const [hasAnimated, setHasAnimated] = useState(false);
-
 	const { setTheme } = useTheme();
+
+	const sectionRef = useRef<HTMLElement>(null);
+	const [inViewRef, inView] = useInView({
+		threshold: 0,
+		triggerOnce: false,
+	});
 
 	// Combine refs
 	const setRefs = (element: HTMLElement | null) => {
 		// @ts-ignore - forwardRef typing issue
 		if (typeof ref === 'function') ref(element);
 		else if (ref) ref.current = element;
+		sectionRef.current = element;
 		inViewRef(element);
 	};
 
 	useEffect(() => {
-		if (inView && !hasAnimated) {
-			controls.start('visible');
-			setHasAnimated(true);
-			setTheme(theme);
-		} else if (!inView && hasAnimated) {
-			controls.start('hidden');
-			setHasAnimated(false);
+		const checkVisibility = () => {
+			if (sectionRef.current) {
+				const rect = sectionRef.current.getBoundingClientRect();
+				const windowHeight = window.innerHeight;
+				const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+				const visibleRatio = visibleHeight / rect.height;
+
+				if (visibleRatio >= 0.3 && !hasAnimated) {
+					controls.start('visible');
+					setHasAnimated(true);
+					setTheme(theme);
+				} else if (visibleRatio < 0.3 && hasAnimated) {
+					controls.start('hidden');
+					setHasAnimated(false);
+				}
+			}
+		};
+
+		if (inView) {
+			checkVisibility();
+			window.addEventListener('scroll', checkVisibility);
+			window.addEventListener('resize', checkVisibility);
 		}
-	}, [controls, inView, hasAnimated]);
+
+		return () => {
+			window.removeEventListener('scroll', checkVisibility);
+			window.removeEventListener('resize', checkVisibility);
+		};
+	}, [controls, inView, hasAnimated, setTheme, theme]);
 
 	const backgroundVariants = {
 		hidden: { opacity: 0, y: 50 },
@@ -88,7 +109,7 @@ export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, conten
 		<section
 			ref={setRefs}
 			id={id}
-			className='relative max-h-dvh h-fit md:h-dvh flex items-center justify-center p-8 overflow-hidden'
+			className='relative min-h-dvh flex flex-col items-start justify-center p-4 md:p-8 overflow-hidden'
 		>
 			{backgroundImage && (
 				<motion.div
@@ -103,20 +124,14 @@ export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, conten
 					</div>
 				</motion.div>
 			)}
-			<motion.h1
-				className='max-md:hidden absolute top-0 p-10 text-4xl text-left w-full'
-				animate={controls}
-				variants={contentVariants}
-			>
-				{title}
-			</motion.h1>
 
 			<motion.div
-				className='z-10 max-w-6xl w-full'
+				className='z-10 w-full max-w-6xl'
 				initial='hidden'
 				animate={controls}
 				variants={contentVariants}
 			>
+				<h1 className='text-4xl text-left w-full mb-4 max-md:hidden'>{title}</h1>
 				{renderSectionContent()}
 			</motion.div>
 		</section>

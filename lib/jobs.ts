@@ -1,4 +1,4 @@
-import { JobType } from '../types';
+import type { JobType } from './types';
 
 export const jobs: JobType[] = [
     {
@@ -8,7 +8,7 @@ export const jobs: JobType[] = [
         startDate: 'May 2023',
         endDate: 'October 2024',
         bulletPoints: [
-            'Developed reusable code for modern interfaces, enhancing user experience across Paycom’s HCM solutions.',
+            "Developed reusable code for modern interfaces, enhancing user experience across Paycom's HCM solutions.",
             'Optimized core modules like Position Management, ensuring scalability and adaptability for diverse industries.',
             'Collaborated with Agile teams to deliver robust, cutting-edge software using Pair and Mob Programming.',
         ],
@@ -56,7 +56,7 @@ export const jobs: JobType[] = [
         startDate: 'August 2019',
         endDate: 'December 2019',
         bulletPoints: [
-            'Delivered campus tours, showcasing SPC’s academic and community opportunities to prospective students.',
+            "Delivered campus tours, showcasing SPC's academic and community opportunities to prospective students.",
             'Represented SPC in promotional campaigns, boosting visibility through interviews, publications, and video commercials.',
             'Utilized drones to capture dynamic campus footage for marketing and recruitment purposes.',
         ],
@@ -79,7 +79,7 @@ export const jobs: JobType[] = [
         startDate: 'March 2019',
         endDate: undefined,
         bulletPoints: [
-            'Evaluated competitors’ speeches for clarity, originality, and emotional impact, providing constructive feedback.',
+            "Evaluated competitors' speeches for clarity, originality, and emotional impact, providing constructive feedback.",
             'Judged prose, poetry, and informative categories, fostering excellence in communication and performance.',
         ],
     },

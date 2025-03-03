@@ -22,7 +22,7 @@ export default function Home() {
 				<h1 className='text-2xl'>
 					{activeSection.slice(0, 1).toUpperCase() + activeSection.slice(1).toLocaleLowerCase()}
 				</h1>
-				<SidebarTrigger size={'lg'} variant={'ghost'} />
+				<SidebarTrigger size={'lg'} variant={'ghost'} className='p-4' />
 			</div>
 			<main className='w-full overflow-hidden mt-16'>
 				{sections.map((section, index) => (

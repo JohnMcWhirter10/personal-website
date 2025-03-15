@@ -39,3 +39,9 @@ next-env.d.ts
 # Dependency directories
 package-lock.json
 # Compiled output
+
+# icons
+/devicons
+
+# cursor editor
+.cursor/

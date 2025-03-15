@@ -1,74 +1,40 @@
 const NextJSIcon = ({ size }: { size: number }) => {
-    return (
-        <svg
-            data-testid="geist-icon"
-            height={size}
-            strokeLinejoin="round"
-            style={{ color: 'currentcolor' }}
-            viewBox="0 0 16 16"
-            width={size}
-        >
-            <g clipPath="url(#clip0_53_108)">
-                <circle
-                    cx="8"
-                    cy="8"
-                    r="7.375"
-                    fill="black"
-                    stroke="var(--ds-gray-1000)"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                ></circle>
-                <path
-                    d="M10.63 11V5"
-                    stroke="url(#paint0_linear_53_108e2vto2pfa)"
-                    strokeMiterlimit="1.41421"
-                ></path>
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M5.995 5.00087V5H4.745V11H5.995V6.96798L12.3615 14.7076C12.712 14.4793 13.0434 14.2242 13.353 13.9453L5.99527 5.00065L5.995 5.00087Z"
-                    fill="url(#paint1_linear_53_108e2vto2pfa)"
-                ></path>
-            </g>
-            <defs>
-                <linearGradient
-                    id="paint0_linear_53_108e2vto2pfa"
-                    x1="11.13"
-                    y1="5"
-                    x2="11.13"
-                    y2="11"
-                    gradientUnits="userSpaceOnUse"
-                >
-                    <stop stopColor="white"></stop>
-                    <stop
-                        offset="0.609375"
-                        stopColor="white"
-                        stopOpacity="0.57"
-                    ></stop>
-                    <stop
-                        offset="0.796875"
-                        stopColor="white"
-                        stopOpacity="0"
-                    ></stop>
-                    <stop offset="1" stopColor="white" stopOpacity="0"></stop>
-                </linearGradient>
-                <linearGradient
-                    id="paint1_linear_53_108e2vto2pfa"
-                    x1="9.9375"
-                    y1="9.0625"
-                    x2="13.5574"
-                    y2="13.3992"
-                    gradientUnits="userSpaceOnUse"
-                >
-                    <stop stopColor="white"></stop>
-                    <stop offset="1" stopColor="white" stopOpacity="0"></stop>
-                </linearGradient>
-                <clipPath id="clip0_53_108">
-                    <rect width="16" height="16" fill="red"></rect>
-                </clipPath>
-            </defs>
-        </svg>
-    );
+	return (
+		<svg xmlns='http://www.w3.org/2000/svg' width={size} height={size} viewBox='0 0 128 128'>
+			<circle cx='64' cy='64' r='64' />
+			<path
+				fill='url(#nextjs-a)'
+				d='M106.317 112.014 49.167 38.4H38.4v51.179h8.614v-40.24l52.54 67.884a64.216 64.216 0 0 0 6.763-5.209z'
+			/>
+			<path fill='url(#nextjs-b)' d='M81.778 38.4h8.533v51.2h-8.533z' />
+			<defs>
+				<linearGradient
+					id='nextjs-a'
+					x1='109'
+					x2='144.5'
+					y1='116.5'
+					y2='160.5'
+					gradientTransform='scale(.71111)'
+					gradientUnits='userSpaceOnUse'
+				>
+					<stop stopColor='#fff' />
+					<stop offset='1' stopColor='#fff' stopOpacity='0' />
+				</linearGradient>
+				<linearGradient
+					id='nextjs-b'
+					x1='121'
+					x2='120.799'
+					y1='54'
+					y2='106.875'
+					gradientTransform='scale(.71111)'
+					gradientUnits='userSpaceOnUse'
+				>
+					<stop stopColor='#fff' />
+					<stop offset='1' stopColor='#fff' stopOpacity='0' />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
 };
 
 export default NextJSIcon;

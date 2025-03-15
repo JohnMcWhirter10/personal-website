@@ -1,42 +1,57 @@
 import { jobs } from '@/lib/jobs';
 import { Card, CardContent } from '../ui/card';
-import { ReusableCarousel } from '../ui/reusable-carousel';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import type { SectionContentProps } from '@/lib/types';
+import { motion } from 'framer-motion';
 
 const Experience = ({ content }: SectionContentProps) => {
 	const jobItems = jobs.map((job, index) => (
-		<Card key={index} className='h-full border-none'>
-			<CardContent className='p-4 md:p-6'>
-				<Accordion type='single' collapsible>
-					<AccordionItem value={`job-${index}`}>
-						<AccordionTrigger className='block hover:no-underline'>
-							<h3 className='text-lg md:text-xl font-bold'>{job.title}</h3>
-							<h4 className='text-base md:text-lg font-medium text-muted-foreground'>
-								{job.companyTitle}
-							</h4>
-							<p className='text-xs md:text-sm text-muted-foreground mb-2 md:mb-4'>
-								{job.location} | {job.startDate} - {job.endDate || 'Present'}
-							</p>
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5, delay: index * 0.1 }}
+			key={index}
+			className='h-full'
+			whileHover={{ y: -5, transition: { duration: 0.2 } }}
+		>
+			<Card className='h-full border-2 border-primary shadow-sm hover:shadow-md transition-all'>
+				<CardContent className='p-6'>
+					<div className='mb-4'>
+						<h3 className='text-xl font-bold text-primary mb-1'>{job.title}</h3>
+						<h4 className='text-lg font-medium text-foreground'>{job.companyTitle}</h4>
+						<p className='text-sm text-muted-foreground'>
+							{job.location} | {job.startDate} - {job.endDate || 'Present'}
+						</p>
+					</div>
+
+					<Accordion type='single' collapsible className='w-full'>
+						<AccordionItem value={`job-${index}`} className='border-b-0 border-t-2 border-primary'>
+							<AccordionTrigger className='py-2 text-sm font-medium hover:no-underline'>
+								View Responsibilities
+							</AccordionTrigger>
 							<AccordionContent>
-								<ul className='list-disc pl-5 space-y-1 md:space-y-2'>
+								<ul className='list-disc pl-5 space-y-2'>
 									{job.bulletPoints.map((point, i) => (
-										<li key={i} className='text-xs md:text-sm'>
+										<li key={i} className='text-sm text-muted-foreground'>
 											{point}
 										</li>
 									))}
 								</ul>
 							</AccordionContent>
-						</AccordionTrigger>
-					</AccordionItem>
-				</Accordion>
-			</CardContent>
-		</Card>
+						</AccordionItem>
+					</Accordion>
+				</CardContent>
+			</Card>
+		</motion.div>
 	));
 
 	return (
-		<div className='flex flex-col gap-4 md:gap-8'>
-			<ReusableCarousel items={jobItems} itemClassName='sm:basis-[80%] md:basis-[60%] lg:basis-2/5 flex-grow' />
+		<div className='flex flex-col gap-8 w-full'>
+			{content && <p className='text-lg text-center mb-6 max-w-3xl mx-auto'>{content}</p>}
+
+			<motion.div layout className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+				{jobItems}
+			</motion.div>
 		</div>
 	);
 };

@@ -1,27 +1,12 @@
 'use client';
-import { useTheme } from 'next-themes';
 
 const VercelIcon = ({ size }: { size: number }) => {
-    const { resolvedTheme } = useTheme();
-    return (
-        <svg
-            aria-label="Vercel logomark"
-            height={size}
-            role="img"
-            viewBox="0 0 100 100"
-        >
-            <circle
-                cx="50%"
-                cy="50%"
-                r="50%"
-                fill={resolvedTheme === 'dark' ? 'black' : 'white'}
-            />
-            <path
-                d="M 50 20 L 80 70 L 20 70 Z"
-                fill={resolvedTheme === 'dark' ? 'white' : 'black'}
-            />
-        </svg>
-    );
+	return (
+		<svg xmlns='http://www.w3.org/2000/svg' width={size} height={size} viewBox='0 0 128 128'>
+			<circle cx='64' cy='64' r='64' fill='black' />
+			<path d='M64 36L102 100H26L64 36Z' fill='white' />
+		</svg>
+	);
 };
 
 export default VercelIcon;

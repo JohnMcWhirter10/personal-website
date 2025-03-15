@@ -1,92 +1,157 @@
 'use client';
 
-import { forwardRef, useEffect, useState, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React, { forwardRef, useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
-import type { SectionType } from '@/lib/types';
 import About from './sections/about';
 import Experience from './sections/experience';
 import ProjectsSection from './sections/projects';
 import Education from './sections/education';
 import Connect from './sections/connect';
 import { useTheme } from 'next-themes';
+import { cn } from '@/lib/utils';
 
-export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, content, backgroundImage, theme }, ref) => {
-	const controls = useAnimation();
-	const [hasAnimated, setHasAnimated] = useState(false);
+const sectionVariants = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.8,
+			ease: 'easeOut',
+			staggerChildren: 0.15,
+		},
+	},
+};
+
+const childVariants = {
+	hidden: { opacity: 0, y: 15 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.6, ease: 'easeOut' },
+	},
+};
+
+type SectionProps = {
+	id: string;
+	title: string;
+	content: string;
+	theme?: string;
+};
+
+// Global registry of sections for scroll-based theme management
+type SectionRegistry = {
+	id: string;
+	element: HTMLElement;
+	theme?: string;
+}[];
+const sectionRegistry: SectionRegistry = [];
+
+export const Section = forwardRef<HTMLElement, SectionProps>(({ id, title, content, theme }, ref) => {
+	const [isIntersecting, setIsIntersecting] = useState(false);
 	const { setTheme } = useTheme();
+	const sectionRef = useRef<HTMLElement | null>(null);
 
-	const sectionRef = useRef<HTMLElement>(null);
+	// Only use IntersectionObserver for animation visibility, not theme changes
 	const [inViewRef, inView] = useInView({
-		threshold: 0,
+		threshold: 0.15,
+		rootMargin: '0px 0px -10% 0px',
 		triggerOnce: false,
 	});
 
-	// Combine refs
+	// Register section with global registry for scroll-based theme management
+	useEffect(() => {
+		const handleScroll = () => {
+			requestAnimationFrame(() => {
+				if (sectionRegistry.length === 0) return;
+
+				// Find section with largest visible area
+				const viewportHeight = window.innerHeight;
+				const scrollTop = window.scrollY;
+				const scrollBottom = scrollTop + viewportHeight;
+
+				let maxVisibleSection = null;
+				let maxVisibleArea = 0;
+
+				for (const section of sectionRegistry) {
+					const rect = section.element.getBoundingClientRect();
+					const sectionTop = rect.top + scrollTop;
+					const sectionBottom = rect.bottom + scrollTop;
+
+					// Calculate visible area
+					const visibleTop = Math.max(scrollTop, sectionTop);
+					const visibleBottom = Math.min(scrollBottom, sectionBottom);
+					const visibleArea = Math.max(0, visibleBottom - visibleTop);
+
+					if (visibleArea > maxVisibleArea) {
+						maxVisibleArea = visibleArea;
+						maxVisibleSection = section;
+					}
+				}
+
+				// Set theme based on most visible section
+				if (maxVisibleSection && maxVisibleSection.theme) {
+					setTheme(maxVisibleSection.theme);
+				}
+			});
+		};
+
+		// Add scroll listener
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		// Initial check
+		handleScroll();
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [setTheme]);
+
 	const setRefs = (element: HTMLElement | null) => {
-		// @ts-ignore - forwardRef typing issue
+		// Set ref for forwardRef
 		if (typeof ref === 'function') ref(element);
 		else if (ref) ref.current = element;
+
+		// Set local ref
 		sectionRef.current = element;
+
+		// Set ref for InView animation
 		inViewRef(element);
+
+		// Register for scroll-based theme management
+		if (element) {
+			// Remove any existing registration for this id
+			const existingIndex = sectionRegistry.findIndex((s) => s.id === id);
+			if (existingIndex >= 0) {
+				sectionRegistry.splice(existingIndex, 1);
+			}
+
+			// Add to registry
+			sectionRegistry.push({
+				id,
+				element,
+				theme,
+			});
+		}
 	};
 
 	useEffect(() => {
-		const checkVisibility = () => {
-			if (sectionRef.current) {
-				const rect = sectionRef.current.getBoundingClientRect();
-				const windowHeight = window.innerHeight;
-				const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-				const visibleRatio = visibleHeight / rect.height;
+		if (inView) {
+			setIsIntersecting(true);
+		} else {
+			setIsIntersecting(false);
+		}
+	}, [inView]);
 
-				if (visibleRatio >= 0.3 && !hasAnimated) {
-					controls.start('visible');
-					setHasAnimated(true);
-					setTheme(theme);
-				} else if (visibleRatio < 0.3 && hasAnimated) {
-					controls.start('hidden');
-					setHasAnimated(false);
-				}
+	// Clean up registry when component unmounts
+	useEffect(() => {
+		return () => {
+			const index = sectionRegistry.findIndex((s) => s.id === id);
+			if (index >= 0) {
+				sectionRegistry.splice(index, 1);
 			}
 		};
-
-		if (inView) {
-			checkVisibility();
-			window.addEventListener('scroll', checkVisibility);
-			window.addEventListener('resize', checkVisibility);
-		}
-
-		return () => {
-			window.removeEventListener('scroll', checkVisibility);
-			window.removeEventListener('resize', checkVisibility);
-		};
-	}, [controls, inView, hasAnimated, setTheme, theme]);
-
-	const backgroundVariants = {
-		hidden: { opacity: 0, y: 50 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				ease: [0.22, 1, 0.36, 1],
-			},
-		},
-	};
-
-	const contentVariants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.5,
-				delay: 0.2,
-				ease: [0.22, 1, 0.36, 1],
-			},
-		},
-	};
+	}, [id]);
 
 	const renderSectionContent = () => {
 		switch (id) {
@@ -101,7 +166,7 @@ export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, conten
 			case 'connect':
 				return <Connect content={content} />;
 			default:
-				return <p className='text-lg'>{content}</p>;
+				return <p>{content}</p>;
 		}
 	};
 
@@ -109,30 +174,27 @@ export const Section = forwardRef<HTMLElement, SectionType>(({ id, title, conten
 		<section
 			ref={setRefs}
 			id={id}
-			className='relative min-h-dvh flex flex-col items-start justify-center p-4 md:p-8 overflow-hidden'
-		>
-			{backgroundImage && (
-				<motion.div
-					className='absolute inset-0 z-0'
-					initial='hidden'
-					animate={controls}
-					variants={backgroundVariants}
-				>
-					<div className='absolute bg-cover bg-background h-full w-full' />
-					<div className='relative h-full opacity-25'>
-						<Image src={backgroundImage} fill className='object-contain p-4' alt={''} />
-					</div>
-				</motion.div>
+			className={cn(
+				'min-h-screen w-full flex flex-col md:flex-row items-center justify-center relative bg-background text-foreground',
+				theme && `theme-${theme}`
 			)}
-
+		>
 			<motion.div
-				className='z-10 w-full max-w-6xl'
+				className='w-full h-full max-w-7xl mx-auto px-4 py-20 md:py-24 flex flex-col items-center relative z-10'
 				initial='hidden'
-				animate={controls}
-				variants={contentVariants}
+				animate={isIntersecting ? 'visible' : 'hidden'}
+				variants={sectionVariants}
 			>
-				<h1 className='text-4xl text-left w-full mb-4 max-md:hidden'>{title}</h1>
-				{renderSectionContent()}
+				<motion.h2
+					variants={childVariants}
+					className='text-4xl md:text-5xl lg:text-6xl font-bold text-left w-full mb-16'
+				>
+					{title}
+				</motion.h2>
+
+				<motion.div variants={childVariants} className='w-full'>
+					{renderSectionContent()}
+				</motion.div>
 			</motion.div>
 		</section>
 	);

@@ -9,7 +9,6 @@ export interface SectionType {
 	id: string;
 	title: string;
 	content: string;
-	backgroundImage?: StaticImageData;
 	theme: string;
 }
 
@@ -27,6 +26,7 @@ export interface ProjectType {
 	description: string;
 	link?: string;
 	image: StaticImageData;
+	categories: string[];
 }
 
 export interface TechnologyType {

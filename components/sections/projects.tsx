@@ -10,7 +10,7 @@ import VectorVetted from '@/assets/images/vectorVettedLogo.png';
 import ULSWAPDAQ from '@/assets/images/ULSWAPDAQ.png';
 import TexasInstruments from '@/assets/images/TexasInstruments.png';
 import MondrianUI from '@/assets/images/mondrian-ui.png';
-import Avalon from '@/assets/images/avalon.png';
+import Avalon from '@/assets/images/Avalon.png';
 
 import AWSIcon from '@/components/icons/AWS';
 import BashIcon from '@/components/icons/Bash';

@@ -54,7 +54,7 @@ const Connect = ({ content }: SectionContentProps) => {
 			href: 'https://www.instagram.com/itsjohnbrea/',
 			icon: InstagramIcon,
 			label: 'Instagram',
-			color: 'bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90',
+			color: 'bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90',
 		},
 		{
 			href: 'https://github.com/JohnMcWhirter10',

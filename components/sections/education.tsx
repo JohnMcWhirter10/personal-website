@@ -54,7 +54,7 @@ const Education = ({ content }: SectionContentProps) => {
 			className='h-full'
 			whileHover={{ y: -5, transition: { duration: 0.2 } }}
 		>
-			<Card className='h-full border-2 border-primary shadow-sm hover:shadow-md transition-all duration-200'>
+			<Card className='h-full border-2 border-primary shadow-xs hover:shadow-md transition-all duration-200'>
 				<CardContent className='p-6 flex flex-col h-full'>
 					<h3 className='text-xl font-bold mb-3 text-primary'>
 						<Link
@@ -88,7 +88,7 @@ const Education = ({ content }: SectionContentProps) => {
 
 	return (
 		<div className='flex flex-col gap-8 w-full'>
-			<Card className='shadow-sm border-2 border-primary'>
+			<Card className='shadow-xs border-2 border-primary'>
 				<CardContent className='p-6 md:p-8'>
 					<div className='flex flex-col sm:flex-row items-center gap-6'>
 						<div className='w-full sm:w-auto flex justify-center'>

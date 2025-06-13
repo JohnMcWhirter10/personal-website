@@ -16,7 +16,7 @@ const About = ({ content }: SectionContentProps) => {
 					className='md:w-[38%] w-full flex justify-center'
 				>
 					<div className='relative w-full max-w-[380px] flex justify-center md:justify-start'>
-						<div className='relative w-64 md:w-full aspect-[3/4] rounded-lg overflow-hidden border-2 border-primary'>
+						<div className='relative w-64 md:w-full aspect-3/4 rounded-lg overflow-hidden border-2 border-primary'>
 							<Image
 								src={Headshot}
 								alt='John McWhirter'
@@ -48,7 +48,7 @@ const About = ({ content }: SectionContentProps) => {
 						/>
 					</div>
 
-					<Card className='border-2 border-primary shadow-sm bg-card/80 backdrop-blur-sm'>
+					<Card className='border-2 border-primary shadow-xs bg-card/80 backdrop-blur-xs'>
 						<CardContent className='p-6'>
 							<p className='text-lg leading-relaxed'>{content}</p>
 						</CardContent>

@@ -4,7 +4,12 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
 	const pathname = request.nextUrl.pathname;
 
-	if (pathname === '/' || pathname.startsWith('/_next') || pathname.startsWith('/favicon.ico')) {
+	if (
+		pathname === '/' ||
+		pathname.startsWith('/_next') ||
+		pathname.startsWith('/favicon.ico') ||
+		pathname.startsWith('/aetheron')
+	) {
 		return NextResponse.next();
 	}
 

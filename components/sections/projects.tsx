@@ -211,7 +211,7 @@ const ProjectsSection = ({}: SectionContentProps) => {
 			key={project.title}
 			layout
 		>
-			<Card className='h-full border-2 border-primary bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 overflow-hidden'>
+			<Card className='h-full border-2 border-primary bg-card/50 backdrop-blur-xs hover:shadow-lg transition-all duration-300 overflow-hidden'>
 				<CardContent className='p-6'>
 					<div className='aspect-video w-full mb-4 overflow-hidden rounded-lg relative group'>
 						<Image
@@ -277,7 +277,7 @@ const ProjectsSection = ({}: SectionContentProps) => {
 							whileHover={{ scale: 1.1 }}
 							transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 						>
-							<div className='p-3 rounded-lg bg-background border-2 border-primary shadow-sm'>
+							<div className='p-3 rounded-lg bg-background border-2 border-primary shadow-xs'>
 								{tech.icon}
 							</div>
 							<span className='text-sm font-medium'>{tech.label}</span>

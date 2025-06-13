@@ -31,7 +31,7 @@ export default function Home() {
 				setActiveSection={setActiveSection}
 			/>
 
-			<div className='md:hidden w-full h-fit z-30 p-4 fixed top-0 bg-background/80 backdrop-blur-md shadow-sm flex items-center justify-between'>
+			<div className='md:hidden w-full h-fit z-30 p-4 fixed top-0 bg-background/80 backdrop-blur-md shadow-xs flex items-center justify-between'>
 				<h1 className='text-2xl font-bold'>
 					{activeSection
 						? activeSection.slice(0, 1).toUpperCase() + activeSection.slice(1).toLowerCase()
@@ -48,7 +48,7 @@ export default function Home() {
 						<button
 							key={section.id}
 							onClick={() => navigateToSection(index)}
-							className='relative p-1 focus:outline-none'
+							className='relative p-1 focus:outline-hidden'
 							aria-label={`Jump to ${section.title} section`}
 						>
 							<div

@@ -14,7 +14,7 @@ const Experience = ({ content }: SectionContentProps) => {
 			className='h-full'
 			whileHover={{ y: -5, transition: { duration: 0.2 } }}
 		>
-			<Card className='h-full border-2 border-primary shadow-sm hover:shadow-md transition-all'>
+			<Card className='h-full border-2 border-primary shadow-xs hover:shadow-md transition-all'>
 				<CardContent className='p-6'>
 					<div className='mb-4'>
 						<h3 className='text-xl font-bold text-primary mb-1'>{job.title}</h3>

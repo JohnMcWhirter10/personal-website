@@ -112,7 +112,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 	return (
 		<Sidebar
 			className={cn(
-				'border-r-2 border-primary backdrop-blur-sm',
+				'border-r-2 border-primary backdrop-blur-xs',
 				isAggieTheme && 'bg-[#500000] border-[#3c0000]/60'
 			)}
 		>

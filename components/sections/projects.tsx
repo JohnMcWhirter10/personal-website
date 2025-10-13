@@ -14,29 +14,17 @@ import Avalon from '@/assets/images/Avalon.png';
 import DCCapture from '@/assets/images/DC_Capture.png';
 
 import AWSIcon from '@/components/icons/AWS';
-import BashIcon from '@/components/icons/Bash';
 import CSS3Icon from '@/components/icons/CSS3';
-import DartIcon from '@/components/icons/Dart';
-import DockerIcon from '@/components/icons/Docker';
-import FirebaseIcon from '@/components/icons/Firebase';
-import FlutterIcon from '@/components/icons/Flutter';
 import GitIcon from '@/components/icons/Git';
-import GitHubIcon from '@/components/icons/GitHub';
-import GraphQLIcon from '@/components/icons/GraphQL';
 import HTML5Icon from '@/components/icons/HTML5';
 import JavaScriptIcon from '@/components/icons/JavaScript';
-import JiraIcon from '@/components/icons/Jira';
 import MySQLIcon from '@/components/icons/MySQL';
 import NextJSIcon from '@/components/icons/NextJSIcon';
-import NodeJSIcon from '@/components/icons/NodeJS';
 import PHPIcon from '@/components/icons/PHP';
-import PostgreSQLIcon from '@/components/icons/PostgreSQL';
 import PythonIcon from '@/components/icons/Python';
 import ReactIcon from '@/components/icons/React';
-import TailwindCSSIcon from '@/components/icons/Tailwind';
 import TypeScriptIcon from '@/components/icons/TypeScript';
 import VercelIcon from '@/components/icons/Vercel';
-import VSCodeIcon from '@/components/icons/VSCode';
 
 export const technologies = [
 	// Programming Languages

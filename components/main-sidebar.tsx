@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils';
 import type { SectionType } from '@/lib/types';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from '@/components/ui/sidebar';
 import { useTheme } from 'next-themes';
+import { Download } from 'lucide-react';
+import Link from 'next/link';
 
 type MainSidebarProps = {
 	sections: SectionType[];
@@ -185,6 +187,18 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection, setActiveSec
 					isAggieTheme && 'text-white/70 border-[#3c0000]/60'
 				)}
 			>
+				<Link
+					href='/assets/files/resume.pdf'
+					download
+					className={cn(
+						'flex items-center justify-center gap-2 px-4 py-2 mb-2 rounded-lg transition-all duration-200',
+						'hover:bg-primary/10 text-primary font-medium',
+						isAggieTheme && 'hover:bg-[#732F2F]/30 text-white'
+					)}
+				>
+					<Download size={16} />
+					<span>Download Resume</span>
+				</Link>
 				<p>© {new Date().getFullYear()} John McWhirter</p>
 			</SidebarFooter>
 		</Sidebar>

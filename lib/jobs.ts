@@ -2,16 +2,14 @@ import type { JobType } from './types';
 
 export const jobs: JobType[] = [
 	{
-		title: 'Software Developer III',
+		title: 'Paycom Payroll Software Developer',
 		companyTitle: 'Paycom Payroll, LLC.',
 		location: 'Dallas, Texas',
 		startDate: 'June 2023',
-		endDate: 'October 2023',
+		endDate: 'October 2024',
 		bulletPoints: [
-			"Developed reusable code for modern interfaces, enhancing user experience across Paycom's HCM solutions.",
-			'Maintained and enhanced multiple HR-related modules including Documents, Checklists, E-Verify, I-9, Client Action Center, and Document & Task Scheduling.',
-			'Implemented full-stack features and ensured system reliability and compliance with government regulations.',
-			'Led cross-functional team of 15 members in company Code-A-Thon competition and achieved 90% improvement in page loading time through SQL query optimization.',
+			'Maintained the Documents, Checklists, and E-Verify HCM Software with PHP, MySQL, and React TypeScript',
+			'Achieved 90% REST API performance improvement via database query optimization and algorithms',
 		],
 	},
 	{
@@ -21,10 +19,8 @@ export const jobs: JobType[] = [
 		startDate: 'May 2022',
 		endDate: 'August 2022',
 		bulletPoints: [
-			'Collaborated with Solutions Architect to identify and implement improvements in the High Speed Converter Group.',
-			'Developed a Python-based Graphical User Interface for High Speed Converter configuration, improving engineering workflows.',
-			'Conducted hands-on hardware testing in laboratory environment and assisted in data visualization for Clock Generator project using Python.',
-			'Toured wafer fabrication facility and gained insight into semiconductor manufacturing technologies.',
+			'Debugged High Speed Converters (≥10 MSPS) with Applications Engineers in Electrical Labs',
+			'Developed a C and Python Tkinter GUI generator to automatically package Vivado configurations for clients',
 		],
 	},
 	{
@@ -67,15 +63,14 @@ export const jobs: JobType[] = [
 		],
 	},
 	{
-		title: 'SPC Campus Ambassador',
+		title: 'Campus Ambassador',
 		companyTitle: 'South Plains College',
 		location: 'Levelland, Texas',
 		startDate: 'August 2019',
 		endDate: 'December 2019',
 		bulletPoints: [
-			"Delivered campus tours for prospective students, showcasing SPC's academic and community opportunities.",
-			'Created drone footage for promotional content and represented the student body at official events.',
-			'Featured in SPC commercials and hosted events for school donors as part of the ambassador program.',
+			'Represented the student body at new student recruitment events, scholarship gala and various media outlets',
+			'Gave campus tours to prospective students and special guests of the College',
 		],
 	},
 	{
@@ -85,8 +80,8 @@ export const jobs: JobType[] = [
 		startDate: 'August 2018',
 		endDate: 'December 2019',
 		bulletPoints: [
-			'Provided personalized tutoring for diverse students in Algebra, Calculus I, II, and III, Business Calculus, and Linear Algebra.',
-			'Designed C++ assignments, applying programming logic and building foundational skills in object-oriented development.',
+			'Delivered technical instruction across multiple mathematics subjects to a diverse range of students',
+			'Collaborated with professors to develop effective teaching strategies for diverse student populations',
 		],
 	},
 	{

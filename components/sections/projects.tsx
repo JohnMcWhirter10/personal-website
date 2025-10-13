@@ -11,6 +11,7 @@ import ULSWAPDAQ from '@/assets/images/ULSWAPDAQ.png';
 import TexasInstruments from '@/assets/images/TexasInstruments.png';
 import MondrianUI from '@/assets/images/mondrian-ui.png';
 import Avalon from '@/assets/images/Avalon.png';
+import DCCapture from '@/assets/images/DC_Capture.png';
 
 import AWSIcon from '@/components/icons/AWS';
 import BashIcon from '@/components/icons/Bash';
@@ -38,13 +39,10 @@ import VercelIcon from '@/components/icons/Vercel';
 import VSCodeIcon from '@/components/icons/VSCode';
 
 export const technologies = [
+	// Programming Languages
 	{
-		label: 'HTML5',
-		icon: <HTML5Icon size={32} />,
-	},
-	{
-		label: 'CSS3',
-		icon: <CSS3Icon size={32} />,
+		label: 'Python',
+		icon: <PythonIcon size={32} />,
 	},
 	{
 		label: 'JavaScript',
@@ -55,88 +53,54 @@ export const technologies = [
 		icon: <TypeScriptIcon size={32} />,
 	},
 	{
-		label: 'React',
-		icon: <ReactIcon size={32} />,
-	},
-	{
-		label: 'NEXT.JS',
-		icon: <NextJSIcon size={32} />,
-	},
-	{
-		label: 'Node.js',
-		icon: <NodeJSIcon size={32} />,
-	},
-	{
-		label: 'GraphQL',
-		icon: <GraphQLIcon size={32} />,
-	},
-	{
-		label: 'TailwindCSS',
-		icon: <TailwindCSSIcon size={32} />,
-	},
-	{
 		label: 'PHP',
 		icon: <PHPIcon size={32} />,
 	},
 	{
-		label: 'MySQL',
+		label: 'SQL',
 		icon: <MySQLIcon size={32} />,
 	},
+	// Web Frameworks & Technologies
 	{
-		label: 'PostgreSQL',
-		icon: <PostgreSQLIcon size={32} />,
+		label: 'React',
+		icon: <ReactIcon size={32} />,
 	},
 	{
-		label: 'Python',
-		icon: <PythonIcon size={32} />,
+		label: 'HTML5',
+		icon: <HTML5Icon size={32} />,
 	},
 	{
-		label: 'Git',
-		icon: <GitIcon size={32} />,
+		label: 'CSS3',
+		icon: <CSS3Icon size={32} />,
 	},
 	{
-		label: 'GitHub',
-		icon: <GitHubIcon size={32} />,
+		label: 'Next.js',
+		icon: <NextJSIcon size={32} />,
 	},
-	{
-		label: 'Docker',
-		icon: <DockerIcon size={32} />,
-	},
+	// Cloud & Tools
 	{
 		label: 'AWS',
 		icon: <AWSIcon size={32} />,
-	},
-	{
-		label: 'Jira',
-		icon: <JiraIcon size={32} />,
-	},
-	{
-		label: 'Dart',
-		icon: <DartIcon size={32} />,
-	},
-	{
-		label: 'Flutter',
-		icon: <FlutterIcon size={32} />,
-	},
-	{
-		label: 'VSCode',
-		icon: <VSCodeIcon size={32} />,
-	},
-	{
-		label: 'Bash',
-		icon: <BashIcon size={32} />,
 	},
 	{
 		label: 'Vercel',
 		icon: <VercelIcon size={32} />,
 	},
 	{
-		label: 'Firebase',
-		icon: <FirebaseIcon size={24} />,
+		label: 'Git',
+		icon: <GitIcon size={32} />,
 	},
 ];
 
 const projects: ProjectType[] = [
+	{
+		title: 'Aggies Invent: Sandia',
+		description:
+			'Developed and pitched a Python Flask AI document declassification system for Sandia National Laboratories, automating secure content flagging for enhanced workplace security.',
+		link: 'https://github.com/JohnMcWhirter10/aggies-invent-team-5',
+		image: DCCapture,
+		categories: ['Python', 'AI', 'Flask', 'Security'],
+	},
 	{
 		title: 'Vector Vetted',
 		description:

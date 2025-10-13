@@ -182,7 +182,7 @@ const Connect = ({ content }: SectionContentProps) => {
 
 								<div className='flex items-center'>
 									<MapPin size={18} className='mr-2 text-muted-foreground' />
-									<p className='text-muted-foreground'>Dallas, Texas</p>
+									<p className='text-muted-foreground'>Lubbock, Texas</p>
 								</div>
 
 								<p className='text-sm text-muted-foreground pt-2'>{content}</p>

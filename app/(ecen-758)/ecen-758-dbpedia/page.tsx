@@ -56,8 +56,44 @@ export default function DBpediaProjectPage() {
 
 					{/* Team members */}
 					<div className='text-sm text-muted-foreground'>
-						<strong className='text-foreground'>Team:</strong> Durgesh Bhirud, Debmalya Chatterjee, Thanusri
-						Aenugula, John McWhirter
+						<ul className='mt-2 space-y-1 list-none pl-0'>
+							<li>
+								<span className='text-foreground'>Durgesh Bhirud</span>{' '}
+								<a
+									href='mailto:durgeshbhirud@tamu.edu'
+									className='text-primary hover:underline'
+								>
+									durgeshbhirud@tamu.edu
+								</a>
+							</li>
+							<li>
+								<span className='text-foreground'>Debmalya Chatterjee</span>{' '}
+								<a
+									href='mailto:debmalya0132@tamu.edu'
+									className='text-primary hover:underline'
+								>
+									debmalya0132@tamu.edu
+								</a>
+							</li>
+							<li>
+								<span className='text-foreground'>Thanusri Aenugula</span>{' '}
+								<a
+									href='mailto:thanusriaenugula@tamu.edu'
+									className='text-primary hover:underline'
+								>
+									thanusriaenugula@tamu.edu
+								</a>
+							</li>
+							<li>
+								<span className='text-foreground'>John McWhirter</span>{' '}
+								<a
+									href='mailto:jmcwhirter1608@tamu.edu'
+									className='text-primary hover:underline'
+								>
+									jmcwhirter1608@tamu.edu
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 
@@ -70,7 +106,7 @@ export default function DBpediaProjectPage() {
 			{/* Footer */}
 			<footer className='border-t border-border mt-16 py-8'>
 				<div className='container mx-auto px-4 max-w-4xl text-center text-sm text-muted-foreground'>
-					<p>© {new Date().getFullYear()} John McWhirter. Texas A&M University.</p>
+					<p>© {new Date().getFullYear()} John McWhirter.</p>
 				</div>
 			</footer>
 

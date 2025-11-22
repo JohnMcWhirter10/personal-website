@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		locale: 'en_US',
-		url: 'https://johnmcwhirter.com',
+		url: 'https://johnbreamcwhirter.com',
 		title: 'John McWhirter | Software Engineer & Developer',
 		description:
 			'Portfolio showcasing my skills, projects, and experience as a software engineer specializing in web application development.',
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
 		address: false,
 		telephone: false,
 	},
-	metadataBase: new URL('https://johnmcwhirter.com'),
+	metadataBase: new URL('https://johnbreamcwhirter.com'),
 	alternates: {
 		canonical: '/',
 	},

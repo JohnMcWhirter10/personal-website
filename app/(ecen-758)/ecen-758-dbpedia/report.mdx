@@ -61,15 +61,32 @@ The **TF-IDF + SVM** baseline achieved 98.68% accuracy with F1-scores of 0.9868 
 
 ## Model Interpretability
 
-Using LIME, we analyzed token-level feature importance. The SVM model relied on domain-specific keywords like "album" and "released" for predictions. DistilBERT leveraged contextual relationships, understanding not just individual words but their surrounding context.
+Using LIME, we analyzed token-level feature importance. The SVM model relied on domain-specific keywords like "album" and "released" for predictions. DistilBERT leveraged contextual relationships, understanding not just individual words but their surrounding context. Figure 5 and 6 reveal this difference in their predictions.
 
-<figure>
-	<img
-		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/lime_explanation.png'
-		alt='LIME explanation showing important tokens'
-	/>
-	<figcaption>Figure 5: LIME visualization highlighting which tokens influenced predictions.</figcaption>
-</figure>
+<div className='lime-figures-container'>
+	<figure>
+		<img
+			src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/lime_explanation_bert.png'
+			alt='LIME explanation showing important tokens'
+			title='LIME explanation of DistilBERT'
+		/>
+		<figcaption>
+			Figure 5: LIME explanation of DistilBERT
+		</figcaption>
+	</figure>
+
+    <figure>
+    	<img
+    		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/lime_explanation_svm.png'
+    		alt='LIME explanation showing important tokens'
+    		title='LIME explanation of TF-IDF + SVM'
+    	/>
+    	<figcaption>
+    		Figure 6: LIME explanation of TF-IDF + SVM
+    	</figcaption>
+    </figure>
+
+</div>
 
 ## Key Takeaways
 

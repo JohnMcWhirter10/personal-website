@@ -59,37 +59,25 @@ export default function DBpediaProjectPage() {
 						<ul className='mt-2 space-y-1 list-none pl-0'>
 							<li>
 								<span className='text-foreground'>Durgesh Bhirud</span>{' '}
-								<a
-									href='mailto:durgeshbhirud@tamu.edu'
-									className='text-primary hover:underline'
-								>
+								<a href='mailto:durgeshbhirud@tamu.edu' className='text-primary hover:underline'>
 									durgeshbhirud@tamu.edu
 								</a>
 							</li>
 							<li>
 								<span className='text-foreground'>Debmalya Chatterjee</span>{' '}
-								<a
-									href='mailto:debmalya0132@tamu.edu'
-									className='text-primary hover:underline'
-								>
+								<a href='mailto:debmalya0132@tamu.edu' className='text-primary hover:underline'>
 									debmalya0132@tamu.edu
 								</a>
 							</li>
 							<li>
 								<span className='text-foreground'>Thanusri Aenugula</span>{' '}
-								<a
-									href='mailto:thanusriaenugula@tamu.edu'
-									className='text-primary hover:underline'
-								>
+								<a href='mailto:thanusriaenugula@tamu.edu' className='text-primary hover:underline'>
 									thanusriaenugula@tamu.edu
 								</a>
 							</li>
 							<li>
 								<span className='text-foreground'>John McWhirter</span>{' '}
-								<a
-									href='mailto:jmcwhirter1608@tamu.edu'
-									className='text-primary hover:underline'
-								>
+								<a href='mailto:jmcwhirter1608@tamu.edu' className='text-primary hover:underline'>
 									jmcwhirter1608@tamu.edu
 								</a>
 							</li>
@@ -110,7 +98,9 @@ export default function DBpediaProjectPage() {
 				</div>
 			</footer>
 
-			<style dangerouslySetInnerHTML={{ __html: `
+			<style
+				dangerouslySetInnerHTML={{
+					__html: `
 				.blog-post {
 					color: hsl(var(--foreground));
 				}
@@ -179,6 +169,24 @@ export default function DBpediaProjectPage() {
 					box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 				}
 
+				.blog-post .lime-figures-container {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 1.5rem;
+					margin: 2.5rem 0;
+					justify-content: space-between;
+				}
+
+				.blog-post .lime-figures-container figure {
+					flex: 1 1 calc(50% - 0.75rem);
+					margin: 0;
+					min-width: 300px;
+				}
+
+				.blog-post .lime-figures-container figure img {
+					width: 100%;
+				}
+
 				.blog-post figcaption {
 					margin-top: 0.75rem;
 					text-align: center;
@@ -243,7 +251,9 @@ export default function DBpediaProjectPage() {
 						grid-template-columns: 1fr;
 					}
 				}
-			` }} />
+			`,
+				}}
+			/>
 		</div>
 	);
 }

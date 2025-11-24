@@ -5,8 +5,11 @@ Text classification powers many NLP applications, from content filtering to docu
 We built and evaluated two classification pipelines: a classical **TF-IDF + Linear SVM** baseline and a state-of-the-art **DistilBERT** transformer model. Beyond performance metrics, we used LIME (Local Interpretable Model-agnostic Explanations) to understand what features drive each model's predictions.
 
 <figure>
-  <img src="https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/class_distribution.png" alt="DBpedia class distribution showing balanced 14-class dataset" />
-  <figcaption>Figure 1: Class distribution across the DBpedia training set showing perfect balance.</figcaption>
+	<img
+		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/class_distribution.png'
+		alt='DBpedia class distribution showing balanced 14-class dataset'
+	/>
+	<figcaption>Figure 1: Class distribution across the DBpedia training set showing perfect balance.</figcaption>
 </figure>
 
 ## Methodology
@@ -14,37 +17,46 @@ We built and evaluated two classification pipelines: a classical **TF-IDF + Line
 The DBpedia dataset contains Wikipedia abstracts labeled with categories like "Company," "Artist," "Plant," and "Film." With 40,000 training samples per class, the dataset is perfectly balanced as shown in Figure 1. Our preprocessing combined article titles with abstracts, creating richer input features. For TF-IDF, we extracted unigram and bigram features with vocabulary control. DistilBERT used WordPiece tokenization with 128-token sequences, optimized using AdamW over three epochs.
 
 <figure>
-  <img src="https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/text_length_distribution.png" alt="Distribution of text lengths in the dataset" />
-  <figcaption>Figure 2: Most abstracts fall between 20-120 words, ideal for transformer processing.</figcaption>
+	<img
+		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/text_length_distribution.png'
+		alt='Distribution of text lengths in the dataset'
+	/>
+	<figcaption>Figure 2: Most abstracts fall between 20-120 words, ideal for transformer processing.</figcaption>
 </figure>
 
 ## Results
 
 Both models achieved exceptional test accuracy:
 
-<div className="metrics-grid">
-  <div className="metric-card">
-    <div className="metric-value">98.68%</div>
-    <div className="metric-label">TF-IDF + SVM</div>
-  </div>
-  <div className="metric-card">
-    <div className="metric-value">99.27%</div>
-    <div className="metric-label">DistilBERT</div>
-  </div>
+<div className='metrics-grid'>
+	<div className='metric-card'>
+		<div className='metric-value'>98.68%</div>
+		<div className='metric-label'>TF-IDF + SVM</div>
+	</div>
+	<div className='metric-card'>
+		<div className='metric-value'>99.27%</div>
+		<div className='metric-label'>DistilBERT</div>
+	</div>
 </div>
 
 The **TF-IDF + SVM** baseline achieved 98.68% accuracy with F1-scores of 0.9868 across all classes. This classical approach excels when categories have distinctive vocabulary—articles about plants and companies naturally contain very different terminology.
 
 <figure>
-  <img src="https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/confusion_matrix_svm.png" alt="Confusion matrix for TF-IDF + SVM model" />
-  <figcaption>Figure 3: TF-IDF + SVM confusion matrix showing minimal misclassification.</figcaption>
+	<img
+		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/confusion_matrix_svm.png'
+		alt='Confusion matrix for TF-IDF + SVM model'
+	/>
+	<figcaption>Figure 3: TF-IDF + SVM confusion matrix showing minimal misclassification.</figcaption>
 </figure>
 
 **DistilBERT** achieved 99.27% accuracy, demonstrating superior semantic discrimination on edge cases with ambiguous terminology. Classes like "NaturalPlace" and "Building" occasionally share descriptive language, but DistilBERT's bidirectional context resolved these distinctions.
 
 <figure>
-  <img src="https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/confusion_matrix_distilbert.png" alt="Confusion matrix for DistilBERT model" />
-  <figcaption>Figure 4: DistilBERT confusion matrix showing improved performance on difficult classes.</figcaption>
+	<img
+		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/confusion_matrix_distilbert.png'
+		alt='Confusion matrix for DistilBERT model'
+	/>
+	<figcaption>Figure 4: DistilBERT confusion matrix showing improved performance on difficult classes.</figcaption>
 </figure>
 
 ## Model Interpretability
@@ -52,16 +64,19 @@ The **TF-IDF + SVM** baseline achieved 98.68% accuracy with F1-scores of 0.9868 
 Using LIME, we analyzed token-level feature importance. The SVM model relied on domain-specific keywords like "album" and "released" for predictions. DistilBERT leveraged contextual relationships, understanding not just individual words but their surrounding context.
 
 <figure>
-  <img src="/assets/images/ecen-758-dbpedia/lime_explanation.png" alt="LIME explanation showing important tokens" />
-  <figcaption>Figure 5: LIME visualization highlighting which tokens influenced predictions.</figcaption>
+	<img
+		src='https://raw.githubusercontent.com/jmcwhirter1608/ecen-758-project/refs/heads/master/images/ecen-758-dbpedia/lime_explanation.png'
+		alt='LIME explanation showing important tokens'
+	/>
+	<figcaption>Figure 5: LIME visualization highlighting which tokens influenced predictions.</figcaption>
 </figure>
 
 ## Key Takeaways
 
-- **Classical methods remain competitive**: With proper feature engineering, TF-IDF + SVM achieved 98.68% accuracy
-- **Transformers excel at semantic nuance**: DistilBERT's contextual embeddings improved edge case performance
-- **Interpretability matters**: LIME explanations validated that predictions relied on sensible features
-- **Speed and Memory vs Accuracy trade-off**: SVM is faster and requires less memory than DistilBERT, but DistilBERT is more accurate on edge cases.
+-   **Classical methods remain competitive**: With proper feature engineering, TF-IDF + SVM achieved 98.68% accuracy
+-   **Transformers excel at semantic nuance**: DistilBERT's contextual embeddings improved edge case performance
+-   **Interpretability matters**: LIME explanations validated that predictions relied on sensible features
+-   **Speed and Memory vs Accuracy trade-off**: SVM is faster and requires less memory than DistilBERT, but DistilBERT is more accurate on edge cases.
 
 This project demonstrates that NLP offers a spectrum of tools—from lightweight classical approaches to sophisticated transformers—each with distinct trade-offs in accuracy, computational cost, and interpretability.
 

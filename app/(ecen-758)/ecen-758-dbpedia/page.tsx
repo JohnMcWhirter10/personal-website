@@ -44,7 +44,7 @@ export default function DBpediaProjectPage() {
 							View on GitHub
 						</a>
 						<a
-							href='/ecen-758-dbpedia/report.pdf'
+							href='https://github.com/jmcwhirter1608/ecen-758-project/blob/master/Report_ECEN758_Group1.pdf'
 							target='_blank'
 							rel='noopener noreferrer'
 							className='inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors font-medium'

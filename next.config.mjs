@@ -7,6 +7,18 @@ const nextConfig = {
 	turbopack: {
 		root: import.meta.dirname,
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'd1.awsstatic.com',
+			},
+			{
+				protocol: 'https',
+				hostname: 'raw.githubusercontent.com',
+			},
+		],
+	},
 	async headers() {
 		return [
 			{
@@ -35,7 +47,7 @@ const nextConfig = {
 							"default-src 'self'",
 							"script-src 'self' 'unsafe-inline' 'unsafe-eval'",
 							"style-src 'self' 'unsafe-inline'",
-							"img-src 'self' data: blob: https://raw.githubusercontent.com",
+							"img-src 'self' data: blob: https://raw.githubusercontent.com https://d1.awsstatic.com",
 							"font-src 'self'",
 							"connect-src 'self'",
 							"frame-ancestors 'none'",

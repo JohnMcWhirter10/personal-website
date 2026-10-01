@@ -1,31 +1,102 @@
 import type { SectionContentProps } from '@/lib/types';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Headshot from '@/assets/images/AMCHeadshot.jpg';
+import Image, { type StaticImageData } from 'next/image';
+import Headshot from '@/assets/images/Headshot.jpg';
+import EitLogo from '@/assets/images/texas_board_of_professional_engineers_logo.jpg';
+
+const certifications: {
+	name: string;
+	detail: string;
+	href: string;
+	image: string | StaticImageData;
+}[] = [
+	{
+		name: 'Engineer in Training',
+		detail: 'EIT #81675',
+		href: 'https://pels.texas.gov/roster/eitsearch.html',
+		image: EitLogo,
+	},
+	{
+		name: 'AWS AI Practitioner',
+		detail: 'Earned',
+		href: 'https://www.credly.com/badges/e54a145b-b424-40d2-b5f2-20d55241587c/public_url',
+		image:
+			'https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/certification/approved/images/certification-badges/aif-badge-resized.45dffce6ab9514ec26d8d6b91511e5953a3594b8.png',
+	},
+	{
+		name: 'AWS Solutions Architect Associate',
+		detail: 'Expected Oct 2026',
+		href: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/',
+		image:
+			'https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/certification/approved/images/certification-badges/saa-badge-resized.81aa49f64034b69db1ee58c09661659d0a1edab4.png',
+	},
+];
+
+const skills = ['React', 'Angular', 'TypeScript', 'Golang', 'Next.js', 'Python', 'SQL', 'AWS'];
 
 const About = ({ content }: SectionContentProps) => {
 	return (
 		<motion.div
-			className='w-full flex flex-col items-center md:grid md:grid-cols-[auto_1fr] md:items-center gap-8 md:gap-12'
+			className='w-full flex flex-col items-center md:grid md:grid-cols-[auto_1fr] md:items-center gap-6 md:gap-10 lg:gap-12'
 			initial={{ opacity: 0, y: 16 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
 		>
-			<div className='relative w-48 sm:w-56 md:w-64 lg:w-72 aspect-[3/4] shrink-0 rounded-lg overflow-hidden'>
+			{/* LOOK */}
+			<div className='relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-60 lg:h-60 shrink-0 rounded-lg overflow-hidden border-2 border-primary'>
 				<Image
 					src={Headshot}
 					alt='John McWhirter'
 					fill
-					className='object-cover object-top'
+					className='object-cover'
 					priority
-					sizes='(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 288px'
+					sizes='(max-width: 640px) 160px, (max-width: 768px) 192px, 240px'
 				/>
 			</div>
 
-			<div className='text-center md:text-left'>
-				<h1 className='text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-2'>John McWhirter</h1>
-				<p className='text-primary font-heading text-lg md:text-xl mb-4'>Solutions Architect</p>
-				<p className='text-muted-foreground text-base md:text-lg leading-relaxed'>{content}</p>
+			{/* DO + QUALIFY */}
+			<div className='text-center md:text-left min-w-0 flex flex-col gap-4 md:gap-5 w-full'>
+				<div className='space-y-1.5'>
+					<p className='text-xs sm:text-sm uppercase tracking-[0.2em] text-primary font-medium'>
+						Solutions Architect
+					</p>
+					<h1 className='text-3xl sm:text-4xl md:text-5xl font-heading font-bold tracking-tight leading-none'>
+						John McWhirter
+					</h1>
+					<p className='text-muted-foreground text-base md:text-lg leading-snug max-w-xl'>
+						{content}
+					</p>
+				</div>
+
+				<div className='flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 justify-center md:justify-start'>
+					{certifications.map((cert) => (
+						<a
+							key={cert.name}
+							href={cert.href}
+							target='_blank'
+							rel='noopener noreferrer'
+							className='group inline-flex items-center gap-2.5 rounded-lg border-2 border-primary px-2.5 py-2 hover:bg-primary/5 transition-colors'
+						>
+							<Image
+								src={cert.image}
+								alt=''
+								width={36}
+								height={36}
+								className='w-9 h-9 object-contain shrink-0'
+							/>
+							<span className='text-left min-w-0'>
+								<span className='block text-sm font-semibold leading-tight group-hover:text-primary transition-colors'>
+									{cert.name}
+								</span>
+								<span className='block text-xs text-muted-foreground'>{cert.detail}</span>
+							</span>
+						</a>
+					))}
+				</div>
+
+				<p className='text-sm text-muted-foreground font-medium tracking-wide'>
+					{skills.join(' · ')}
+				</p>
 			</div>
 		</motion.div>
 	);

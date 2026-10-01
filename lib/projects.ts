@@ -29,7 +29,6 @@ export const projects: ProjectType[] = [
 		title: 'B Photography',
 		description:
 			'Professional photo gallery website created for a photographer with responsive design and optimized image loading. Built with NextJS and deployed on Vercel.',
-		link: 'https://b-photography.vercel.app/',
 		image: BPhotography,
 		categories: ['Web Development', 'NextJS', 'Vercel'],
 	},

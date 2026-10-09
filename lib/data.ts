@@ -5,7 +5,7 @@ export const sections: SectionType[] = [
 		id: 'about',
 		title: 'About',
 		content:
-			'I design systems that make work more efficient. As a Solutions Architect I map messy processes, cut friction from workflows, and ship the applications, automation, and architecture that let teams move faster with fewer handoffs.',
+			'I design systems that make work more efficient. As an Application Engineer I map messy processes, cut friction from workflows, and ship the applications, automation, and architecture that let teams move faster with fewer handoffs.',
 	},
 	{
 		id: 'experience',

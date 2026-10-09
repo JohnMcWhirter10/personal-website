@@ -1,34 +1,31 @@
 import type { SectionContentProps } from '@/lib/types';
 import { motion } from 'framer-motion';
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Headshot from '@/assets/images/Headshot.jpg';
-import EitLogo from '@/assets/images/texas_board_of_professional_engineers_logo.jpg';
 
 const certifications: {
 	name: string;
-	detail: string;
+	detail?: string;
 	href: string;
-	image: string | StaticImageData;
+	image: string;
 }[] = [
 	{
 		name: 'Engineer in Training',
 		detail: 'EIT #81675',
 		href: 'https://pels.texas.gov/roster/eitsearch.html',
-		image: EitLogo,
+		image: 'https://app.engineers.texas.gov/images/tbpels-seal-color.png',
 	},
 	{
 		name: 'AWS AI Practitioner',
-		detail: 'Earned',
 		href: 'https://www.credly.com/badges/e54a145b-b424-40d2-b5f2-20d55241587c/public_url',
 		image:
-			'https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/certification/approved/images/certification-badges/aif-badge-resized.45dffce6ab9514ec26d8d6b91511e5953a3594b8.png',
+			'https://images.credly.com/size/680x680/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png',
 	},
 	{
 		name: 'AWS Solutions Architect Associate',
-		detail: 'Expected Oct 2026',
-		href: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/',
+		href: 'https://www.credly.com/badges/762edb35-ead9-4d4d-8bd3-7aab453fce88/public_url',
 		image:
-			'https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/certification/approved/images/certification-badges/saa-badge-resized.81aa49f64034b69db1ee58c09661659d0a1edab4.png',
+			'https://images.credly.com/size/680x680/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
 	},
 ];
 
@@ -43,12 +40,12 @@ const About = ({ content }: SectionContentProps) => {
 			transition={{ duration: 0.6, ease: 'easeOut' }}
 		>
 			{/* LOOK */}
-			<div className='relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-60 lg:h-60 shrink-0 rounded-lg overflow-hidden border-2 border-primary'>
+			<div className='relative w-40 sm:w-48 md:w-52 lg:w-60 aspect-[3/4] shrink-0 rounded-lg overflow-hidden border-2 border-primary'>
 				<Image
 					src={Headshot}
 					alt='John McWhirter'
 					fill
-					className='object-cover'
+					className='object-cover object-top'
 					priority
 					sizes='(max-width: 640px) 160px, (max-width: 768px) 192px, 240px'
 				/>
@@ -58,7 +55,7 @@ const About = ({ content }: SectionContentProps) => {
 			<div className='text-center md:text-left min-w-0 flex flex-col gap-4 md:gap-5 w-full'>
 				<div className='space-y-1.5'>
 					<p className='text-xs sm:text-sm uppercase tracking-[0.2em] text-primary font-medium'>
-						Solutions Architect
+						Application Engineer
 					</p>
 					<h1 className='text-3xl sm:text-4xl md:text-5xl font-heading font-bold tracking-tight leading-none'>
 						John McWhirter
@@ -88,7 +85,9 @@ const About = ({ content }: SectionContentProps) => {
 								<span className='block text-sm font-semibold leading-tight group-hover:text-primary transition-colors'>
 									{cert.name}
 								</span>
-								<span className='block text-xs text-muted-foreground'>{cert.detail}</span>
+								{cert.detail ? (
+									<span className='block text-xs text-muted-foreground'>{cert.detail}</span>
+								) : null}
 							</span>
 						</a>
 					))}

@@ -11,7 +11,11 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'd1.awsstatic.com',
+				hostname: 'images.credly.com',
+			},
+			{
+				protocol: 'https',
+				hostname: 'app.engineers.texas.gov',
 			},
 			{
 				protocol: 'https',
@@ -47,7 +51,7 @@ const nextConfig = {
 							"default-src 'self'",
 							"script-src 'self' 'unsafe-inline' 'unsafe-eval'",
 							"style-src 'self' 'unsafe-inline'",
-							"img-src 'self' data: blob: https://raw.githubusercontent.com https://d1.awsstatic.com",
+							"img-src 'self' data: blob: https://raw.githubusercontent.com https://images.credly.com https://app.engineers.texas.gov",
 							"font-src 'self'",
 							"connect-src 'self'",
 							"frame-ancestors 'none'",

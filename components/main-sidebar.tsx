@@ -35,7 +35,7 @@ export const MainSidebar = ({ sections, sectionRefs, activeSection }: MainSideba
 						John McWhirter
 					</h1>
 					<p className='text-sm text-muted-foreground text-center mt-1'>
-						Solutions Architect
+						Application Engineer
 					</p>
 				</motion.div>
 			</SidebarHeader>
